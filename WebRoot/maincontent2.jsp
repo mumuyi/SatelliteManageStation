@@ -38,8 +38,8 @@ $(function () {
                             var x = (new Date()).getTime(), // current time
                                 y =getMyData(dataflag);
                                 //y=Math.random();
-                            series.addPoint([x, y], true, true);
-                            dataflag=(dataflag+1)%9;
+                            series.addPoint([x, y], true, false);
+                            dataflag=(dataflag+1)%10;
                         }, 1000);
                     }
                 }
@@ -49,7 +49,7 @@ $(function () {
             },
             xAxis: {
                 type: 'datetime',
-                tickPixelInterval: 150
+                tickPixelInterval: 50
             },
             yAxis: {
                 title: {
@@ -59,7 +59,44 @@ $(function () {
                     value: 0,
                     width: 1,
                     color: '#808080'
-                }]
+                }],
+                
+				min: 50,  //最小
+				tickInterval: 10, //步长
+				max:200,//最大 
+                
+                // 不同Y轴范围设置不同颜色 begin
+				plotBands: [{ 
+		              from: 50,
+		              to: 100,
+		              color: 'rgba(168, 255, 213, 0.3)',
+		              label: {
+		                  text: '偏低',
+		                  style: {
+		                      color: '#606060'
+		                  }
+		              }
+		          },  { 
+		              from: 100,
+		              to: 150,
+		              color: 'rgba(68, 70, 213, 0.3)',
+		              label: {
+		                  text: '正常',
+		                  style: {
+		                      color: '#606060'
+		                  }
+		              }
+		          },  { 
+		              from: 150,
+		              to: 200,
+		              color: 'rgba(255, 97, 0, 0.3)',
+		              label: {
+		                  text: '偏高',
+		                  style: {
+		                      color: '#606060'
+		                  }
+		              }
+		          }]
             },
             tooltip: {
                 formatter: function () {
@@ -69,10 +106,10 @@ $(function () {
                 }
             },
             legend: {
-                enabled: false
+                enabled: true
             },
             exporting: {
-                enabled: false
+                enabled: true
             },
             series: [{
                 name: 'Random data',
@@ -82,11 +119,12 @@ $(function () {
                         time = (new Date()).getTime(),
                         i;
 
-                    for (i = -19; i <= 0; i += 1) {
+                    for (i = -9; i <= 0; i += 1) {
                         data.push({
                             x: time + i * 1000,
-                            y: Math.random()
+                            y: Math.random()*100+50
                         });
+                        //alert(Math.random());
                     }
                     return data;
                 }())
@@ -100,7 +138,7 @@ $(function () {
 <script src="${ctx}/highcharts/js/highcharts.js"></script>
 <script src="${ctx}/highcharts/js/exporting.js"></script>
 
-<div id="container" style="height: 400px; min-width: 310px ; max-width: 800px; margin:0 auto;" ></div>
+<div id="container" style="height: 600px; min-width: 310px ; max-width: 800px; margin:0 auto;" ></div>
 	</body>
 	<script src="${ctx}/js/websocket_charts.js"></script>
 </html>

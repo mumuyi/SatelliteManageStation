@@ -28,8 +28,8 @@
 		var v1=jsonObj[0].time;
 		var v2=jsonObj[0].value;
 		
-		databuf[dataflag]=(v2-50)/100;
-		dataflag=(dataflag+1)%9;
+		databuf[dataflag]=v2-0.1;
+		dataflag=(dataflag+1)%10;
 		
 	    //var chart = $('#container').highcharts();
         //chart.series[0].addPoint([v1,v2]);
