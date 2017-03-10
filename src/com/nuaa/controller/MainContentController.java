@@ -41,4 +41,14 @@ public class MainContentController extends Controller {
 
 		this.renderJson(JSONObject.fromObject(jsondata));
 	}
+	
+	public void getiniData(){
+		System.out.println("1111111111111111");
+		int value=200;
+		String data="[{\"value\":\""+value+"\"}]";
+		//System.out.println(JSONObject.fromObject(data));
+		System.out.println(data);
+		//this.renderJson(data);
+		this.renderText(data);
+	}
 }
