@@ -11,6 +11,8 @@ public class MainContentController extends Controller {
 			this.render("/maincontent.jsp");			
 		}else if(this.getPara(0).equals("2")){
 			this.render("/maincontent2.jsp");
+		}else if(this.getPara(0).equals("3")){
+			this.render("/maincontent3.jsp");
 		}
 	}
 	

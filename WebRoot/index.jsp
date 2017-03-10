@@ -83,9 +83,9 @@
 
 			<li class="sub-menu"><a href="javascript:;"><i class="fa fa-desktop"></i><span>UI Elements</span></a>
 				<ul class="sub">
-					<li onclick="changeSrc('${ctx}/MainContentController/1')"><a>General</a></li>
-					<li onclick="changeSrc('${ctx}/MainContentController/2')"><a>Buttons</a></li>
-					<li><a href="panels.html">Panels</a></li>
+					<li onclick="changeSrc('${ctx}/MainContentController/1')"><a>表格</a></li>
+					<li onclick="changeSrc('${ctx}/MainContentController/2')"><a>折线图1</a></li>
+					<li onclick="changeSrc('${ctx}/MainContentController/3')"><a>折线图2</a></li>
 				</ul>
 			</li>
 
