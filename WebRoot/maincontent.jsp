@@ -53,7 +53,7 @@
     <script src="${ctx}/jqgrid/js/content.min.js"></script>
     <script src="${ctx}/jqgrid/js/jquery-ui-1.10.4.min.js"></script>
     <script type="text/javascript"> jQuery.jgrid.no_legacy_api = true; </script> 
-    <script src="${ctx}/js/websocket.js"></script>
+    
     <script>
 		$(function(){ TableInit(); });
 		

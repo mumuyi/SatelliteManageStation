@@ -1,7 +1,9 @@
 package com.nuaa.websocket;
 
 import java.io.IOException;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Random;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 import javax.websocket.OnClose;
@@ -37,6 +39,7 @@ public class MyWebSocket {
 		addOnlineCount(); // 在线数加1
 		System.out.println("有新连接加入！当前在线人数为" + getOnlineCount());
 		
+		/*
 		String data = "121212";
 		try {
 			sendMessage(data, session);
@@ -44,7 +47,12 @@ public class MyWebSocket {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		*/
+		Runnable1 r = new Runnable1();
+        //r.run();并不是线程开启，而是简单的方法调用
+        Thread t = new Thread(r);//创建线程
+        //t.run(); //如果该线程是使用独立的 Runnable 运行对象构造的，则调用该 Runnable 对象的 run 方法；否则，该方法不执行任何操作并返回。
+        t.start(); //线程开启
 	}
 
 	/**
@@ -104,6 +112,12 @@ public class MyWebSocket {
 		this.session.getAsyncRemote().sendText(message);
 	}
 
+	public void sendMessage(String message) throws IOException {
+		// session.getBasicRemote().sendText(message);
+		this.session.getAsyncRemote().sendText(message);
+	}
+	
+	
 	public static synchronized int getOnlineCount() {
 		return onlineCount;
 	}
@@ -117,6 +131,21 @@ public class MyWebSocket {
 	}
 
 	
+	public static void main(String[] args){
+		for (int i = 0; i < 100; i++) {
+			//SimpleDateFormat df = new SimpleDateFormat("ms");//设置日期格式
+			//String time=df.format(new Date()).toString();// new Date()为获取当前系统时间
+			
+			Date d = new Date();
+			String time=Long.toString(d.getTime());
+			Random random = new Random();
+			String value =  Integer.toString((random.nextInt(200)%(151) + 50));
+	    	
+	    	
+	    	System.out.println("Thread-----:"+" time:"+time+" value:"+value);
+	    	System.out.println("[{\"time\":\""+time+"\",\"value\":\""+value+"\"}]");
+		}
+	}
 	
 	
 	
@@ -128,5 +157,39 @@ public class MyWebSocket {
 	 * JSONArray result = JSONArray.fromObject(users);
 	 * System.out.println(result); }
 	 */
-
+	
+	
+	class Runnable1 implements Runnable{
+	    public void run() {
+	        for (int i = 0; i < 10; i++) {
+	            
+				Date d = new Date();
+				String time=Long.toString(d.getTime());
+	    		Random random = new Random();
+	    		String value =  Integer.toString((random.nextInt(200)%(151) + 50));
+	        	
+	        	
+	        	System.out.println("Thread-----:"+i+" time:"+time+" value:"+value);
+	            
+	            
+	            String data="[{\"time\":\""+time+"\",\"value\":\""+value+"\"}]";
+	            
+	            try {
+					sendMessage(data);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+	            
+	            
+	            try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	        }
+	    }
+	}
 }
+
