@@ -106,10 +106,10 @@ public class FrameData {
 	private double ycb007;
 	
 	//卫星测量遥测;
-	private int ycl046;
-	private int ycl047;
-	private int ycl048;
-	private int ycl049;
+	private double ycl046;
+	private double ycl047;
+	private double ycl048;
+	private double ycl049;
 	private int ycl050;
 	private int ycl051;
 	private int ycl052;
@@ -206,16 +206,16 @@ public class FrameData {
 	private double ykl053;
 	private double ykl054;
 	private double ykl055;
-	private int ykl056;
-	private int ykl057;
-	private int ykl058;
-	private int ykl059;
+	private double ykl056;
+	private double ykl057;
+	private double ykl058;
+	private double ykl059;
 	
 	//通信应答计数;
-	private int yty506;
-	private int yty507;
-	private int yty508;
-	private int yty509;
+	private short yty506;
+	private short yty507;
+	private short yty508;
+	private short yty509;
 	
 	//功能遥测量;
 	private double ygn035;
@@ -789,28 +789,28 @@ public class FrameData {
 	public void setYcb007(double ycb007) {
 		this.ycb007 = ycb007;
 	}
-	public int getYcl046() {
+	public double getYcl046() {
 		return ycl046;
 	}
-	public void setYcl046(int ycl046) {
+	public void setYcl046(double ycl046) {
 		this.ycl046 = ycl046;
 	}
-	public int getYcl047() {
+	public double getYcl047() {
 		return ycl047;
 	}
-	public void setYcl047(int ycl047) {
+	public void setYcl047(double ycl047) {
 		this.ycl047 = ycl047;
 	}
-	public int getYcl048() {
+	public double getYcl048() {
 		return ycl048;
 	}
-	public void setYcl048(int ycl048) {
+	public void setYcl048(double ycl048) {
 		this.ycl048 = ycl048;
 	}
-	public int getYcl049() {
+	public double getYcl049() {
 		return ycl049;
 	}
-	public void setYcl049(int ycl049) {
+	public void setYcl049(double ycl049) {
 		this.ycl049 = ycl049;
 	}
 	public int getYcl050() {
@@ -1269,52 +1269,52 @@ public class FrameData {
 	public void setYkl055(double ykl055) {
 		this.ykl055 = ykl055;
 	}
-	public int getYkl056() {
+	public double getYkl056() {
 		return ykl056;
 	}
-	public void setYkl056(int ykl056) {
+	public void setYkl056(double ykl056) {
 		this.ykl056 = ykl056;
 	}
-	public int getYkl057() {
+	public double getYkl057() {
 		return ykl057;
 	}
-	public void setYkl057(int ykl057) {
+	public void setYkl057(double ykl057) {
 		this.ykl057 = ykl057;
 	}
-	public int getYkl058() {
+	public double getYkl058() {
 		return ykl058;
 	}
-	public void setYkl058(int ykl058) {
+	public void setYkl058(double ykl058) {
 		this.ykl058 = ykl058;
 	}
-	public int getYkl059() {
+	public double getYkl059() {
 		return ykl059;
 	}
-	public void setYkl059(int ykl059) {
+	public void setYkl059(double ykl059) {
 		this.ykl059 = ykl059;
 	}
-	public int getYty506() {
+	public short getYty506() {
 		return yty506;
 	}
-	public void setYty506(int yty506) {
+	public void setYty506(short yty506) {
 		this.yty506 = yty506;
 	}
-	public int getYty507() {
+	public short getYty507() {
 		return yty507;
 	}
-	public void setYty507(int yty507) {
+	public void setYty507(short yty507) {
 		this.yty507 = yty507;
 	}
-	public int getYty508() {
+	public short getYty508() {
 		return yty508;
 	}
-	public void setYty508(int yty508) {
+	public void setYty508(short yty508) {
 		this.yty508 = yty508;
 	}
-	public int getYty509() {
+	public short getYty509() {
 		return yty509;
 	}
-	public void setYty509(int yty509) {
+	public void setYty509(short yty509) {
 		this.yty509 = yty509;
 	}
 	public double getYgn035() {
