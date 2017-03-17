@@ -9,47 +9,47 @@ public class FrameData {
 	private int ysj024;//毫秒;
 	
 	//控制模式信息;
-	private int ykm001;
+	private String ykm001;
 	
 	//双电平遥测量;
-	private boolean ydp130;
-	private boolean ydp131;
-	private boolean ydp132;
-	private boolean ydp133;
-	private boolean ydp134;
-	private boolean ydp135;
-	private boolean ydp136;
-	private boolean ydp137;
-	private boolean ydp138;
-	private boolean ydp139;
-	private boolean ydp140;
-	private boolean ydp141;
-	private boolean ydp142;
-	private boolean ydp143;
-	private boolean ydp144;
-	private boolean ydp145;
-	private boolean ydp146;
-	private boolean ydp147;
-	private boolean ydp148;
-	private boolean ydp149;
-	private boolean ydp150;
-	private boolean ydp151;
-	private boolean ydp152;
-	private boolean ydp153;
-	private boolean ydp154;
-	private boolean ydp155;
-	private boolean ydp156;
-	private boolean ydp157;
-	private boolean ydp158;
-	private boolean ydp159;
-	private boolean ydp160;
-	private boolean ydp161;
-	private boolean ydp162;
-	private boolean ydp163;
-	private boolean ydp164;
-	private boolean ydp165;
-	private boolean ydp166;
-	private boolean ydp167;
+	private String ydp130;
+	private String ydp131;
+	private String ydp132;
+	private String ydp133;
+	private String ydp134;
+	private String ydp135;
+	private String ydp136;
+	private String ydp137;
+	private String ydp138;
+	private String ydp139;
+	private String ydp140;
+	private String ydp141;
+	private String ydp142;
+	private String ydp143;
+	private String ydp144;
+	private String ydp145;
+	private String ydp146;
+	private String ydp147;
+	private String ydp148;
+	private String ydp149;
+	private String ydp150;
+	private String ydp151;
+	private String ydp152;
+	private String ydp153;
+	private String ydp154;
+	private String ydp155;
+	private String ydp156;
+	private String ydp157;
+	private String ydp158;
+	private String ydp159;
+	private String ydp160;
+	private String ydp161;
+	private String ydp162;
+	private String ydp163;
+	private String ydp164;
+	private String ydp165;
+	private String ydp166;
+	private String ydp167;
 	
 	//指令反馈;
 	private byte yzl166;
@@ -73,23 +73,23 @@ public class FrameData {
 	
 	//故障管理;
 	private byte ygz184;
-	private boolean ygz185;
-	private boolean ygz186;
-	private boolean ygz187;
-	private boolean ygz188;
-	private boolean ygz189;
-	private boolean ygz190;
-	private boolean ygz191;
-	private boolean ygz192;
-	private boolean ygz193;
+	private String ygz185;
+	private String ygz186;
+	private String ygz187;
+	private String ygz188;
+	private String ygz189;
+	private String ygz190;
+	private String ygz191;
+	private String ygz192;
+	private String ygz193;
 	
 	//星上状态;
-	private boolean yxs504;
-	private boolean yxs505;
-	private boolean yxs601;
-	private boolean yxs602;
-	private boolean yxs603;
-	private boolean yxs610;
+	private String yxs504;
+	private String yxs505;
+	private String yxs601;
+	private String yxs602;
+	private String yxs603;
+	private String yxs610;
 	private byte yxs611;
 	private byte yxs612;
 	
@@ -152,16 +152,16 @@ public class FrameData {
 	private int ykz060;
 	private int ykz061;
 	private int ykz062;
-	private boolean ykz063;
-	private boolean ykz064;
-	private boolean ykz065;
-	private boolean ykz066;
-	private boolean ykz067;
-	private boolean ykz068;
-	private boolean ykz069;
-	private boolean ykz501;
-	private boolean ykz502;
-	private boolean ykz503;
+	private String ykz063;
+	private String ykz064;
+	private String ykz065;
+	private String ykz066;
+	private String ykz067;
+	private String ykz068;
+	private String ykz069;
+	private String ykz501;
+	private String ykz502;
+	private String ykz503;
 	
 	//84 坐标 GPS;
 	private double ygp040;
@@ -273,6 +273,7 @@ public class FrameData {
 	private double ywd128;
 	private double ywd129;
 	
+	
 	public int getCounter() {
 		return counter;
 	}
@@ -291,238 +292,238 @@ public class FrameData {
 	public void setYsj024(int ysj024) {
 		this.ysj024 = ysj024;
 	}
-	public int getYkm001() {
+	public String getYkm001() {
 		return ykm001;
 	}
-	public void setYkm001(int ykm001) {
+	public void setYkm001(String ykm001) {
 		this.ykm001 = ykm001;
 	}
-	public boolean isYdp130() {
+	public String getYdp130() {
 		return ydp130;
 	}
-	public void setYdp130(boolean ydp130) {
+	public void setYdp130(String ydp130) {
 		this.ydp130 = ydp130;
 	}
-	public boolean isYdp131() {
+	public String getYdp131() {
 		return ydp131;
 	}
-	public void setYdp131(boolean ydp131) {
+	public void setYdp131(String ydp131) {
 		this.ydp131 = ydp131;
 	}
-	public boolean isYdp132() {
+	public String getYdp132() {
 		return ydp132;
 	}
-	public void setYdp132(boolean ydp132) {
+	public void setYdp132(String ydp132) {
 		this.ydp132 = ydp132;
 	}
-	public boolean isYdp133() {
+	public String getYdp133() {
 		return ydp133;
 	}
-	public void setYdp133(boolean ydp133) {
+	public void setYdp133(String ydp133) {
 		this.ydp133 = ydp133;
 	}
-	public boolean isYdp134() {
+	public String getYdp134() {
 		return ydp134;
 	}
-	public void setYdp134(boolean ydp134) {
+	public void setYdp134(String ydp134) {
 		this.ydp134 = ydp134;
 	}
-	public boolean isYdp135() {
+	public String getYdp135() {
 		return ydp135;
 	}
-	public void setYdp135(boolean ydp135) {
+	public void setYdp135(String ydp135) {
 		this.ydp135 = ydp135;
 	}
-	public boolean isYdp136() {
+	public String getYdp136() {
 		return ydp136;
 	}
-	public void setYdp136(boolean ydp136) {
+	public void setYdp136(String ydp136) {
 		this.ydp136 = ydp136;
 	}
-	public boolean isYdp137() {
+	public String getYdp137() {
 		return ydp137;
 	}
-	public void setYdp137(boolean ydp137) {
+	public void setYdp137(String ydp137) {
 		this.ydp137 = ydp137;
 	}
-	public boolean isYdp138() {
+	public String getYdp138() {
 		return ydp138;
 	}
-	public void setYdp138(boolean ydp138) {
+	public void setYdp138(String ydp138) {
 		this.ydp138 = ydp138;
 	}
-	public boolean isYdp139() {
+	public String getYdp139() {
 		return ydp139;
 	}
-	public void setYdp139(boolean ydp139) {
+	public void setYdp139(String ydp139) {
 		this.ydp139 = ydp139;
 	}
-	public boolean isYdp140() {
+	public String getYdp140() {
 		return ydp140;
 	}
-	public void setYdp140(boolean ydp140) {
+	public void setYdp140(String ydp140) {
 		this.ydp140 = ydp140;
 	}
-	public boolean isYdp141() {
+	public String getYdp141() {
 		return ydp141;
 	}
-	public void setYdp141(boolean ydp141) {
+	public void setYdp141(String ydp141) {
 		this.ydp141 = ydp141;
 	}
-	public boolean isYdp142() {
+	public String getYdp142() {
 		return ydp142;
 	}
-	public void setYdp142(boolean ydp142) {
+	public void setYdp142(String ydp142) {
 		this.ydp142 = ydp142;
 	}
-	public boolean isYdp143() {
+	public String getYdp143() {
 		return ydp143;
 	}
-	public void setYdp143(boolean ydp143) {
+	public void setYdp143(String ydp143) {
 		this.ydp143 = ydp143;
 	}
-	public boolean isYdp144() {
+	public String getYdp144() {
 		return ydp144;
 	}
-	public void setYdp144(boolean ydp144) {
+	public void setYdp144(String ydp144) {
 		this.ydp144 = ydp144;
 	}
-	public boolean isYdp145() {
+	public String getYdp145() {
 		return ydp145;
 	}
-	public void setYdp145(boolean ydp145) {
+	public void setYdp145(String ydp145) {
 		this.ydp145 = ydp145;
 	}
-	public boolean isYdp146() {
+	public String getYdp146() {
 		return ydp146;
 	}
-	public void setYdp146(boolean ydp146) {
+	public void setYdp146(String ydp146) {
 		this.ydp146 = ydp146;
 	}
-	public boolean isYdp147() {
+	public String getYdp147() {
 		return ydp147;
 	}
-	public void setYdp147(boolean ydp147) {
+	public void setYdp147(String ydp147) {
 		this.ydp147 = ydp147;
 	}
-	public boolean isYdp148() {
+	public String getYdp148() {
 		return ydp148;
 	}
-	public void setYdp148(boolean ydp148) {
+	public void setYdp148(String ydp148) {
 		this.ydp148 = ydp148;
 	}
-	public boolean isYdp149() {
+	public String getYdp149() {
 		return ydp149;
 	}
-	public void setYdp149(boolean ydp149) {
+	public void setYdp149(String ydp149) {
 		this.ydp149 = ydp149;
 	}
-	public boolean isYdp150() {
+	public String getYdp150() {
 		return ydp150;
 	}
-	public void setYdp150(boolean ydp150) {
+	public void setYdp150(String ydp150) {
 		this.ydp150 = ydp150;
 	}
-	public boolean isYdp151() {
+	public String getYdp151() {
 		return ydp151;
 	}
-	public void setYdp151(boolean ydp151) {
+	public void setYdp151(String ydp151) {
 		this.ydp151 = ydp151;
 	}
-	public boolean isYdp152() {
+	public String getYdp152() {
 		return ydp152;
 	}
-	public void setYdp152(boolean ydp152) {
+	public void setYdp152(String ydp152) {
 		this.ydp152 = ydp152;
 	}
-	public boolean isYdp153() {
+	public String getYdp153() {
 		return ydp153;
 	}
-	public void setYdp153(boolean ydp153) {
+	public void setYdp153(String ydp153) {
 		this.ydp153 = ydp153;
 	}
-	public boolean isYdp154() {
+	public String getYdp154() {
 		return ydp154;
 	}
-	public void setYdp154(boolean ydp154) {
+	public void setYdp154(String ydp154) {
 		this.ydp154 = ydp154;
 	}
-	public boolean isYdp155() {
+	public String getYdp155() {
 		return ydp155;
 	}
-	public void setYdp155(boolean ydp155) {
+	public void setYdp155(String ydp155) {
 		this.ydp155 = ydp155;
 	}
-	public boolean isYdp156() {
+	public String getYdp156() {
 		return ydp156;
 	}
-	public void setYdp156(boolean ydp156) {
+	public void setYdp156(String ydp156) {
 		this.ydp156 = ydp156;
 	}
-	public boolean isYdp157() {
+	public String getYdp157() {
 		return ydp157;
 	}
-	public void setYdp157(boolean ydp157) {
+	public void setYdp157(String ydp157) {
 		this.ydp157 = ydp157;
 	}
-	public boolean isYdp158() {
+	public String getYdp158() {
 		return ydp158;
 	}
-	public void setYdp158(boolean ydp158) {
+	public void setYdp158(String ydp158) {
 		this.ydp158 = ydp158;
 	}
-	public boolean isYdp159() {
+	public String getYdp159() {
 		return ydp159;
 	}
-	public void setYdp159(boolean ydp159) {
+	public void setYdp159(String ydp159) {
 		this.ydp159 = ydp159;
 	}
-	public boolean isYdp160() {
+	public String getYdp160() {
 		return ydp160;
 	}
-	public void setYdp160(boolean ydp160) {
+	public void setYdp160(String ydp160) {
 		this.ydp160 = ydp160;
 	}
-	public boolean isYdp161() {
+	public String getYdp161() {
 		return ydp161;
 	}
-	public void setYdp161(boolean ydp161) {
+	public void setYdp161(String ydp161) {
 		this.ydp161 = ydp161;
 	}
-	public boolean isYdp162() {
+	public String getYdp162() {
 		return ydp162;
 	}
-	public void setYdp162(boolean ydp162) {
+	public void setYdp162(String ydp162) {
 		this.ydp162 = ydp162;
 	}
-	public boolean isYdp163() {
+	public String getYdp163() {
 		return ydp163;
 	}
-	public void setYdp163(boolean ydp163) {
+	public void setYdp163(String ydp163) {
 		this.ydp163 = ydp163;
 	}
-	public boolean isYdp164() {
+	public String getYdp164() {
 		return ydp164;
 	}
-	public void setYdp164(boolean ydp164) {
+	public void setYdp164(String ydp164) {
 		this.ydp164 = ydp164;
 	}
-	public boolean isYdp165() {
+	public String getYdp165() {
 		return ydp165;
 	}
-	public void setYdp165(boolean ydp165) {
+	public void setYdp165(String ydp165) {
 		this.ydp165 = ydp165;
 	}
-	public boolean isYdp166() {
+	public String getYdp166() {
 		return ydp166;
 	}
-	public void setYdp166(boolean ydp166) {
+	public void setYdp166(String ydp166) {
 		this.ydp166 = ydp166;
 	}
-	public boolean isYdp167() {
+	public String getYdp167() {
 		return ydp167;
 	}
-	public void setYdp167(boolean ydp167) {
+	public void setYdp167(String ydp167) {
 		this.ydp167 = ydp167;
 	}
 	public byte getYzl166() {
@@ -639,94 +640,94 @@ public class FrameData {
 	public void setYgz184(byte ygz184) {
 		this.ygz184 = ygz184;
 	}
-	public boolean isYgz185() {
+	public String getYgz185() {
 		return ygz185;
 	}
-	public void setYgz185(boolean ygz185) {
+	public void setYgz185(String ygz185) {
 		this.ygz185 = ygz185;
 	}
-	public boolean isYgz186() {
+	public String getYgz186() {
 		return ygz186;
 	}
-	public void setYgz186(boolean ygz186) {
+	public void setYgz186(String ygz186) {
 		this.ygz186 = ygz186;
 	}
-	public boolean isYgz187() {
+	public String getYgz187() {
 		return ygz187;
 	}
-	public void setYgz187(boolean ygz187) {
+	public void setYgz187(String ygz187) {
 		this.ygz187 = ygz187;
 	}
-	public boolean isYgz188() {
+	public String getYgz188() {
 		return ygz188;
 	}
-	public void setYgz188(boolean ygz188) {
+	public void setYgz188(String ygz188) {
 		this.ygz188 = ygz188;
 	}
-	public boolean isYgz189() {
+	public String getYgz189() {
 		return ygz189;
 	}
-	public void setYgz189(boolean ygz189) {
+	public void setYgz189(String ygz189) {
 		this.ygz189 = ygz189;
 	}
-	public boolean isYgz190() {
+	public String getYgz190() {
 		return ygz190;
 	}
-	public void setYgz190(boolean ygz190) {
+	public void setYgz190(String ygz190) {
 		this.ygz190 = ygz190;
 	}
-	public boolean isYgz191() {
+	public String getYgz191() {
 		return ygz191;
 	}
-	public void setYgz191(boolean ygz191) {
+	public void setYgz191(String ygz191) {
 		this.ygz191 = ygz191;
 	}
-	public boolean isYgz192() {
+	public String getYgz192() {
 		return ygz192;
 	}
-	public void setYgz192(boolean ygz192) {
+	public void setYgz192(String ygz192) {
 		this.ygz192 = ygz192;
 	}
-	public boolean isYgz193() {
+	public String getYgz193() {
 		return ygz193;
 	}
-	public void setYgz193(boolean ygz193) {
+	public void setYgz193(String ygz193) {
 		this.ygz193 = ygz193;
 	}
-	public boolean isYxs504() {
+	public String getYxs504() {
 		return yxs504;
 	}
-	public void setYxs504(boolean yxs504) {
+	public void setYxs504(String yxs504) {
 		this.yxs504 = yxs504;
 	}
-	public boolean isYxs505() {
+	public String getYxs505() {
 		return yxs505;
 	}
-	public void setYxs505(boolean yxs505) {
+	public void setYxs505(String yxs505) {
 		this.yxs505 = yxs505;
 	}
-	public boolean isYxs601() {
+	public String getYxs601() {
 		return yxs601;
 	}
-	public void setYxs601(boolean yxs601) {
+	public void setYxs601(String yxs601) {
 		this.yxs601 = yxs601;
 	}
-	public boolean isYxs602() {
+	public String getYxs602() {
 		return yxs602;
 	}
-	public void setYxs602(boolean yxs602) {
+	public void setYxs602(String yxs602) {
 		this.yxs602 = yxs602;
 	}
-	public boolean isYxs603() {
+	public String getYxs603() {
 		return yxs603;
 	}
-	public void setYxs603(boolean yxs603) {
+	public void setYxs603(String yxs603) {
 		this.yxs603 = yxs603;
 	}
-	public boolean isYxs610() {
+	public String getYxs610() {
 		return yxs610;
 	}
-	public void setYxs610(boolean yxs610) {
+	public void setYxs610(String yxs610) {
 		this.yxs610 = yxs610;
 	}
 	public byte getYxs611() {
@@ -1005,64 +1006,64 @@ public class FrameData {
 	public void setYkz062(int ykz062) {
 		this.ykz062 = ykz062;
 	}
-	public boolean isYkz063() {
+	public String getYkz063() {
 		return ykz063;
 	}
-	public void setYkz063(boolean ykz063) {
+	public void setYkz063(String ykz063) {
 		this.ykz063 = ykz063;
 	}
-	public boolean isYkz064() {
+	public String getYkz064() {
 		return ykz064;
 	}
-	public void setYkz064(boolean ykz064) {
+	public void setYkz064(String ykz064) {
 		this.ykz064 = ykz064;
 	}
-	public boolean isYkz065() {
+	public String getYkz065() {
 		return ykz065;
 	}
-	public void setYkz065(boolean ykz065) {
+	public void setYkz065(String ykz065) {
 		this.ykz065 = ykz065;
 	}
-	public boolean isYkz066() {
+	public String getYkz066() {
 		return ykz066;
 	}
-	public void setYkz066(boolean ykz066) {
+	public void setYkz066(String ykz066) {
 		this.ykz066 = ykz066;
 	}
-	public boolean isYkz067() {
+	public String getYkz067() {
 		return ykz067;
 	}
-	public void setYkz067(boolean ykz067) {
+	public void setYkz067(String ykz067) {
 		this.ykz067 = ykz067;
 	}
-	public boolean isYkz068() {
+	public String getYkz068() {
 		return ykz068;
 	}
-	public void setYkz068(boolean ykz068) {
+	public void setYkz068(String ykz068) {
 		this.ykz068 = ykz068;
 	}
-	public boolean isYkz069() {
+	public String getYkz069() {
 		return ykz069;
 	}
-	public void setYkz069(boolean ykz069) {
+	public void setYkz069(String ykz069) {
 		this.ykz069 = ykz069;
 	}
-	public boolean isYkz501() {
+	public String getYkz501() {
 		return ykz501;
 	}
-	public void setYkz501(boolean ykz501) {
+	public void setYkz501(String ykz501) {
 		this.ykz501 = ykz501;
 	}
-	public boolean isYkz502() {
+	public String getYkz502() {
 		return ykz502;
 	}
-	public void setYkz502(boolean ykz502) {
+	public void setYkz502(String ykz502) {
 		this.ykz502 = ykz502;
 	}
-	public boolean isYkz503() {
+	public String getYkz503() {
 		return ykz503;
 	}
-	public void setYkz503(boolean ykz503) {
+	public void setYkz503(String ykz503) {
 		this.ykz503 = ykz503;
 	}
 	public double getYgp040() {

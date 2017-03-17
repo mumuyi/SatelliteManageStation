@@ -8,6 +8,12 @@ public class Parameter {
 	private int opration;
 	private int sort;
 	private int sort1;
+	private String rangeFrom;
+	private String rangeTo;
+	private String unit;
+	private int dataType;
+	
+	
 	
 	public int getNumber() {
 		return number;
@@ -50,5 +56,29 @@ public class Parameter {
 	}
 	public void setSort1(int sort1) {
 		this.sort1 = sort1;
+	}
+	public String getRangeFrom() {
+		return rangeFrom;
+	}
+	public void setRangeFrom(String rangeFrom) {
+		this.rangeFrom = rangeFrom;
+	}
+	public String getRangeTo() {
+		return rangeTo;
+	}
+	public void setRangeTo(String rangeTo) {
+		this.rangeTo = rangeTo;
+	}
+	public String getUnit() {
+		return unit;
+	}
+	public void setUnit(String unit) {
+		this.unit = unit;
+	}
+	public int getDataType() {
+		return dataType;
+	}
+	public void setDataType(int dataType) {
+		this.dataType = dataType;
 	}
 }

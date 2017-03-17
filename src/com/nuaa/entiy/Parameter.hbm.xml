@@ -12,5 +12,9 @@
         <property name="Opration"></property>
         <property name="Sort"></property>
         <property name="Sort1"></property>
+        <property name="RangeFrom"></property>
+        <property name="RangeTo"></property>
+        <property name="Unit"></property>
+        <property name="DataType"></property>
     </class>
 </hibernate-mapping>

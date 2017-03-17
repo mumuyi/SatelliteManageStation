@@ -11,7 +11,7 @@ public class TestHibernate {
 		System.out.println(""+list.size());
 		for(int i=0;i<list.size();i++){
 			Parameter parameter=(Parameter)list.get(i);
-			System.out.println(""+parameter.getNumber());
+			System.out.println(""+parameter.getNumber()+"  "+parameter.getCname()+"                "+parameter.getUnit());
 		}
 	}
 }
