@@ -1,10 +1,5 @@
 package com.nuaa.utils;
 
-import java.lang.reflect.Method;
-
-import com.nuaa.entiy.FrameData;
-import com.nuaa.entiy.MyHibernate;
-
 public class DataOpration {
 	// 表14操作;
 	public static int Table14Opration(byte[] filebt, int pointer, int length) {

@@ -4,7 +4,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 
@@ -111,7 +110,7 @@ public class MessageParsing {
 			//用来做回调;
 			Class<? extends FrameData> myclass=frame.getClass();
 			
-			Method mm = (Method) myclass.getMethod("setCounter",int.class);
+			//Method mm = (Method) myclass.getMethod("setCounter",int.class);
 			//mm.invoke(frame, MyHibernate.sqlGetRecordNum("select count(*) from framedata")+1);
 			//mm.invoke(frame, 1);
 			
