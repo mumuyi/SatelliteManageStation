@@ -138,7 +138,6 @@ public class MessageParsing {
 				else if(parameter.getOpration()==15){
 					String ans=DataOpration.Table15Opration(filebt[pointer]);
 					System.out.println(j+": "+ans);
-					pointer+=parameter.getLength();
 					//回调存数据;
 					Method m = (Method) myclass.getMethod("set"+MessageParsing.captureName(parameter.getName()),String.class);
 					m.invoke(frame, ans);
