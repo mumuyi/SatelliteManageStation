@@ -90,8 +90,15 @@ public class DataOpration {
 		}
 		else{//首位为1
 			temp1[3]=(byte)0x80;
+			//12位取补码操作;
+			temp1[1]=(byte) ~temp[1];
 			temp1[1]=(byte) (temp1[1]&0x0F);
-			ans=-1.0*(5*(-1)*DataOpration.byteToint(temp1)+1.024)/2048;
+			temp1[0]=(byte) ~temp[0];
+			temp1[0]+=1;
+			if(temp1[0]==(byte)0x00){
+				temp1[1]+=1;
+			}
+			ans=-1.0*(5*DataOpration.byteToint(temp1)+1.024)/2048;
 		}
 		
 		return ans;
@@ -117,15 +124,19 @@ public class DataOpration {
 	public static double Table16Opration(byte temp){
 		double ans=0.0;
 		byte[] temp1=new byte[2];
-		temp1[1]=(byte) (temp>>4);
-		temp1[0]=(byte) (temp<<4);
-		int tempans=DataOpration.byteToint(temp1);
-		//System.out.println("ssssssssssss    "+tempans);
 		if((temp&(byte)0x80)==(byte)0x00){//首位为0;
 			//System.out.println("111111");
-			ans=(5.0*tempans+1.024)/2048;
+			temp1[1]=(byte) (temp>>4);
+			temp1[0]=(byte) (temp<<4);
+			ans=(5.0*DataOpration.byteToint(temp1)+1.024)/2048;
 		}else{//首位为1;
-			ans=-1.0*((5.0*(-1)*tempans+1.024))/2048;
+			//8位取补码操作;
+			temp=(byte) ~temp;
+			temp+=1;
+			
+			temp1[1]=(byte) (temp>>4);
+			temp1[0]=(byte) (temp<<4);
+			ans=-1.0*((5.0*DataOpration.byteToint(temp1)+1.024))/2048;
 		}
 		return ans;
 	}

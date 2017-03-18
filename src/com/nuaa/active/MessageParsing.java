@@ -155,6 +155,21 @@ public class MessageParsing {
 				//组号,帧计数;
 				else if(parameter.getOpration()==35){
 					//暂时不做;
+					int ans=0;
+					byte temp=filebt[pointer];
+					byte[] temp1=new byte[1];
+					
+					if(parameter.getLength()==201){
+						//组号;
+						temp1[0]=(byte)(temp>>4);
+					}
+					else{
+						//帧计数;
+						temp1[0]=(byte) (temp&(byte)0x0F);
+					}
+					ans=DataOpration.byteToint(temp1);
+					System.out.println(j+": "+ans);
+					
 					if(parameter.getLength()==200)
 						pointer+=1;
 				}
