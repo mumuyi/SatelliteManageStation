@@ -52,27 +52,27 @@ public class FrameData {
 	private String ydp167;
 	
 	//指令反馈;
-	private byte yzl166;
-	private byte yzl167;
-	private byte yzl168;
-	private byte yzl169;
-	private byte yzl170;
-	private byte yzl171;
-	private byte yzl172;
-	private byte yzl173;
-	private byte yzl174;
-	private byte yzl175;
-	private int yzl176;
-	private byte yzl177;
-	private byte yzl178;
-	private byte yzl179;
-	private byte yzl180;
-	private byte yzl181;
-	private byte yzl182;
-	private byte yzl183;
+	private String yzl166;
+	private String yzl167;
+	private String yzl168;
+	private String yzl169;
+	private String yzl170;
+	private String yzl171;
+	private String yzl172;
+	private String yzl173;
+	private String yzl174;
+	private String yzl175;
+	private String yzl176;
+	private String yzl177;
+	private String yzl178;
+	private String yzl179;
+	private String yzl180;
+	private String yzl181;
+	private String yzl182;
+	private String yzl183;
 	
 	//故障管理;
-	private byte ygz184;
+	private String ygz184;
 	private String ygz185;
 	private String ygz186;
 	private String ygz187;
@@ -90,8 +90,8 @@ public class FrameData {
 	private String yxs602;
 	private String yxs603;
 	private String yxs610;
-	private byte yxs611;
-	private byte yxs612;
+	private String yxs611;
+	private String yxs612;
 	
 	//组号 帧计数;
 	private int groupNumber;
@@ -142,8 +142,8 @@ public class FrameData {
 	private double ygp030;
 	private double ygp031;
 	private double ygp032;
-	private byte ygp033;
-	private byte ygp034;
+	private String ygp033;
+	private String ygp034;
 	
 	//陀螺输出;
 	private double ytl016;
@@ -170,8 +170,8 @@ public class FrameData {
 	private double ygp043;
 	private double ygp044;
 	private double ygp045;
-	private byte ygp046;
-	private byte ygp047;
+	private String ygp046;
+	private String ygp047;
 	
 	//通信;
 	private double ytx070;
@@ -526,118 +526,118 @@ public class FrameData {
 	public void setYdp167(String ydp167) {
 		this.ydp167 = ydp167;
 	}
-	public byte getYzl166() {
+	public String getYzl166() {
 		return yzl166;
 	}
-	public void setYzl166(byte yzl166) {
+	public void setYzl166(String yzl166) {
 		this.yzl166 = yzl166;
 	}
-	public byte getYzl167() {
+	public String getYzl167() {
 		return yzl167;
 	}
-	public void setYzl167(byte yzl167) {
+	public void setYzl167(String yzl167) {
 		this.yzl167 = yzl167;
 	}
-	public byte getYzl168() {
+	public String getYzl168() {
 		return yzl168;
 	}
-	public void setYzl168(byte yzl168) {
+	public void setYzl168(String yzl168) {
 		this.yzl168 = yzl168;
 	}
-	public byte getYzl169() {
+	public String getYzl169() {
 		return yzl169;
 	}
-	public void setYzl169(byte yzl169) {
+	public void setYzl169(String yzl169) {
 		this.yzl169 = yzl169;
 	}
-	public byte getYzl170() {
+	public String getYzl170() {
 		return yzl170;
 	}
-	public void setYzl170(byte yzl170) {
+	public void setYzl170(String yzl170) {
 		this.yzl170 = yzl170;
 	}
-	public byte getYzl171() {
+	public String getYzl171() {
 		return yzl171;
 	}
-	public void setYzl171(byte yzl171) {
+	public void setYzl171(String yzl171) {
 		this.yzl171 = yzl171;
 	}
-	public byte getYzl172() {
+	public String getYzl172() {
 		return yzl172;
 	}
-	public void setYzl172(byte yzl172) {
+	public void setYzl172(String yzl172) {
 		this.yzl172 = yzl172;
 	}
-	public byte getYzl173() {
+	public String getYzl173() {
 		return yzl173;
 	}
-	public void setYzl173(byte yzl173) {
+	public void setYzl173(String yzl173) {
 		this.yzl173 = yzl173;
 	}
-	public byte getYzl174() {
+	public String getYzl174() {
 		return yzl174;
 	}
-	public void setYzl174(byte yzl174) {
+	public void setYzl174(String yzl174) {
 		this.yzl174 = yzl174;
 	}
-	public byte getYzl175() {
+	public String getYzl175() {
 		return yzl175;
 	}
-	public void setYzl175(byte yzl175) {
+	public void setYzl175(String yzl175) {
 		this.yzl175 = yzl175;
 	}
-	public int getYzl176() {
+	public String getYzl176() {
 		return yzl176;
 	}
-	public void setYzl176(int yzl176) {
+	public void setYzl176(String yzl176) {
 		this.yzl176 = yzl176;
 	}
-	public byte getYzl177() {
+	public String getYzl177() {
 		return yzl177;
 	}
-	public void setYzl177(byte yzl177) {
+	public void setYzl177(String yzl177) {
 		this.yzl177 = yzl177;
 	}
-	public byte getYzl178() {
+	public String getYzl178() {
 		return yzl178;
 	}
-	public void setYzl178(byte yzl178) {
+	public void setYzl178(String yzl178) {
 		this.yzl178 = yzl178;
 	}
-	public byte getYzl179() {
+	public String getYzl179() {
 		return yzl179;
 	}
-	public void setYzl179(byte yzl179) {
+	public void setYzl179(String yzl179) {
 		this.yzl179 = yzl179;
 	}
-	public byte getYzl180() {
+	public String getYzl180() {
 		return yzl180;
 	}
-	public void setYzl180(byte yzl180) {
+	public void setYzl180(String yzl180) {
 		this.yzl180 = yzl180;
 	}
-	public byte getYzl181() {
+	public String getYzl181() {
 		return yzl181;
 	}
-	public void setYzl181(byte yzl181) {
+	public void setYzl181(String yzl181) {
 		this.yzl181 = yzl181;
 	}
-	public byte getYzl182() {
+	public String getYzl182() {
 		return yzl182;
 	}
-	public void setYzl182(byte yzl182) {
+	public void setYzl182(String yzl182) {
 		this.yzl182 = yzl182;
 	}
-	public byte getYzl183() {
+	public String getYzl183() {
 		return yzl183;
 	}
-	public void setYzl183(byte yzl183) {
+	public void setYzl183(String yzl183) {
 		this.yzl183 = yzl183;
 	}
-	public byte getYgz184() {
+	public String getYgz184() {
 		return ygz184;
 	}
-	public void setYgz184(byte ygz184) {
+	public void setYgz184(String ygz184) {
 		this.ygz184 = ygz184;
 	}
 	public String getYgz185() {
@@ -730,16 +730,16 @@ public class FrameData {
 	public void setYxs610(String yxs610) {
 		this.yxs610 = yxs610;
 	}
-	public byte getYxs611() {
+	public String getYxs611() {
 		return yxs611;
 	}
-	public void setYxs611(byte yxs611) {
+	public void setYxs611(String yxs611) {
 		this.yxs611 = yxs611;
 	}
-	public byte getYxs612() {
+	public String getYxs612() {
 		return yxs612;
 	}
-	public void setYxs612(byte yxs612) {
+	public void setYxs612(String yxs612) {
 		this.yxs612 = yxs612;
 	}
 	public int getGroupNumber() {
@@ -970,16 +970,16 @@ public class FrameData {
 	public void setYgp032(double ygp032) {
 		this.ygp032 = ygp032;
 	}
-	public byte getYgp033() {
+	public String getYgp033() {
 		return ygp033;
 	}
-	public void setYgp033(byte ygp033) {
+	public void setYgp033(String ygp033) {
 		this.ygp033 = ygp033;
 	}
-	public byte getYgp034() {
+	public String getYgp034() {
 		return ygp034;
 	}
-	public void setYgp034(byte ygp034) {
+	public void setYgp034(String ygp034) {
 		this.ygp034 = ygp034;
 	}
 	public double getYtl016() {
@@ -1102,16 +1102,16 @@ public class FrameData {
 	public void setYgp045(double ygp045) {
 		this.ygp045 = ygp045;
 	}
-	public byte getYgp046() {
+	public String getYgp046() {
 		return ygp046;
 	}
-	public void setYgp046(byte ygp046) {
+	public void setYgp046(String ygp046) {
 		this.ygp046 = ygp046;
 	}
-	public byte getYgp047() {
+	public String getYgp047() {
 		return ygp047;
 	}
-	public void setYgp047(byte ygp047) {
+	public void setYgp047(String ygp047) {
 		this.ygp047 = ygp047;
 	}
 	public double getYtx070() {

@@ -93,7 +93,7 @@ public class MessageParsing {
 			//	System.out.println("sdhkjashdaksjdhiwuqdhjakshdjkashdjkashdkjsahdkjsahdjk");
 			//}
 			//System.out.println(DataOpration.HexToString(filebt));
-			
+			//System.exit(0);
 			
 			//数据解析开始;
 			for(int j=0;j<list.size();j++){
@@ -101,19 +101,215 @@ public class MessageParsing {
 				//数据对齐和跳过表头操作;
 				if(parameter.getName().equals("jump")){
 					pointer+=parameter.getLength();
-					System.out.println("jump  "+parameter.getLength());
+					System.out.println(j+": jump  "+parameter.getLength());
 				}
-				//Table 14 对于时间的操作;
+				//星上时间;
 				else if(parameter.getOpration()==14){
+					Long tempL=DataOpration.Table14Opration(filebt,pointer,parameter.getLength());
+					System.out.println(j+": "+tempL);
+					pointer+=parameter.getLength();
+					//break;
+				}
+				//控制模式信息;
+				else if(parameter.getOpration()==15){
+					String str=DataOpration.Table15Opration(filebt[pointer]);
+					System.out.println(j+": "+str);
+					pointer+=parameter.getLength();
+					//break;
+				}
+				//bit-boolean-String;
+				else if(parameter.getOpration()==18){
+					byte temp=filebt[pointer];
+					if(DataOpration.CheakBit(temp, parameter.getLength()-10)){
+						System.out.println(j+": "+parameter.getRangeTo());
+					}else{
+						System.out.println(j+": "+parameter.getRangeFrom());
+					}
+					//数据对齐;
+					if(parameter.getLength()==10){
+						pointer+=1;
+					}
+				}
+				//直接显示;
+				else if(parameter.getOpration()==19){
 					byte[] temp=new byte[parameter.getLength()];
 					for(int m=0;m<parameter.getLength();m++){
-						temp[m]=filebt[pointer+m];
+						temp[m] = filebt[pointer + m];
 					}
-					Long tempL=DataOpration.Table14Opration(temp);
-					System.out.println(""+tempL);
+					String str=DataOpration.HexToString(temp);
+					System.out.println(j+": "+str);
+					
 					pointer+=parameter.getLength();
-
-					//break;
+				}
+				//byte-String;
+				else if(parameter.getOpration()==21){
+					byte temp=filebt[pointer];
+					if(DataOpration.CheakByte(temp)){
+						System.out.println(j+": "+parameter.getRangeTo());
+					}else{
+						System.out.println(j+": "+parameter.getRangeFrom());
+					}
+					
+					pointer+=parameter.getLength();
+				}
+				//组号,帧计数;
+				else if(parameter.getOpration()==35){
+					//暂时不做;
+					if(parameter.getLength()==200)
+						pointer+=1;
+				}
+				//磁强计A B;
+				else if(parameter.getOpration()==171||parameter.getOpration()==172||parameter.getOpration()==173){
+					byte[] temp=new byte[2];
+					temp[1]=filebt[pointer];
+					temp[0]=filebt[pointer+1];
+					
+					double ans=DataOpration.Table17Opration(temp);
+					//System.out.println("      !!!!        "+ans);
+					if(parameter.getOpration()==171){
+						ans=ans/79.4*1000000;
+					}else if(parameter.getOpration()==172){
+						ans=ans/79.9*1000000;
+					}else if(parameter.getOpration()==173){
+						ans=ans/80.0*1000000;
+					}
+					
+					System.out.println(j+": "+ans);
+					
+					pointer+=parameter.getLength();
+				}
+				//卫星遥测;
+				else if(parameter.getOpration()==22||parameter.getOpration()==23||parameter.getOpration()==24){
+					byte[] temp=new byte[2];
+					temp[1]=filebt[pointer];
+					temp[0]=filebt[pointer+1];
+					int tempans=DataOpration.byteToint(temp);
+					double ans=0.0;
+					if(parameter.getOpration()==22){
+						ans=tempans*360/65536; 
+					}else if(parameter.getOpration()==23){
+						ans=tempans*30/32768;
+					}else if(parameter.getOpration()==24){
+						ans=tempans*2;
+					}
+					System.out.println(j+": "+ans);
+					pointer+=parameter.getLength();
+				}
+				//轨道解算;
+				else if(parameter.getOpration()==20){
+					byte[] temp=new byte[4];
+					temp[3]=filebt[pointer];
+					temp[2]=filebt[pointer+1];
+					temp[1]=filebt[pointer+2];
+					temp[0]=filebt[pointer+3];
+					int ans=DataOpration.byteToint(temp);
+					System.out.println(j+": "+ans);
+					
+					pointer+=parameter.getLength();
+				}
+				//模拟太敏;
+				else if(parameter.getOpration()==16){
+					double ans=DataOpration.Table16Opration(filebt[pointer]);
+					System.out.println(j+": "+ans);
+					
+					pointer+=parameter.getLength();
+				}
+				//GPS输出;
+				else if(parameter.getOpration()==25||parameter.getOpration()==26){
+					byte[] temp=new byte[4];
+					temp[3]=filebt[pointer];
+					temp[2]=filebt[pointer+1];
+					temp[1]=filebt[pointer+2];
+					temp[0]=filebt[pointer+3];
+					int tempans=DataOpration.byteToint(temp);
+					double ans=0.0;
+					if(parameter.getOpration()==25){
+						ans=tempans*0.1;
+					}else if(parameter.getOpration()==26){
+						ans=tempans*0.01;
+					}
+					System.out.println(j+": "+ans);
+					
+					pointer+=parameter.getLength();
+				}
+				//转short;
+				else if(parameter.getOpration()==28){
+					byte[] temp=new byte[1];
+					temp[0]=filebt[pointer];
+					int ans=DataOpration.byteToint(temp);
+					System.out.println(j+": "+ans);
+					
+					pointer+=parameter.getLength();
+				}
+				//电源;
+				else if(parameter.getOpration()==161||parameter.getOpration()==162||parameter.getOpration()==163
+						||parameter.getOpration()==164||parameter.getOpration()==165||parameter.getOpration()==166
+						||parameter.getOpration()==167||parameter.getOpration()==168){
+					double ans=DataOpration.Table16Opration(filebt[pointer]);
+					if(parameter.getOpration()==161){
+						ans*=6.399;
+					}else if(parameter.getOpration()==162){
+						ans*=0.5988;
+					}else if(parameter.getOpration()==163){
+						ans*=1.0355;
+						ans+=0.005;
+					}else if(parameter.getOpration()==164){
+						ans*=3;
+					}else if(parameter.getOpration()==165){
+						ans*=0.6;
+					}else if(parameter.getOpration()==166){
+						ans*=10.645;
+						ans+=0.004;
+					}else if(parameter.getOpration()==167){
+						ans*=1000;
+					}else if(parameter.getOpration()==168){
+						ans*=13.5;
+						ans/=5;
+					}
+					System.out.println(j+": "+ans);
+					
+					pointer+=parameter.getLength();
+				}
+				//星上计算机;
+				else if(parameter.getOpration()==29||parameter.getOpration()==30||parameter.getOpration()==31){
+					double ans=DataOpration.Table16Opration(filebt[pointer]);
+					if(parameter.getOpration()==29){
+						//暂时不处理;
+					}else if(parameter.getOpration()==30){
+						ans/=3.0;
+					}else if(parameter.getOpration()==31){
+						//无操作;
+					}
+					System.out.println(j+": "+ans);
+					
+					pointer+=parameter.getLength();
+				}
+				//空置率计算结果;
+				else if(parameter.getOpration()==32||parameter.getOpration()==33||parameter.getOpration()==34){
+					byte[] temp=new byte[1];
+					temp[0]=filebt[pointer];
+					int tempans=DataOpration.byteToint(temp);
+					double ans=0.0;
+					if(parameter.getOpration()==32){
+						ans=tempans*0.01/128;
+					}else if(parameter.getOpration()==33){
+						ans=tempans*5/256;
+					}else if(parameter.getOpration()==34){
+						ans=tempans*5/128;
+					}
+					System.out.println(j+": "+ans);
+					
+					pointer+=parameter.getLength();
+				}
+				//温度;
+				else if(parameter.getOpration()==17){
+					byte[] temp=new byte[2];
+					temp[1]=filebt[pointer];
+					temp[0]=filebt[pointer+1];
+					double ans=DataOpration.Table17Opration(temp);
+					System.out.println(j+": "+ans);
+					
+					pointer+=parameter.getLength();
 				}
 			}
 		}
