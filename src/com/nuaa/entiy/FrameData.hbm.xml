@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.nuaa.entiy"><!-- 这里的package记得要写对啊。要不然运行也会出错的 -->
+	<class name="FrameData" table="framedata"><!-- 如果表名跟类名一个样的话，那么table属性可以不写 -->
+		<id name="Counter"></id>
+		<property name="Ysj023"></property>
+		<property name="Ysj024"></property>
+		
+		<property name="Ykm001"></property>
+		
+		<property name="Ydp130"></property>
+		<property name="Ydp131"></property>
+		<property name="Ydp132"></property>
+		<property name="Ydp133"></property>
+		<property name="Ydp134"></property>
+		<property name="Ydp135"></property>
+		<property name="Ydp136"></property>
+		<property name="Ydp137"></property>
+		<property name="Ydp138"></property>
+		<property name="Ydp139"></property>
+		<property name="Ydp140"></property>
+		<property name="Ydp141"></property>
+		<property name="Ydp142"></property>
+		<property name="Ydp143"></property>
+		<property name="Ydp144"></property>
+		<property name="Ydp145"></property>
+		<property name="Ydp146"></property>
+		<property name="Ydp147"></property>
+		<property name="Ydp148"></property>
+		<property name="Ydp149"></property>
+		<property name="Ydp150"></property>
+		<property name="Ydp151"></property>
+		<property name="Ydp152"></property>
+		<property name="Ydp153"></property>
+		<property name="Ydp154"></property>
+		<property name="Ydp155"></property>
+		<property name="Ydp156"></property>
+		<property name="Ydp157"></property>
+		<property name="Ydp158"></property>
+		<property name="Ydp159"></property>
+		<property name="Ydp160"></property>
+		<property name="Ydp161"></property>
+		<property name="Ydp162"></property>
+		<property name="Ydp163"></property>
+		<property name="Ydp164"></property>
+		<property name="Ydp165"></property>
+		<property name="Ydp166"></property>
+		<property name="Ydp167"></property>
+		
+		<property name="Yzl166"></property>
+		<property name="Yzl167"></property>
+		<property name="Yzl168"></property>
+		<property name="Yzl169"></property>
+		<property name="Yzl170"></property>
+		<property name="Yzl171"></property>
+		<property name="Yzl172"></property>
+		<property name="Yzl173"></property>
+		<property name="Yzl174"></property>
+		<property name="Yzl175"></property>
+		<property name="Yzl176"></property>
+		<property name="Yzl177"></property>
+		<property name="Yzl178"></property>
+		<property name="Yzl179"></property>
+		<property name="Yzl180"></property>
+		<property name="Yzl181"></property>
+		<property name="Yzl182"></property>
+		<property name="Yzl183"></property>
+		
+		<property name="Ygz184"></property>
+		<property name="Ygz185"></property>
+		<property name="Ygz186"></property>
+		<property name="Ygz187"></property>
+		<property name="Ygz188"></property>
+		<property name="Ygz189"></property>
+		<property name="Ygz190"></property>
+		<property name="Ygz191"></property>
+		<property name="Ygz192"></property>
+		<property name="Ygz193"></property>		
+		
+		<property name="Yxs504"></property>
+		<property name="Yxs505"></property>
+		<property name="Yxs601"></property>
+		<property name="Yxs602"></property>
+		<property name="Yxs603"></property>
+		<property name="Yxs610"></property>
+		<property name="Yxs611"></property>
+		<property name="Yxs612"></property>
+		
+		<property name="GroupNumber"></property>
+		<property name="FrameCounter"></property>
+		
+		<property name="Yca002"></property>
+		<property name="Yca003"></property>
+		<property name="Yca004"></property>
+		<property name="Ycb005"></property>
+		<property name="Ycb006"></property>
+		<property name="Ycb007"></property>
+		
+		<property name="Ycl046"></property>
+		<property name="Ycl047"></property>
+		<property name="Ycl048"></property>
+		<property name="Ycl049"></property>
+		<property name="Ycl050"></property>
+		<property name="Ycl051"></property>
+		<property name="Ycl052"></property>
+		
+		<property name="Ygd040"></property>
+		<property name="Ygd041"></property>
+		<property name="Ygd042"></property>
+		<property name="Ygd043"></property>
+		<property name="Ygd044"></property>
+		<property name="Ygd045"></property>
+		
+		<property name="Ytm008"></property>
+		<property name="Ytm009"></property>
+		<property name="Ytm010"></property>
+		<property name="Ytm011"></property>
+		<property name="Ytm012"></property>
+		<property name="Ytm013"></property>
+		<property name="Ytm014"></property>
+		<property name="Ytm015"></property>
+		
+		<property name="Ygp024"></property>
+		<property name="Ygp025"></property>
+		<property name="Ygp026"></property>
+		<property name="Ygp027"></property>
+		<property name="Ygp028"></property>
+		<property name="Ygp029"></property>
+		<property name="Ygp030"></property>
+		<property name="Ygp031"></property>
+		<property name="Ygp032"></property>
+		<property name="Ygp033"></property>
+		<property name="Ygp034"></property>
+		
+		<property name="Ytl016"></property>
+		
+		<property name="Ykz060"></property>
+		<property name="Ykz061"></property>
+		<property name="Ykz062"></property>
+		<property name="Ykz063"></property>
+		<property name="Ykz064"></property>
+		<property name="Ykz065"></property>
+		<property name="Ykz066"></property>
+		<property name="Ykz067"></property>
+		<property name="Ykz068"></property>
+		<property name="Ykz069"></property>
+		<property name="Ykz501"></property>
+		<property name="Ykz502"></property>
+		<property name="Ykz503"></property>
+		
+		<property name="Ygp040"></property>
+		<property name="Ygp041"></property>
+		<property name="Ygp042"></property>
+		<property name="Ygp043"></property>
+		<property name="Ygp044"></property>
+		<property name="Ygp045"></property>
+		<property name="Ygp046"></property>
+		<property name="Ygp047"></property>
+		
+		<property name="Ytx070"></property>
+		<property name="Ytx071"></property>
+		<property name="Ytx072"></property>
+		<property name="Ytx073"></property>
+		<property name="Ytx074"></property>
+		<property name="Ytx075"></property>
+		<property name="Ytx076"></property>
+		<property name="Ytx077"></property>
+		<property name="Ytx078"></property>
+		
+		<property name="Ydy079"></property>
+		<property name="Ydy080"></property>
+		<property name="Ydy081"></property>
+		<property name="Ydy082"></property>
+		<property name="Ydy083"></property>
+		<property name="Ydy084"></property>
+		<property name="Ydy085"></property>
+		<property name="Ydy086"></property>
+				
+		<property name="Yjs087"></property>
+		<property name="Yjs088"></property>
+		<property name="Yjs089"></property>
+		<property name="Yjs090"></property>
+		<property name="Yjs091"></property>
+		<property name="Yjs092"></property>
+		
+		<property name="Ykl053"></property>
+		<property name="Ykl054"></property>
+		<property name="Ykl055"></property>
+		<property name="Ykl056"></property>
+		<property name="Ykl057"></property>
+		<property name="Ykl058"></property>
+		<property name="Ykl059"></property>
+		
+		<property name="Yty506"></property>
+		<property name="Yty507"></property>
+		<property name="Yty508"></property>
+		<property name="Yty509"></property>
+		
+		<property name="Ygn035"></property>
+		<property name="Ygn036"></property>
+		<property name="Ygn037"></property>
+		<property name="Ygn038"></property>
+		<property name="Ygn039"></property>
+		
+		<property name="Ydz093"></property>
+		<property name="Ydz094"></property>
+		<property name="Ydz095"></property>
+		<property name="Ydz096"></property>
+		<property name="Ydz097"></property>
+		<property name="Ydz098"></property>
+		<property name="Ydz099"></property>
+		<property name="Ydz100"></property>
+		<property name="Ydz101"></property>
+		<property name="Ydz102"></property>
+		<property name="Ydz103"></property>
+		<property name="Ydz104"></property>
+		
+		<property name="Ysj001"></property>
+		<property name="Ysj002"></property>
+		<property name="Ysj003"></property>
+		<property name="Ysj004"></property>
+		<property name="Ysj005"></property>
+		<property name="Ysj006"></property>
+		
+		<property name="Ywd105"></property>
+		<property name="Ywd106"></property>
+		<property name="Ywd107"></property>
+		<property name="Ywd108"></property>
+		<property name="Ywd109"></property>
+		<property name="Ywd110"></property>
+		<property name="Ywd111"></property>
+		<property name="Ywd112"></property>
+		<property name="Ywd113"></property>
+		<property name="Ywd114"></property>
+		<property name="Ywd115"></property>
+		<property name="Ywd116"></property>
+		<property name="Ywd117"></property>
+		<property name="Ywd118"></property>
+		<property name="Ywd119"></property>
+		<property name="Ywd120"></property>
+		<property name="Ywd121"></property>
+		<property name="Ywd122"></property>
+		<property name="Ywd123"></property>
+		<property name="Ywd124"></property>
+		<property name="Ywd125"></property>
+		<property name="Ywd126"></property>
+		<property name="Ywd127"></property>
+		<property name="Ywd128"></property>
+		<property name="Ywd129"></property>
+	</class>
+</hibernate-mapping>

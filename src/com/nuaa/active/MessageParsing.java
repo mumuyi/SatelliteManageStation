@@ -4,8 +4,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
 
+import com.nuaa.entiy.FrameData;
 import com.nuaa.entiy.MyHibernate;
 import com.nuaa.entiy.Parameter;
 import com.nuaa.utils.DataOpration;
@@ -16,7 +19,6 @@ public class MessageParsing {
 	private static FileInputStream fin;
 	private static List<?> list;
 	private static int pointer=0;
-	
 	
 	/**
 	 * 读取流
@@ -71,6 +73,15 @@ public class MessageParsing {
 		}
 	}
 	
+    public static String captureName(String name) {
+    	//     name = name.substring(0, 1).toUpperCase() + name.substring(1);
+    	//     return  name;
+        char[] cs=name.toCharArray();
+        cs[0]-=32;
+        return String.valueOf(cs);
+    }
+	
+	
 	public static void main(String[] args) throws Exception {
 		//指定文件,获取输入流;
 		file = new File("C:\\Users\\ai\\Desktop\\data\\20111123.dat");
@@ -79,7 +90,7 @@ public class MessageParsing {
 		list=MyHibernate.sqlQuery(0, 300, "from Parameter");
 		
 		//报文解析开始;
-		for(int i=0;i<50;i++){
+		for(int i=0;i<12622;i++){
 			//取一帧673字节数据;
 			byte[] filebt = MessageParsing.readStream(fin, 0, 673);
 			pointer=0;
@@ -95,6 +106,16 @@ public class MessageParsing {
 			//System.out.println(DataOpration.HexToString(filebt));
 			//System.exit(0);
 			
+			//正确则初始化一个类,准备存放数据;
+			FrameData frame=new FrameData();
+			//用来做回调;
+			Class<? extends FrameData> myclass=frame.getClass();
+			
+			Method mm = (Method) myclass.getMethod("setCounter",int.class);
+			//mm.invoke(frame, MyHibernate.sqlGetRecordNum("select count(*) from framedata")+1);
+			//mm.invoke(frame, 1);
+			
+			
 			//数据解析开始;
 			for(int j=0;j<list.size();j++){
 				Parameter parameter=(Parameter)list.get(j);
@@ -105,26 +126,41 @@ public class MessageParsing {
 				}
 				//星上时间;
 				else if(parameter.getOpration()==14){
-					Long tempL=DataOpration.Table14Opration(filebt,pointer,parameter.getLength());
-					System.out.println(j+": "+tempL);
+					int ans=DataOpration.Table14Opration(filebt,pointer,parameter.getLength());
+					System.out.println(j+": "+ans);
+					//回调存数据;
+					Method m = (Method) myclass.getMethod("set"+MessageParsing.captureName(parameter.getName()),int.class);
+					m.invoke(frame, ans);
+					//指针偏移;
 					pointer+=parameter.getLength();
 					//break;
 				}
 				//控制模式信息;
 				else if(parameter.getOpration()==15){
-					String str=DataOpration.Table15Opration(filebt[pointer]);
-					System.out.println(j+": "+str);
+					String ans=DataOpration.Table15Opration(filebt[pointer]);
+					System.out.println(j+": "+ans);
+					pointer+=parameter.getLength();
+					//回调存数据;
+					Method m = (Method) myclass.getMethod("set"+MessageParsing.captureName(parameter.getName()),String.class);
+					m.invoke(frame, ans);
+					//指针偏移;
 					pointer+=parameter.getLength();
 					//break;
 				}
 				//bit-boolean-String;
 				else if(parameter.getOpration()==18){
 					byte temp=filebt[pointer];
+					String ans="";
 					if(DataOpration.CheakBit(temp, parameter.getLength()-10)){
 						System.out.println(j+": "+parameter.getRangeTo());
+						ans+=parameter.getRangeTo();
 					}else{
 						System.out.println(j+": "+parameter.getRangeFrom());
+						ans+=parameter.getRangeFrom();
 					}
+					//回调存数据;
+					Method m = (Method) myclass.getMethod("set"+MessageParsing.captureName(parameter.getName()),String.class);
+					m.invoke(frame, ans);
 					//数据对齐;
 					if(parameter.getLength()==10){
 						pointer+=1;
@@ -136,20 +172,29 @@ public class MessageParsing {
 					for(int m=0;m<parameter.getLength();m++){
 						temp[m] = filebt[pointer + m];
 					}
-					String str=DataOpration.HexToString(temp);
-					System.out.println(j+": "+str);
-					
+					String ans=DataOpration.HexToString(temp);
+					System.out.println(j+": "+ans);
+					//回调存数据;
+					Method m = (Method) myclass.getMethod("set"+MessageParsing.captureName(parameter.getName()),String.class);
+					m.invoke(frame, ans);
+					//指针偏移;
 					pointer+=parameter.getLength();
 				}
 				//byte-String;
 				else if(parameter.getOpration()==21){
 					byte temp=filebt[pointer];
+					String ans="";
 					if(DataOpration.CheakByte(temp)){
 						System.out.println(j+": "+parameter.getRangeTo());
+						ans+=parameter.getRangeTo();
 					}else{
 						System.out.println(j+": "+parameter.getRangeFrom());
+						ans+=parameter.getRangeFrom();
 					}
-					
+					//回调存数据;
+					Method m = (Method) myclass.getMethod("set"+MessageParsing.captureName(parameter.getName()),String.class);
+					m.invoke(frame, ans);
+					//指针偏移;
 					pointer+=parameter.getLength();
 				}
 				//组号,帧计数;
@@ -170,6 +215,10 @@ public class MessageParsing {
 					ans=DataOpration.byteToint(temp1);
 					System.out.println(j+": "+ans);
 					
+					//回调存数据;
+					Method m = (Method) myclass.getMethod("set"+MessageParsing.captureName(parameter.getName()),int.class);
+					m.invoke(frame, ans);
+					//数据对齐;
 					if(parameter.getLength()==200)
 						pointer+=1;
 				}
@@ -191,6 +240,10 @@ public class MessageParsing {
 					
 					System.out.println(j+": "+ans);
 					
+					//回调存数据;
+					Method m = (Method) myclass.getMethod("set"+MessageParsing.captureName(parameter.getName()),double.class);
+					m.invoke(frame, ans);
+					//指针偏移;
 					pointer+=parameter.getLength();
 				}
 				//卫星遥测;
@@ -205,9 +258,13 @@ public class MessageParsing {
 					}else if(parameter.getOpration()==23){
 						ans=tempans*30/32768;
 					}else if(parameter.getOpration()==24){
-						ans=tempans*2;
+						ans=tempans*2.0;
 					}
 					System.out.println(j+": "+ans);
+					//回调存数据;
+					Method m = (Method) myclass.getMethod("set"+MessageParsing.captureName(parameter.getName()),double.class);
+					m.invoke(frame, ans);
+					//指针偏移;
 					pointer+=parameter.getLength();
 				}
 				//轨道解算;
@@ -220,6 +277,10 @@ public class MessageParsing {
 					int ans=DataOpration.byteToint(temp);
 					System.out.println(j+": "+ans);
 					
+					//回调存数据;
+					Method m = (Method) myclass.getMethod("set"+MessageParsing.captureName(parameter.getName()),int.class);
+					m.invoke(frame, ans);
+					//指针偏移;
 					pointer+=parameter.getLength();
 				}
 				//模拟太敏;
@@ -227,6 +288,10 @@ public class MessageParsing {
 					double ans=DataOpration.Table16Opration(filebt[pointer]);
 					System.out.println(j+": "+ans);
 					
+					//回调存数据;
+					Method m = (Method) myclass.getMethod("set"+MessageParsing.captureName(parameter.getName()),double.class);
+					m.invoke(frame, ans);
+					//指针偏移;
 					pointer+=parameter.getLength();
 				}
 				//GPS输出;
@@ -245,15 +310,22 @@ public class MessageParsing {
 					}
 					System.out.println(j+": "+ans);
 					
+					//回调存数据;
+					Method m = (Method) myclass.getMethod("set"+MessageParsing.captureName(parameter.getName()),double.class);
+					m.invoke(frame, ans);
+					//指针偏移;
 					pointer+=parameter.getLength();
 				}
 				//转short;
 				else if(parameter.getOpration()==28){
 					byte[] temp=new byte[1];
 					temp[0]=filebt[pointer];
-					int ans=DataOpration.byteToint(temp);
+					short ans=(short)DataOpration.byteToint(temp);
 					System.out.println(j+": "+ans);
-					
+					//回调存数据;
+					Method m = (Method) myclass.getMethod("set"+MessageParsing.captureName(parameter.getName()),short.class);
+					m.invoke(frame, ans);
+					//指针偏移;
 					pointer+=parameter.getLength();
 				}
 				//电源;
@@ -283,6 +355,10 @@ public class MessageParsing {
 					}
 					System.out.println(j+": "+ans);
 					
+					//回调存数据;
+					Method m = (Method) myclass.getMethod("set"+MessageParsing.captureName(parameter.getName()),double.class);
+					m.invoke(frame, ans);
+					//指针偏移;
 					pointer+=parameter.getLength();
 				}
 				//星上计算机;
@@ -297,6 +373,10 @@ public class MessageParsing {
 					}
 					System.out.println(j+": "+ans);
 					
+					//回调存数据;
+					Method m = (Method) myclass.getMethod("set"+MessageParsing.captureName(parameter.getName()),double.class);
+					m.invoke(frame, ans);
+					//指针偏移;
 					pointer+=parameter.getLength();
 				}
 				//空置率计算结果;
@@ -314,6 +394,10 @@ public class MessageParsing {
 					}
 					System.out.println(j+": "+ans);
 					
+					//回调存数据;
+					Method m = (Method) myclass.getMethod("set"+MessageParsing.captureName(parameter.getName()),double.class);
+					m.invoke(frame, ans);
+					//指针偏移;
 					pointer+=parameter.getLength();
 				}
 				//温度;
@@ -324,10 +408,17 @@ public class MessageParsing {
 					double ans=DataOpration.Table17Opration(temp);
 					System.out.println(j+": "+ans);
 					
+					//回调存数据;
+					Method m = (Method) myclass.getMethod("set"+MessageParsing.captureName(parameter.getName()),double.class);
+					m.invoke(frame, ans);
+					//指针偏移;
 					pointer+=parameter.getLength();
 				}
 			}
+			
+			MyHibernate.sqlSaveOrUpdate(frame);
 		}
-
+		
+		System.out.println("12121sdfnsdkjfhdsjkfdsjkfhsdjkfhsjdkfhjdkshfjdkshfjksdhfjksdhfkjdshr");
 	}
 }

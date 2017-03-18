@@ -5,7 +5,7 @@ public class FrameData {
 	private int counter;
 	
 	//星上时间;
-	private long ysj023;//秒;
+	private int ysj023;//秒;
 	private int ysj024;//毫秒;
 	
 	//控制模式信息;
@@ -110,9 +110,9 @@ public class FrameData {
 	private double ycl047;
 	private double ycl048;
 	private double ycl049;
-	private int ycl050;
-	private int ycl051;
-	private int ycl052;
+	private double ycl050;
+	private double ycl051;
+	private double ycl052;
 	
 	//轨道解算;
 	private int ygd040;
@@ -133,8 +133,8 @@ public class FrameData {
 	private double ytm015;
 	
 	//GPS输出;
-	private long ygp024;
-	private long ygp025;
+	private int ygp024;
+	private int ygp025;
 	private double ygp026;
 	private double ygp027;
 	private double ygp028;
@@ -239,12 +239,12 @@ public class FrameData {
 	private int ydz104;
 	
 	//延时时间;
-	private long ysj001;
-	private long ysj002;
-	private long ysj003;
-	private long ysj004;
-	private long ysj005;
-	private long ysj006;
+	private int ysj001;
+	private int ysj002;
+	private int ysj003;
+	private int ysj004;
+	private int ysj005;
+	private int ysj006;
 	
 	//温度遥测;
 	private double ywd105;
@@ -280,10 +280,10 @@ public class FrameData {
 	public void setCounter(int counter) {
 		this.counter = counter;
 	}
-	public long getYsj023() {
+	public int getYsj023() {
 		return ysj023;
 	}
-	public void setYsj023(long ysj023) {
+	public void setYsj023(int ysj023) {
 		this.ysj023 = ysj023;
 	}
 	public int getYsj024() {
@@ -814,22 +814,22 @@ public class FrameData {
 	public void setYcl049(double ycl049) {
 		this.ycl049 = ycl049;
 	}
-	public int getYcl050() {
+	public double getYcl050() {
 		return ycl050;
 	}
-	public void setYcl050(int ycl050) {
+	public void setYcl050(double ycl050) {
 		this.ycl050 = ycl050;
 	}
-	public int getYcl051() {
+	public double getYcl051() {
 		return ycl051;
 	}
-	public void setYcl051(int ycl051) {
+	public void setYcl051(double ycl051) {
 		this.ycl051 = ycl051;
 	}
-	public int getYcl052() {
+	public double getYcl052() {
 		return ycl052;
 	}
-	public void setYcl052(int ycl052) {
+	public void setYcl052(double ycl052) {
 		this.ycl052 = ycl052;
 	}
 	public int getYgd040() {
@@ -916,16 +916,16 @@ public class FrameData {
 	public void setYtm015(double ytm015) {
 		this.ytm015 = ytm015;
 	}
-	public long getYgp024() {
+	public int getYgp024() {
 		return ygp024;
 	}
-	public void setYgp024(long ygp024) {
+	public void setYgp024(int ygp024) {
 		this.ygp024 = ygp024;
 	}
-	public long getYgp025() {
+	public int getYgp025() {
 		return ygp025;
 	}
-	public void setYgp025(long ygp025) {
+	public void setYgp025(int ygp025) {
 		this.ygp025 = ygp025;
 	}
 	public double getYgp026() {
@@ -1420,40 +1420,40 @@ public class FrameData {
 	public void setYdz104(int ydz104) {
 		this.ydz104 = ydz104;
 	}
-	public long getYsj001() {
+	public int getYsj001() {
 		return ysj001;
 	}
-	public void setYsj001(long ysj001) {
+	public void setYsj001(int ysj001) {
 		this.ysj001 = ysj001;
 	}
-	public long getYsj002() {
+	public int getYsj002() {
 		return ysj002;
 	}
-	public void setYsj002(long ysj002) {
+	public void setYsj002(int ysj002) {
 		this.ysj002 = ysj002;
 	}
-	public long getYsj003() {
+	public int getYsj003() {
 		return ysj003;
 	}
-	public void setYsj003(long ysj003) {
+	public void setYsj003(int ysj003) {
 		this.ysj003 = ysj003;
 	}
-	public long getYsj004() {
+	public int getYsj004() {
 		return ysj004;
 	}
-	public void setYsj004(long ysj004) {
+	public void setYsj004(int ysj004) {
 		this.ysj004 = ysj004;
 	}
-	public long getYsj005() {
+	public int getYsj005() {
 		return ysj005;
 	}
-	public void setYsj005(long ysj005) {
+	public void setYsj005(int ysj005) {
 		this.ysj005 = ysj005;
 	}
-	public long getYsj006() {
+	public int getYsj006() {
 		return ysj006;
 	}
-	public void setYsj006(long ysj006) {
+	public void setYsj006(int ysj006) {
 		this.ysj006 = ysj006;
 	}
 	public double getYwd105() {

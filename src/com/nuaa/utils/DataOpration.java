@@ -1,8 +1,13 @@
 package com.nuaa.utils;
 
+import java.lang.reflect.Method;
+
+import com.nuaa.entiy.FrameData;
+import com.nuaa.entiy.MyHibernate;
+
 public class DataOpration {
 	// 表14操作;
-	public static long Table14Opration(byte[] filebt, int pointer, int length) {
+	public static int Table14Opration(byte[] filebt, int pointer, int length) {
 		byte[] temp = new byte[length];
 		for (int m = 0; m < length; m++) {
 			temp[m] = filebt[pointer + length-1-m];
