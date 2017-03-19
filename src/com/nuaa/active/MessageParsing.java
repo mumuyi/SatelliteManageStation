@@ -413,8 +413,8 @@ public class MessageParsing {
 					pointer+=parameter.getLength();
 				}
 			}
-			
-			MyHibernate.sqlSaveOrUpdate(frame);
+			//先把这里注释掉,不存数据库,以免误操作,存入重复数据;
+			//MyHibernate.sqlSaveOrUpdate(frame);
 		}
 		
 		System.out.println("Message Parsing End");

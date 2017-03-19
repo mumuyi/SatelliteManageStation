@@ -61,7 +61,7 @@
 					$.jgrid.defaults.styleUI="Bootstrap";
 					$("#table_list").jqGrid(
 					{
-						url:'${ctx}/MainContentController/getData', 
+						url:'${ctx}/MainContentController/getData/1-0', 
 						datatype : "json",
 						postData:{
 							    page : $('#table_list').getGridParam('page'), // current page
@@ -73,17 +73,17 @@
 						width:'90%',
 						autowidth:true,
 						shrinkToFit:true,
-						rowNum:20,
+						rowNum:10,
 						rowList:[10,20,30],
-						colNames:["序号","日期","客户","金额","运费","总额","备注"],
+						colNames:["星上时间 秒","星上时间 毫秒","控制模式","磁强计A正12V","磁强计A负12V","磁强计B正12V","磁强计B负12V"],
 						colModel:[
-									{name:"id",index:"id",editable:true,width:60,search:true},
-									{name:"invdate",index:"invdate",editable:true,width:90,sorttype:"date",formatter:"date",align:"center"},
-									{name:"name",index:"name",editable:true,width:100,align:"center"},
-									{name:"amount",index:"amount",editable:true,width:80,align:"center",sorttype:"float",formatter:"number"},
-									{name:"tax",index:"tax",editable:true,width:80,align:"center",sorttype:"float"},
-									{name:"total",index:"total",editable:true,width:80,align:"center",sorttype:"float"},
-									{name:"note",index:"note",editable:true,width:100,sortable:false,align:"center"}
+									{name:"ysj023",index:"ysj023",editable:true,width:60,search:true},
+									{name:"ysj024",index:"ysj024",editable:true,width:90,sorttype:"date",align:"center"},
+									{name:"ykm001",index:"ykm001",editable:true,width:100,align:"center"},
+									{name:"ydp130",index:"ydp130",editable:true,width:80,align:"center",sorttype:"float"},
+									{name:"ydp131",index:"ydp131",editable:true,width:80,align:"center",sorttype:"float"},
+									{name:"ydp132",index:"ydp132",editable:true,width:80,align:"center",sorttype:"float"},
+									{name:"ydp133",index:"ydp133",editable:true,width:100,sortable:false,align:"center"}
 						],
 						
 						pager:"#pager_list",
