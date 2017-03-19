@@ -130,4 +130,71 @@ public class MyHibernate {
 		session.close();
 		sf.close();
 	} 
+	
+	public static List<?> sqlQueryWithCondition(String com,String condition) {
+		
+		Configuration cfg = new Configuration();
+		// cfg.configure();可带参数指定配置文件.返回值还是一个configuration 但是其拥有了配置选项;
+		SessionFactory sf = cfg.configure().buildSessionFactory();
+		// 打开session;
+		Session session = sf.openSession();
+
+		// 开始事务;
+		session.beginTransaction();
+		// 参数是一个字符串,是HQL的查询语句.注意此时的的UserU为大写,为对象的,而不是表的.
+		Query query = session.createQuery(com);
+		
+        //设置查询条件;
+        query.setString(0,condition);  
+        
+		// 使用List方法.
+		List<?> userList = query.list();
+		/*
+		// 迭代器去迭代.
+		for (Iterator<?> iter = userList.iterator(); iter.hasNext();) {
+			User user = (User) iter.next();
+			System.out.println("id=" + user.getUserId() + "name=" + user.getUserName());
+		}
+		*/
+		// 获取事务并提交;
+		session.getTransaction().commit();
+
+		session.close();
+		sf.close();
+		return userList;
+	}
+	
+	public static List<?> sqlQueryWithCondition(String com,String condition,String condition1) {
+		
+		Configuration cfg = new Configuration();
+		// cfg.configure();可带参数指定配置文件.返回值还是一个configuration 但是其拥有了配置选项;
+		SessionFactory sf = cfg.configure().buildSessionFactory();
+		// 打开session;
+		Session session = sf.openSession();
+
+		// 开始事务;
+		session.beginTransaction();
+		// 参数是一个字符串,是HQL的查询语句.注意此时的的UserU为大写,为对象的,而不是表的.
+		Query query = session.createQuery(com);
+		
+        //设置查询条件;
+        query.setString(0,condition);
+        query.setString(1,condition1);  
+        
+		// 使用List方法.
+		List<?> userList = query.list();
+		/*
+		// 迭代器去迭代.
+		for (Iterator<?> iter = userList.iterator(); iter.hasNext();) {
+			User user = (User) iter.next();
+			System.out.println("id=" + user.getUserId() + "name=" + user.getUserName());
+		}
+		*/
+		// 获取事务并提交;
+		session.getTransaction().commit();
+
+		session.close();
+		sf.close();
+		return userList;
+	}
 }

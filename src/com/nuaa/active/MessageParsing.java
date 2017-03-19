@@ -417,6 +417,6 @@ public class MessageParsing {
 			MyHibernate.sqlSaveOrUpdate(frame);
 		}
 		
-		System.out.println("12121sdfnsdkjfhdsjkfdsjkfhsdjkfhsjdkfhjdkshfjdkshfjksdhfjksdhfkjdshr");
+		System.out.println("Message Parsing End");
 	}
 }
