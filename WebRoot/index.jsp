@@ -81,51 +81,46 @@
 				</a>
 			</li>
 
-			<li class="sub-menu"><a href="javascript:;"><i class="fa fa-desktop"></i><span>UI Elements</span></a>
+			<li class="sub-menu"><a href="javascript:;"><i class="fa fa-desktop"></i><span>数据综合系统遥测信息</span></a>
 				<ul class="sub">
-					<li onclick="changeSrc('${ctx}/MainContentController/1')"><a>表格</a></li>
-					<li onclick="changeSrc('${ctx}/MainContentController/2')"><a>折线图1</a></li>
-					<li onclick="changeSrc('${ctx}/MainContentController/3')"><a>折线图2</a></li>
+					<li onclick="changeSrc('${ctx}/MainContentController/5-1')"><a>CPU相关参数</a></li>
+					<li onclick="changeSrc('${ctx}/MainContentController/5-2')"><a>图像信息</a></li>
+					<li onclick="changeSrc('${ctx}/MainContentController/5-3')"><a>时间信息</a></li>
+					<li onclick="changeSrc('${ctx}/MainContentController/5-4')"><a>计数信息</a></li>
+					<li onclick="changeSrc('${ctx}/MainContentController/5-5')"><a>开关量</a></li>
 				</ul>
 			</li>
-
-			<li class="sub-menu"><a href="javascript:;"> <i
-					class="fa fa-cogs"></i> <span>Components</span>
-			</a>
+			<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-cogs"></i> <span>姿控原始测量遥测信息</span></a>
 				<ul class="sub">
-					<li><a href="calendar.html">Calendar</a></li>
-					<li><a href="gallery.html">Gallery</a></li>
-					<li><a href="todo_list.html">Todo List</a></li>
-				</ul></li>
-			<li class="sub-menu"><a href="javascript:;"> <i
-					class="fa fa-book"></i> <span>Extra Pages</span>
-			</a>
+					<li onclick="changeSrc('${ctx}/MainContentController/6-1')"><a>磁强计输出</a></li>
+					<li onclick="changeSrc('${ctx}/MainContentController/6-2')"><a>模拟太敏输出</a></li>
+					<li onclick="changeSrc('${ctx}/MainContentController/6-3')"><a>位置及速度信息</a></li>
+					<li onclick="changeSrc('${ctx}/MainContentController/6-4')"><a>功能遥测参数</a></li>
+					<li onclick="changeSrc('${ctx}/MainContentController/6-5')"><a>直显信息</a></li>
+				</ul>
+			</li>
+			<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-book"></i> <span>姿控功能遥测信息</span></a>
 				<ul class="sub">
-					<li><a href="blank.html">Blank Page</a></li>
-					<li><a href="login.html">Login</a></li>
-					<li><a href="lock_screen.html">Lock Screen</a></li>
-				</ul></li>
-			<li class="sub-menu"><a href="javascript:;"> <i
-					class="fa fa-tasks"></i> <span>Forms</span>
-			</a>
+					<li onclick="changeSrc('${ctx}/MainContentController/7-1')"><a>轨道解算</a></li>
+					<li onclick="changeSrc('${ctx}/MainContentController/7-2')"><a>力矩信息</a></li>
+					<li onclick="changeSrc('${ctx}/MainContentController/7-3')"><a>俯仰信息</a></li>
+					<li onclick="changeSrc('${ctx}/MainContentController/7-4')"><a>标志及统计信息</a></li>
+				</ul>
+			</li>
+			<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-tasks"></i> <span>电源系统遥测信息</span></a>
 				<ul class="sub">
-					<li><a href="form_component.html">Form Components</a></li>
-				</ul></li>
-			<li class="sub-menu"><a href="javascript:;"> <i
-					class="fa fa-th"></i> <span>Data Tables</span>
-			</a>
+					<li onclick="changeSrc('${ctx}/MainContentController/8-1')"><a>电流电压信息</a></li>
+					<li onclick="changeSrc('${ctx}/MainContentController/8-2')"><a>开关量</a></li>
+					<li onclick="changeSrc('${ctx}/MainContentController/8-3')"><a>电池温度信息</a></li>
+				</ul>
+			</li>
+			<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-th"></i> <span>通信系统遥测信息</span></a>
 				<ul class="sub">
-					<li><a href="basic_table.html">Basic Table</a></li>
-					<li><a href="responsive_table.html">Responsive Table</a></li>
-				</ul></li>
-			<li class="sub-menu"><a href="javascript:;"> <i
-					class=" fa fa-bar-chart-o"></i> <span>Charts</span>
-			</a>
-				<ul class="sub">
-					<li><a href="morris.html">Morris</a></li>
-					<li><a href="chartjs.html">Chartjs</a></li>
-				</ul></li>
-
+					<li onclick="changeSrc('${ctx}/MainContentController/9-1')"><a>通信机功率场强信息</a></li>
+					<li onclick="changeSrc('${ctx}/MainContentController/9-2')"><a>通信机计数信息</a></li>
+					<li onclick="changeSrc('${ctx}/MainContentController/9-3')"><a>开关量</a></li>
+				</ul>
+			</li>
 		</ul>
 		<!-- sidebar menu end-->
 	</div>

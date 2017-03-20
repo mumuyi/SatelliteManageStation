@@ -10,7 +10,61 @@ import net.sf.json.JSONObject;
 
 public class MainContentController extends Controller {
 	public void index() {
+		String Sord=this.getPara(0);
+		String Sord1=this.getPara(1);
+		if(Sord.equals("5")){
+			if(Sord1.equals("1")){
+				this.render("/hello.jsp");
+			}else if(Sord1.equals("2")){
+				this.render("/hello.jsp");
+			}else if(Sord1.equals("3")){
+				this.render("/hello.jsp");
+			}else if(Sord1.equals("4")){
+				this.render("/hello.jsp");
+			}else if(Sord1.equals("5")){
+				this.render("/hello.jsp");
+			}
+		}else if(Sord.equals("6")){
+			if(Sord1.equals("1")){
+				this.render("/hello.jsp");
+			}else if(Sord1.equals("2")){
+				this.render("/hello.jsp");
+			}else if(Sord1.equals("3")){
+				this.render("/hello.jsp");
+			}else if(Sord1.equals("4")){
+				this.render("/hello.jsp");
+			}else if(Sord1.equals("5")){
+				this.render("/hello.jsp");
+			}
+		}else if(Sord.equals("7")){
+			if(Sord1.equals("1")){
+				this.render("/hello.jsp");
+			}else if(Sord1.equals("2")){
+				this.render("/hello.jsp");
+			}else if(Sord1.equals("3")){
+				this.render("/hello.jsp");
+			}else if(Sord1.equals("4")){
+				this.render("/hello.jsp");
+			}
+		}else if(Sord.equals("8")){
+			if(Sord1.equals("1")){
+				this.render("/hello.jsp");
+			}else if(Sord1.equals("2")){
+				this.render("/hello.jsp");
+			}else if(Sord1.equals("3")){
+				this.render("/hello.jsp");
+			}
+		}else if(Sord.equals("9")){
+			if(Sord1.equals("1")){
+				this.render("/hello.jsp");
+			}else if(Sord1.equals("2")){
+				this.render("/hello.jsp");
+			}else if(Sord1.equals("3")){
+				this.render("/hello.jsp");
+			}
+		}
 		
+		/*
 		if(this.getPara(0).equals("1")){
 			this.render("/maincontent.jsp");			
 		}else if(this.getPara(0).equals("2")){
@@ -18,6 +72,7 @@ public class MainContentController extends Controller {
 		}else if(this.getPara(0).equals("3")){
 			this.render("/maincontent3.jsp");
 		}
+		*/
 	}
 	
 	public void getData() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
