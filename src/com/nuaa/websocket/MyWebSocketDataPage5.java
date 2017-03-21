@@ -3,7 +3,6 @@ package com.nuaa.websocket;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -23,13 +22,13 @@ import com.nuaa.test.TestHibernate;
 
 
 //该注解用来指定一个URI，客户端可以通过这个URI来连接到WebSocket。类似Servlet的注解mapping。无需在web.xml中配置。
-@ServerEndpoint("/chat51.ws")
-public class MyWebSocket51 {
+@ServerEndpoint("/chat5.ws")
+public class MyWebSocketDataPage5 {
 	// 静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
 	private static int onlineCount = 0;
 
 	// concurrent包的线程安全Set，用来存放每个客户端对应的MyWebSocket对象。若要实现服务端与单一客户端通信的话，可以使用Map来存放，其中Key可以为用户标识
-	private static CopyOnWriteArraySet<MyWebSocket51> webSocketSet = new CopyOnWriteArraySet<MyWebSocket51>();
+	private static CopyOnWriteArraySet<MyWebSocketDataPage5> webSocketSet = new CopyOnWriteArraySet<MyWebSocketDataPage5>();
 
 	// 与某个客户端的连接会话，需要通过它来给客户端发送数据
 	private Session session;
@@ -54,7 +53,7 @@ public class MyWebSocket51 {
 		//第一次,初始化数据;
 		if(flag==0){
 			framelist = MyHibernate.sqlQuery(0, 400, "from FrameData");
-			list = MyHibernate.sqlQueryWithCondition("from Parameter where Sort=? and Sort1=?", "5" ,"1");
+			list = MyHibernate.sqlQueryWithCondition("from Parameter where Sort=?", "5");
 			flag=1;
 		}
 
@@ -123,11 +122,11 @@ public class MyWebSocket51 {
 	}
 
 	public static synchronized void addOnlineCount() {
-		MyWebSocket51.onlineCount++;
+		MyWebSocketDataPage5.onlineCount++;
 	}
 
 	public static synchronized void subOnlineCount() {
-		MyWebSocket51.onlineCount--;
+		MyWebSocketDataPage5.onlineCount--;
 	}
 
 	
@@ -164,7 +163,7 @@ public class MyWebSocket51 {
 	        for (int i = 0; i < 100; i++) {
 	            String data="";
 				try {
-					data += MyWebSocket51.prepareData(i);
+					data += MyWebSocketDataPage5.prepareData(i);
 				} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
 						| InvocationTargetException e2) {
 					// TODO Auto-generated catch block
@@ -179,7 +178,7 @@ public class MyWebSocket51 {
 	            
 	            
 	            try {
-					Thread.sleep(2000);
+					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

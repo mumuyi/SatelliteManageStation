@@ -18,7 +18,7 @@ public class MainContentController extends Controller {
 			}else if(Sord1.equals("2")){
 				this.render("/datapage52.jsp");
 			}else if(Sord1.equals("3")){
-				this.render("/hello.jsp");
+				this.render("/datapage53.jsp");
 			}else if(Sord1.equals("4")){
 				this.render("/hello.jsp");
 			}else if(Sord1.equals("5")){

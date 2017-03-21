@@ -5,7 +5,7 @@
 	var num=0;
 	//判断当前浏览器是否支持WebSocket
 	if ('WebSocket' in window) {
-		websocket = new WebSocket("ws://localhost:8080/SatelliteManageStation/chat51.ws");
+		websocket = new WebSocket("ws://localhost:8080/SatelliteManageStation/chat5.ws");
 		
 	} else {
 		alert('Not support websocket');
@@ -26,41 +26,31 @@
 		//解析获取数据;
 		var jsonDate = (event.data);
         var jsonObj = JSON.parse( jsonDate );  // JSON.parse(); 方法;
-		var v1=jsonObj[0].yjs087;
-		v1=v1-0.1;
-		var v2=jsonObj[0].yjs088;
-		v2=v2-0.1;
-		var v3=jsonObj[0].yjs089;
-		v3=v3-0.1;
-		var v4=jsonObj[0].yjs090;
-		v4=v4-0.1;
-		var v5=jsonObj[0].yjs091;
-		v5=v5-0.1;
-		var v6=jsonObj[0].yjs092;
-		v6=v6-0.1;
+		var v1=jsonObj[0].ydz093;
+		var v2=jsonObj[0].ydz094;
+		var v3=jsonObj[0].ydz095;
+		var v4=jsonObj[0].ydz096;
+		var v5=jsonObj[0].ydz097;
+		var v6=jsonObj[0].ydz098;
+		var v7=jsonObj[0].ydz099;
+		var v8=jsonObj[0].ydz100;
+		var v9=jsonObj[0].ydz101;
+		var v10=jsonObj[0].ydz102;
+		var v11=jsonObj[0].ydz103;
+		var v12=jsonObj[0].ydz104;
 		//添加数据;
-		var chart = $('#yjs087').highcharts();
-		chart.series[0].addPoint([ (new Date()).getTime(), v1+0.1 ]);
-		var chart2 = $('#yjs088').highcharts();
-		chart2.series[0].addPoint([ (new Date()).getTime(), v2+0.1 ]);
-		var chart3 = $('#yjs089').highcharts();
-		chart3.series[0].addPoint([ (new Date()).getTime(), v3+0.1 ]);
-		var chart4 = $('#yjs090').highcharts();
-		chart4.series[0].addPoint([ (new Date()).getTime(), v4+0.1 ]);
-		var chart5 = $('#yjs091').highcharts();
-		chart5.series[0].addPoint([ (new Date()).getTime(), v5+0.1 ]);
-		var chart6 = $('#yjs092').highcharts();
-		chart6.series[0].addPoint([ (new Date()).getTime(), v6+0.1 ]);
-		//手动删除第一个点;
-		num=num+1;
-		if(num>=10){
-			chart.series[0].removePoint(0,true,true);
-			chart2.series[0].removePoint(0,true,true);
-			chart3.series[0].removePoint(0,true,true);
-			chart4.series[0].removePoint(0,true,true);
-			chart5.series[0].removePoint(0,true,true);
-			chart6.series[0].removePoint(0,true,true);
-		}
+		document.getElementById("ydz093").innerHTML=v1;
+		document.getElementById("ydz094").innerHTML=v2;
+		document.getElementById("ydz095").innerHTML=v3;
+		document.getElementById("ydz096").innerHTML=v4;
+		document.getElementById("ydz097").innerHTML=v5;
+		document.getElementById("ydz098").innerHTML=v6;
+		document.getElementById("ydz099").innerHTML=v7;
+		document.getElementById("ydz100").innerHTML=v8;
+		document.getElementById("ydz101").innerHTML=v9;
+		document.getElementById("ydz102").innerHTML=v10;
+		document.getElementById("ydz103").innerHTML=v11;
+		document.getElementById("ydz104").innerHTML=v12;
 	};
 	
 	//连接关闭的回调方法

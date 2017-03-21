@@ -44,5 +44,5 @@
   		  </tr>
 		</table>
 	</body>
-	<script src="${ctx}/js/websocket_highcharts51.js"></script>
+	<script src="${ctx}/js/websocket_datapage51.js"></script>
 </html>
