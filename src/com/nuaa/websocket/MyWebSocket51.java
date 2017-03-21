@@ -179,7 +179,7 @@ public class MyWebSocket51 {
 	            
 	            
 	            try {
-					Thread.sleep(1000);
+					Thread.sleep(2000);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -197,7 +197,7 @@ public class MyWebSocket51 {
 			Parameter parameter = (Parameter) list.get(j);
 			ans += "\""+parameter.getName()+"\":"+"\"";
 			Method m = (Method) myclass.getMethod("get" + TestHibernate.captureName(parameter.getName()));
-			ans += "" + (m.invoke(frame));
+			ans +="" + (m.invoke(frame));
 
 			if (j == list.size() - 1) {
 				ans += "\"";

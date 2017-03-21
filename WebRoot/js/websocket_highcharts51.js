@@ -30,16 +30,36 @@
 		v1=v1-0.1;
 		var v2=jsonObj[0].yjs088;
 		v2=v2-0.1;
+		var v3=jsonObj[0].yjs089;
+		v3=v3-0.1;
+		var v4=jsonObj[0].yjs090;
+		v4=v4-0.1;
+		var v5=jsonObj[0].yjs091;
+		v5=v5-0.1;
+		var v6=jsonObj[0].yjs092;
+		v6=v6-0.1;
 		//添加数据;
 		var chart = $('#yjs087').highcharts();
 		chart.series[0].addPoint([ (new Date()).getTime(), v1+0.1 ]);
 		var chart2 = $('#yjs088').highcharts();
 		chart2.series[0].addPoint([ (new Date()).getTime(), v2+0.1 ]);
+		var chart3 = $('#yjs089').highcharts();
+		chart3.series[0].addPoint([ (new Date()).getTime(), v3+0.1 ]);
+		var chart4 = $('#yjs090').highcharts();
+		chart4.series[0].addPoint([ (new Date()).getTime(), v4+0.1 ]);
+		var chart5 = $('#yjs091').highcharts();
+		chart5.series[0].addPoint([ (new Date()).getTime(), v5+0.1 ]);
+		var chart6 = $('#yjs092').highcharts();
+		chart6.series[0].addPoint([ (new Date()).getTime(), v6+0.1 ]);
 		//手动删除第一个点;
 		num=num+1;
 		if(num>=10){
 			chart.series[0].removePoint(0,true,true);
 			chart2.series[0].removePoint(0,true,true);
+			chart3.series[0].removePoint(0,true,true);
+			chart4.series[0].removePoint(0,true,true);
+			chart5.series[0].removePoint(0,true,true);
+			chart6.series[0].removePoint(0,true,true);
 		}
 	};
 	
