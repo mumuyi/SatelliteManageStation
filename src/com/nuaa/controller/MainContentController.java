@@ -14,7 +14,7 @@ public class MainContentController extends Controller {
 		String Sord1=this.getPara(1);
 		if(Sord.equals("5")){
 			if(Sord1.equals("1")){
-				this.render("/hello.jsp");
+				this.render("/datapage51.jsp");
 			}else if(Sord1.equals("2")){
 				this.render("/hello.jsp");
 			}else if(Sord1.equals("3")){

@@ -106,10 +106,10 @@ $(function () {
                 }
             },
             legend: {
-                enabled: true
+                enabled: false
             },
             exporting: {
-                enabled: true
+                enabled: false
             },
             series: [{
                 name: 'Random data',
