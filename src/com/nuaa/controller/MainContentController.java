@@ -20,13 +20,13 @@ public class MainContentController extends Controller {
 			}else if(Sord1.equals("3")){
 				this.render("/datapage53.jsp");
 			}else if(Sord1.equals("4")){
-				this.render("/hello.jsp");
+				this.render("/datapage54.jsp");
 			}else if(Sord1.equals("5")){
 				this.render("/hello.jsp");
 			}
 		}else if(Sord.equals("6")){
 			if(Sord1.equals("1")){
-				this.render("/hello.jsp");
+				this.render("/datapage61.jsp");
 			}else if(Sord1.equals("2")){
 				this.render("/hello.jsp");
 			}else if(Sord1.equals("3")){

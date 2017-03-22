@@ -88,5 +88,5 @@
 			<tr height=150></tr>
 		</table>
 	</body>
-
+	<script src="${ctx}/js/websocket_datapage53.js"></script>
 </html>

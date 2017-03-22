@@ -34,14 +34,17 @@
     		<th><div id="yjs087" style="height: 300px; min-width: 600px ; max-width: 200px; margin:0 auto;"></div></th>
     		<th><div id="yjs088" style="height: 300px; min-width: 600px ; max-width: 200px; margin:0 auto;"></div></th>
   		  </tr>
+  		  <tr height=30></tr>
   		  <tr>
     		<th><div id="yjs089" style="height: 300px; min-width: 600px ; max-width: 200px; margin:0 auto;"></div></th>
     		<th><div id="yjs090" style="height: 300px; min-width: 600px ; max-width: 200px; margin:0 auto;"></div></th>
   		  </tr>
+  		  <tr height=30></tr>
   		  <tr>
     		<th><div id="yjs091" style="height: 300px; min-width: 600px ; max-width: 200px; margin:0 auto;"></div></th>
     		<th><div id="yjs092" style="height: 300px; min-width: 600px ; max-width: 200px; margin:0 auto;"></div></th>
   		  </tr>
+  		  <tr height=100></tr>
 		</table>
 	</body>
 	<script src="${ctx}/js/websocket_datapage51.js"></script>
