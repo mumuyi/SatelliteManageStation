@@ -35,14 +35,14 @@
 		var v7=jsonObj[0].yty508;
 		var v8=jsonObj[0].yty509;
 		//添加数据;
-		document.getElementById("ytx075").innerHTML=v1;
-		document.getElementById("ytx076").innerHTML=v2;
-		document.getElementById("ytx077").innerHTML=v3;
-		document.getElementById("ytx078").innerHTML=v4;
-		document.getElementById("yty506").innerHTML=v5;
-		document.getElementById("yty507").innerHTML=v6;
-		document.getElementById("yty508").innerHTML=v7;
-		document.getElementById("yty509").innerHTML=v8;
+		document.getElementById("ytx075").innerHTML="通信机收到指令计数<br><br>"+v1;
+		document.getElementById("ytx076").innerHTML="通信机收到注数计数<br><br>"+v2;
+		document.getElementById("ytx077").innerHTML="应答机收到指令计数<br><br>"+v3;
+		document.getElementById("ytx078").innerHTML="应答机收到注数计数<br><br>"+v4;
+		document.getElementById("yty506").innerHTML="通信机送出指令计数<br><br>"+v5;
+		document.getElementById("yty507").innerHTML="通信机送出注数计数<br><br>"+v6;
+		document.getElementById("yty508").innerHTML="应答机送出指令计数<br><br>"+v7;
+		document.getElementById("yty509").innerHTML="应答机送出注数计数<br><br>"+v8;
 	};
 	
 	//连接关闭的回调方法

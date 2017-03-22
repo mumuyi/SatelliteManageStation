@@ -40,19 +40,19 @@
 		var v12=jsonObj[0].ykz502;
 		var v13=jsonObj[0].ykz503;
 		//添加数据;
-		document.getElementById("ykz063").innerHTML=v1;
-		document.getElementById("ykz060").innerHTML=v2;
-		document.getElementById("ykz064").innerHTML=v3;
-		document.getElementById("ykz061").innerHTML=v4;
-		document.getElementById("ykz065").innerHTML=v5;
-		document.getElementById("ykz062").innerHTML=v6;
-		document.getElementById("ykz066").innerHTML=v7;
-		document.getElementById("ykz067").innerHTML=v8;
-		document.getElementById("ykz068").innerHTML=v9;
-		document.getElementById("ykz069").innerHTML=v10;
-		document.getElementById("ykz501").innerHTML=v11;
-		document.getElementById("ykz502").innerHTML=v12;
-		document.getElementById("ykz503").innerHTML=v13;
+		document.getElementById("ykz063").innerHTML="阻尼标志<br><br>"+v1;
+		document.getElementById("ykz060").innerHTML="阻尼次数<br><br>"+v2;
+		document.getElementById("ykz064").innerHTML="俯仰滤波标志<br><br>"+v3;
+		document.getElementById("ykz061").innerHTML="滤波次数<br><br>"+v4;
+		document.getElementById("ykz065").innerHTML="俯仰控制标志<br><br>"+v5;
+		document.getElementById("ykz062").innerHTML="俯仰控制次数<br><br>"+v6;
+		document.getElementById("ykz066").innerHTML="三轴稳定标志<br><br>"+v7;
+		document.getElementById("ykz067").innerHTML="俯仰激动控制标志<br><br>"+v8;
+		document.getElementById("ykz068").innerHTML="隐身保持控制标志<br><br>"+v9;
+		document.getElementById("ykz069").innerHTML="隐身恢复控制标志<br><br>"+v10;
+		document.getElementById("ykz501").innerHTML="自主导航标志<br><br>"+v11;
+		document.getElementById("ykz502").innerHTML="自主导航接入标志<br><br>"+v12;
+		document.getElementById("ykz503").innerHTML="永久阻尼标志<br><br>"+v13;
 	};
 	
 	//连接关闭的回调方法

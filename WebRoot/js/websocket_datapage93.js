@@ -5,7 +5,7 @@
 	var num=0;
 	//判断当前浏览器是否支持WebSocket
 	if ('WebSocket' in window) {
-		websocket = new WebSocket("ws://localhost:8080/SatelliteManageStation/chat5.ws");
+		websocket = new WebSocket("ws://localhost:8080/SatelliteManageStation/chat9.ws");
 		
 	} else {
 		alert('Not support websocket');
@@ -26,31 +26,29 @@
 		//解析获取数据;
 		var jsonDate = (event.data);
         var jsonObj = JSON.parse( jsonDate );  // JSON.parse(); 方法;
-		var v1=jsonObj[0].ydz093;
-		var v2=jsonObj[0].ydz094;
-		var v3=jsonObj[0].ydz095;
-		var v4=jsonObj[0].ydz096;
-		var v5=jsonObj[0].ydz097;
-		var v6=jsonObj[0].ydz098;
-		var v7=jsonObj[0].ydz099;
-		var v8=jsonObj[0].ydz100;
-		var v9=jsonObj[0].ydz101;
-		var v10=jsonObj[0].ydz102;
-		var v11=jsonObj[0].ydz103;
-		var v12=jsonObj[0].ydz104;
+		var v1=jsonObj[0].ydp147;
+		var v2=jsonObj[0].ydp148;
+		var v3=jsonObj[0].ydp149;
+		var v4=jsonObj[0].ydp150;
+		var v5=jsonObj[0].ydp151;
+		var v6=jsonObj[0].ydp152;
+		var v7=jsonObj[0].ydp153;
+		var v8=jsonObj[0].ydp154;
+		var v9=jsonObj[0].ydp155;
+		var v10=jsonObj[0].ydp156;
+
+		
 		//添加数据;
-		document.getElementById("ydz093").innerHTML="图像片选(写)<br><br>"+v1;
-		document.getElementById("ydz094").innerHTML="图像行(写)<br><br>"+v2;
-		document.getElementById("ydz095").innerHTML="图像块(写)<br><br>"+v3;
-		document.getElementById("ydz096").innerHTML="图像片选(读)<br><br>"+v4;
-		document.getElementById("ydz097").innerHTML="图像行(读)<br><br>"+v5;
-		document.getElementById("ydz098").innerHTML="图像块(读)<br><br>"+v6;
-		document.getElementById("ydz099").innerHTML="遥测片选(写)<br><br>"+v7;
-		document.getElementById("ydz100").innerHTML="遥测行(写)<br><br>"+v8;
-		document.getElementById("ydz101").innerHTML="遥测块(写)<br><br>"+v9;
-		document.getElementById("ydz102").innerHTML="遥测片选(读)<br><br>"+v10;
-		document.getElementById("ydz103").innerHTML="遥测行(读)<br><br>"+v11;
-		document.getElementById("ydz104").innerHTML="遥测块(写)<br><br>"+v12;
+		document.getElementById("ydp147").innerHTML=("通信机接收机锁定<br><br>"+v1);
+		document.getElementById("ydp148").innerHTML=("应答机接收机锁定12V<br><br>"+v2);
+		document.getElementById("ydp149").innerHTML=("通信机发射机<br><br>"+v3);
+		document.getElementById("ydp150").innerHTML=("通信机发射功率<br><br>"+v4);
+		document.getElementById("ydp151").innerHTML=("应答机发射机<br><br>"+v5);
+		document.getElementById("ydp152").innerHTML=("应答机接收机<br><br>"+v6);
+		document.getElementById("ydp153").innerHTML=("应答机测距<br><br>"+v7);
+		document.getElementById("ydp154").innerHTML=("应答机相干<br><br>"+v8);
+		document.getElementById("ydp155").innerHTML=("通信机加电状态<br><br>"+v9);
+		document.getElementById("ydp156").innerHTML=("USB加电状态<br><br>"+v10);
 	};
 	
 	//连接关闭的回调方法

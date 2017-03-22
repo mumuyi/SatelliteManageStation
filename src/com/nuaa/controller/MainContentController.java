@@ -22,7 +22,7 @@ public class MainContentController extends Controller {
 			}else if(Sord1.equals("4")){
 				this.render("/datapage54.jsp");
 			}else if(Sord1.equals("5")){
-				this.render("/hello.jsp");
+				this.render("/datapage55.jsp");
 			}
 		}else if(Sord.equals("6")){
 			if(Sord1.equals("1")){
@@ -50,7 +50,7 @@ public class MainContentController extends Controller {
 			if(Sord1.equals("1")){
 				this.render("/datapage81.jsp");
 			}else if(Sord1.equals("2")){
-				this.render("/hello.jsp");
+				this.render("/datapage82.jsp");
 			}else if(Sord1.equals("3")){
 				this.render("/datapage83.jsp");
 			}
@@ -60,7 +60,7 @@ public class MainContentController extends Controller {
 			}else if(Sord1.equals("2")){
 				this.render("/datapage92.jsp");
 			}else if(Sord1.equals("3")){
-				this.render("/hello.jsp");
+				this.render("/datapage93.jsp");
 			}
 		}
 		

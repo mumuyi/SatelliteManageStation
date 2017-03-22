@@ -34,13 +34,13 @@
 		var v6=jsonObj[0].ygp046;
 		var v7=jsonObj[0].ygp047;
 		//添加数据;
-		document.getElementById("ygp024").innerHTML=v1;
-		document.getElementById("ygp025").innerHTML=v2;
-		document.getElementById("ygp032").innerHTML=v3;
-		document.getElementById("ygp033").innerHTML=v4;
-		document.getElementById("ygp034").innerHTML=v5;
-		document.getElementById("ygp046").innerHTML=v6;
-		document.getElementById("ygp047").innerHTML=v7;
+		document.getElementById("ygp024").innerHTML="UTC累计秒<br><br>"+v1;
+		document.getElementById("ygp025").innerHTML="UTC微秒<br><br>"+v2;
+		document.getElementById("ygp032").innerHTML="GDOP<br><br>"+v3;
+		document.getElementById("ygp033").innerHTML="工作状态<br><br>"+v4;
+		document.getElementById("ygp034").innerHTML="跳秒<br><br>"+v5;
+		document.getElementById("ygp046").innerHTML="最高信噪比<br><br>"+v6;
+		document.getElementById("ygp047").innerHTML="最低信噪比<br><br>"+v7;
 	};
 	
 	//连接关闭的回调方法
