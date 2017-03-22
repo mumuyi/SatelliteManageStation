@@ -48,17 +48,17 @@ public class MainContentController extends Controller {
 			}
 		}else if(Sord.equals("8")){
 			if(Sord1.equals("1")){
-				this.render("/hello.jsp");
+				this.render("/datapage81.jsp");
 			}else if(Sord1.equals("2")){
 				this.render("/hello.jsp");
 			}else if(Sord1.equals("3")){
-				this.render("/hello.jsp");
+				this.render("/datapage83.jsp");
 			}
 		}else if(Sord.equals("9")){
 			if(Sord1.equals("1")){
-				this.render("/hello.jsp");
+				this.render("/datapage91.jsp");
 			}else if(Sord1.equals("2")){
-				this.render("/hello.jsp");
+				this.render("/datapage92.jsp");
 			}else if(Sord1.equals("3")){
 				this.render("/hello.jsp");
 			}
