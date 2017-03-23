@@ -31,6 +31,17 @@
 			font-size:48;
 			color:#ffffff;
 		}
+		.font_bk1{
+			width:200px;
+			height:80px;
+			background-color:#1189cc;
+			border-radius:20px;//左上，右上，右下，坐下都是10px
+			margin:0 auto;
+			text-align:center;
+			padding-top:10px;
+			font-size:48;
+			color:#ffffff;
+		}
 	</style>
 
     
@@ -48,11 +59,11 @@
 
 			<tr height=100></tr>
 			<tr>
-				<th><div  class="font_bk" id="ydp135">模拟太敏负12V<br>Value</div></th>
-				<th><div  class="font_bk" id="ydp136">陀螺正12V<br>Value</div></th>
-				<th><div  class="font_bk" id="ydp137">陀螺负12V<br>Value</div></th>
-				<th><div  class="font_bk" id="ydp138">GPS接收机<br>Value</div></th>
-				<th><div  class="font_bk" id="ydp139">动量轮<br>Value</div></th>
+				<th><div  class="font_bk1" id="ydp135">模拟太敏负12V<br>Value</div></th>
+				<th><div  class="font_bk1" id="ydp136">陀螺正12V<br>Value</div></th>
+				<th><div  class="font_bk1" id="ydp137">陀螺负12V<br>Value</div></th>
+				<th><div  class="font_bk1" id="ydp138">GPS接收机<br>Value</div></th>
+				<th><div  class="font_bk1" id="ydp139">动量轮<br>Value</div></th>
 			</tr>
 
 			<tr height=100></tr>
@@ -66,8 +77,8 @@
 
 			<tr height=100></tr>
 			<tr>
-				<th><div  class="font_bk" id="ydp145">蓄电池母线接入<br>Value</div></th>
-				<th><div  class="font_bk" id="ydp146">分流电路主备份工作状态<br>Value</div></th>
+				<th><div  class="font_bk1" id="ydp145">蓄电池母线接入<br>Value</div></th>
+				<th><div  class="font_bk1" id="ydp146">分流电路主备份工作状态<br>Value</div></th>
 			</tr>
 			<tr height=100></tr>
 		</table>

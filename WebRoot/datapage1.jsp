@@ -21,55 +21,65 @@
     <link href="${ctx}/dashgum/css/style.css" rel="stylesheet">
 	<style>
 		.font_bk{
-			width:200px;
-			height:80px;
-			background-color:#3bb7fc;
+			width:300px;
+			height:200px;
+			background-color:#65934a;
 			border-radius:20px;//左上，右上，右下，坐下都是10px
 			margin:0 auto;
 			text-align:center;
-			padding-top:10px;
-			font-size:48;
+			padding-top:60px;
+			font-size:36px;
 			color:#ffffff;
 		}
-		
 		.font_bk1{
-			width:200px;
-			height:80px;
-			background-color:#1189cc;
+			width:300px;
+			height:200px;
+			background-color:#fae371;
 			border-radius:20px;//左上，右上，右下，坐下都是10px
 			margin:0 auto;
 			text-align:center;
-			padding-top:10px;
-			font-size:48;
+			padding-top:60px;
+			font-size:36px;
 			color:#ffffff;
 		}
 	</style>
+
+
+
 
     
 	</head>
 	<body>
 		<table class="container">
-			<tr height=300></tr>
+			<tr height=50></tr>
 			<tr>
-				<th><div  class="font_bk" id="ydp147">通信机接收机锁定<br>Value</div></th>
-				<th><div  class="font_bk" id="ydp148">应答机接收机锁定<br>Value</div></th>
-				<th><div  class="font_bk" id="ydp149">通信机发射机<br>Value</div></th>
-				<th><div  class="font_bk" id="ydp150">通信机发射功率<br>Value</div></th>
-				<th><div  class="font_bk" id="ydp151">应答机发射机<br>Value</div></th>
+				<th></th>
+				<th></th>
+				<th><div  class="font_bk" id="datapage5">数据综合系统遥测信息</div></th>
 			</tr>
-
-			<tr height=100></tr>
+			
+			<tr height=80></tr>
 			<tr>
-				<th><div  class="font_bk1" id="ydp152">应答机接收机<br>Value</div></th>
-				<th><div  class="font_bk1" id="ydp153">应答机测距<br>Value</div></th>
-				<th><div  class="font_bk1" id="ydp154">应答机相干<br>Value</div></th>
-				<th><div  class="font_bk1" id="ydp155">通信机加电状态<br>Value</div></th>
-				<th><div  class="font_bk1" id="ydp156">USB加电状态<br>Value</div></th>
+				<th></th>
+				<th><div  class="font_bk" id="datapage6">姿控原始测量遥测信息</div></th>
+				<th></th>
+				<th><div  class="font_bk" id="datapage7">姿控功能遥测信息</div></th>
 			</tr>
-
-			<tr height=100></tr>
+			<tr height=80></tr>
+			<tr>
+				<th></th>
+				<th><div  class="font_bk" id="datapage8">电源系统遥测信息</div></th>
+				<th></th>
+				<th><div  class="font_bk" id="datapage9">通信系统遥测信息</div></th>
+			</tr>
+			
 		</table>
-	
+		<!-- <button onclick="add()">add</button> -->
 	</body>
-	<script src="${ctx}/js/websocket_datapage93.js"></script>
+	
+	<script type="text/javascript">
+	function add() {
+		document.getElementById("datapage5").className="font_bk1";
+	}
+	</script>
 </html>
