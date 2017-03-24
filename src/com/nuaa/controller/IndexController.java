@@ -1,13 +1,16 @@
 package com.nuaa.controller;
 
+
 import com.jfinal.core.Controller;
 
 public class IndexController extends Controller {
 	public void index(){
-		this.render("/datapage1.jsp");
+		this.render("/index.jsp");
 	}
 	
-	
+	public void iniDataPage(){
+		this.render("/datapage1.jsp");
+	}	
 	
 	public void sayHello() {
 
@@ -17,6 +20,5 @@ public class IndexController extends Controller {
 		this.setAttr("sayHello", sayHello);
 
 		this.render("/hello.jsp");
-
 	}
 }

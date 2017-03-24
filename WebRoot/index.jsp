@@ -10,7 +10,7 @@
 <head>
 <!-- <base href="<%=basePath%>">   -->
 
-<title>My JSP 'index.jsp' starting page</title>
+<title>Datapage</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -18,18 +18,18 @@
 <meta http-equiv="description" content="This is my page">
 
 <!-- Bootstrap core CSS -->
-<link href="dashgum/css/bootstrap.css" rel="stylesheet">
+<link href="${ctx}/dashgum/css/bootstrap.css" rel="stylesheet">
 <!--external css-->
-<link href="dashgum/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link href="${ctx}/dashgum/font-awesome/css/font-awesome.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css"
-	href="dashgum/css/zabuto_calendar.css">
+	href="${ctx}/dashgum/css/zabuto_calendar.css">
 <link rel="stylesheet" type="text/css"
-	href="dashgum/js/gritter/css/jquery.gritter.css" />
-<link rel="stylesheet" type="text/css" href="dashgum/lineicons/style.css">
+	href="${ctx}/dashgum/js/gritter/css/jquery.gritter.css" />
+<link rel="stylesheet" type="text/css" href="${ctx}/dashgum/lineicons/style.css">
 
 <!-- Custom styles for this template -->
-<link href="dashgum/css/style.css" rel="stylesheet">
-<link href="dashgum/css/style-responsive.css" rel="stylesheet">
+<link href="${ctx}/dashgum/css/style.css" rel="stylesheet">
+<link href="${ctx}/dashgum/css/style-responsive.css" rel="stylesheet">
 
 
 
@@ -54,7 +54,8 @@
 	
 	<div class="top-menu">
 		<ul class="nav pull-right top-menu">
-			<li><a class="logout" href="login.html">Logout</a></li>
+			<li><a class="screenlock" href="${ctx}/ScreenLockController">Screen Lock</a></li>
+			<li><a class="logout" href="${ctx}/">Logout</a></li>
 		</ul>
 	</div>
 	</header> 
@@ -69,7 +70,7 @@
 		<ul class="sidebar-menu" id="nav-accordion">
 			<p class="centered">
 				<a href="profile.html">
-					<img src="dashgum/img/ui-sam.jpg"class="img-circle" width="60">
+					<img src="${ctx}/dashgum/img/ui-sam.jpg"class="img-circle" width="60">
 				</a>
 			</p>
 			<h5 class="centered">Marcel Newman</h5>
@@ -133,7 +134,7 @@
 	<section id="main-content"> 
 		<section class="wrapper">
 			<div class="row">
-				<iframe id ="MainContentPage" src="${ctx}/IndexController" width="100%" height="100%"></iframe>
+				<iframe id ="MainContentPage" src="${ctx}/IndexController/iniDataPage" width="100%" height="100%"></iframe>
 			</div>
 		</section>
 	</section>
@@ -152,26 +153,26 @@
 
 
 	<!-- js placed at the end of the document so the pages load faster -->
-	<script src="dashgum/js/jquery.js"></script>
-	<script src="dashgum/js/jquery-1.8.3.min.js"></script>
-	<script src="dashgum/js/bootstrap.min.js"></script>
+	<script src="${ctx}/dashgum/js/jquery.js"></script>
+	<script src="${ctx}/dashgum/js/jquery-1.8.3.min.js"></script>
+	<script src="${ctx}/dashgum/js/bootstrap.min.js"></script>
 	<script class="include" type="text/javascript"
-		src="dashgum/js/jquery.dcjqaccordion.2.7.js"></script>
-	<script src="dashgum/js/jquery.scrollTo.min.js"></script>
-	<script src="dashgum/js/jquery.nicescroll.js" type="text/javascript"></script>
-	<script src="dashgum/js/jquery.sparkline.js"></script>
+		src="${ctx}/dashgum/js/jquery.dcjqaccordion.2.7.js"></script>
+	<script src="${ctx}/dashgum/js/jquery.scrollTo.min.js"></script>
+	<script src="${ctx}/dashgum/js/jquery.nicescroll.js" type="text/javascript"></script>
+	<script src="${ctx}/dashgum/js/jquery.sparkline.js"></script>
 
 
 	<!--common script for all pages-->
-	<script src="dashgum/js/common-scripts.js"></script>
+	<script src="${ctx}/dashgum/js/common-scripts.js"></script>
 
 	<script type="text/javascript"
-		src="dashgum/js/gritter/js/jquery.gritter.js"></script>
-	<script type="text/javascript" src="dashgum/js/gritter-conf.js"></script>
+		src="${ctx}/dashgum/js/gritter/js/jquery.gritter.js"></script>
+	<script type="text/javascript" src="${ctx}/dashgum/js/gritter-conf.js"></script>
 
 	<!--script for this page-->
-	<script src="dashgum/js/sparkline-chart.js"></script>
-	<script src="dashgum/js/zabuto_calendar.js"></script>
+	<script src="${ctx}/dashgum/js/sparkline-chart.js"></script>
+	<script src="${ctx}/dashgum/js/zabuto_calendar.js"></script>
 
 	<script type="application/javascript">
 		$(document).ready(function() {

@@ -11,6 +11,7 @@ import com.jfinal.template.Engine;
 import com.nuaa.controller.IndexController;
 import com.nuaa.controller.LoginController;
 import com.nuaa.controller.MainContentController;
+import com.nuaa.controller.ScreenLockController;
 import com.nuaa.handler.ContextPathHandler;
 
 public class MyAppConfig extends JFinalConfig {
@@ -53,6 +54,7 @@ public class MyAppConfig extends JFinalConfig {
 		me.add("/",LoginController.class);
 		me.add("/IndexController",IndexController.class);
 		me.add("/MainContentController",MainContentController.class);
+		me.add("/ScreenLockController",ScreenLockController.class);
 	}
 
 }

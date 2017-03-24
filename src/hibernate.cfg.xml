@@ -37,6 +37,7 @@
 
 		<mapping resource="com/nuaa/entiy/Parameter.hbm.xml"/>
 		<mapping resource="com/nuaa/entiy/FrameData.hbm.xml"/>
+		<mapping resource="com/nuaa/entiy/User.hbm.xml"/>
 		<!-- 这里需要注意的是，如果你是使用Annotation的话，那就应该写成 <mapping class = "com.hzucmj.hibernate.Student" 
 			/> -->
 	</session-factory>
