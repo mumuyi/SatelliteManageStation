@@ -10,4 +10,8 @@ public class ScreenLockController extends Controller{
 	public void Login(){
 		this.redirect("/IndexController");
 	}
+	
+	public void Lock(){
+		this.redirect("/ScreenLockController");
+	}
 }
