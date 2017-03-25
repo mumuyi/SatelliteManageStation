@@ -45,8 +45,7 @@
 			font-size:36px;
 			color:#ffffff;
 		}
-		<!-- 鼠标悬停的样式-->
-		.font_bk:hover{background-color: #65934a;}
+		.font_bk:hover{background-color:#65934a;}
 	</style>
 
 
@@ -95,5 +94,10 @@
 		}
 	</script>
 	
-
+	<!--BACKSTRETCH-->
+    <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+    <script type="text/javascript" src="${ctx}/dashgum/js/jquery.backstretch.min.js"></script>
+    <script>
+        $.backstretch("${ctx}/dashgum/img/background.jpg");
+    </script>
 </html>
