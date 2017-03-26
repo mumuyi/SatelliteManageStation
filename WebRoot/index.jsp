@@ -84,7 +84,7 @@
 
 			<li class="sub-menu"><a href="javascript:;"><i class="fa fa-desktop"></i><span>数据综合系统遥测信息</span></a>
 				<ul class="sub">
-					<li onclick="changeSrc('${ctx}/MainContentController/5-1')"><a>CPU相关参数</a></li>
+					<li onclick="changeSrc('${ctx}/MainContentController/5-1')"><a>CPU参数</a></li>
 					<li onclick="changeSrc('${ctx}/MainContentController/5-2')"><a>图像信息</a></li>
 					<li onclick="changeSrc('${ctx}/MainContentController/5-3')"><a>时间信息</a></li>
 					<li onclick="changeSrc('${ctx}/MainContentController/5-4')"><a>计数信息</a></li>

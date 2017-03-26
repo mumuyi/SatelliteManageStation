@@ -38,6 +38,9 @@ public class PrepareData {
 			FrameData frame = (FrameData) framelist.get(i);
 			Class<? extends FrameData> myclass = frame.getClass();
 			ans += " {" + " \"id\":\"" + i + "\"," + " \"cell\":" + " [";
+			//添加星上时间信息;
+			ans += "\""+frame.getYsj023()+"\","+"\""+frame.getYsj024()+"\",";
+			//添加其余信息;
 			for (int j = 0; j < list.size(); j++) {
 				Parameter parameter = (Parameter) list.get(j);
 				// System.out.println(""+parameter.getNumber()+" "

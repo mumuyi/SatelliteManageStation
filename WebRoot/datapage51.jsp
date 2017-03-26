@@ -102,7 +102,7 @@
 					$.jgrid.defaults.styleUI="Bootstrap";
 					$("#table_list").jqGrid(
 					{
-						url:'${ctx}/MainContentController/getData/1-0', 
+						url:'${ctx}/MainContentController/getData/5-1', 
 						datatype : "json",
 						postData:{
 							    page : $('#table_list').getGridParam('page'), // current page
@@ -116,20 +116,21 @@
 						shrinkToFit:true,
 						rowNum:10,
 						rowList:[10,20,30],
-						colNames:["星上时间 秒","星上时间 毫秒","控制模式","磁强计A正12V","磁强计A负12V","磁强计B正12V","磁强计B负12V"],
+						colNames:["星上时间 秒","星上时间 毫秒","载荷数据处理器+5vA遥测","载荷数据处理器+5vB遥测","+3.3VB遥测","CPUA电流遥测","CPUB电流遥测","+3.3VA遥测"],
 						colModel:[
-									{name:"ysj023",index:"ysj023",editable:true,width:60,search:true},
-									{name:"ysj024",index:"ysj024",editable:true,width:90,sorttype:"date",align:"center"},
-									{name:"ykm001",index:"ykm001",editable:true,width:100,align:"center"},
-									{name:"ydp130",index:"ydp130",editable:true,width:80,align:"center",sorttype:"float"},
-									{name:"ydp131",index:"ydp131",editable:true,width:80,align:"center",sorttype:"float"},
-									{name:"ydp132",index:"ydp132",editable:true,width:80,align:"center",sorttype:"float"},
-									{name:"ydp133",index:"ydp133",editable:true,width:100,sortable:false,align:"center"}
+									{name:"ysj023",index:"ysj023",editable:true,width:60,align:"center",sorttype:"text",search:true},
+									{name:"ysj024",index:"ysj024",editable:true,width:90,align:"center",sorttype:"text",search:true},
+									{name:"yjs087",index:"yjs087",editable:true,width:100,align:"center",sorttype:"text",search:true},
+									{name:"yjs088",index:"yjs088",editable:true,width:80,align:"center",sorttype:"text",search:true},
+									{name:"yjs089",index:"yjs089",editable:true,width:80,align:"center",sorttype:"text",search:true},
+									{name:"yjs090",index:"yjs090",editable:true,width:80,align:"center",sorttype:"text",search:true},
+									{name:"yjs091",index:"yjs091",editable:true,width:100,align:"center",sorttype:"text",search:true},
+									{name:"yjs092",index:"yjs092",editable:true,width:100,align:"center",sorttype:"text",search:true}
 						],
 						
 						pager:"#pager_list",
 						viewrecords:true,
-						caption:"jqGrid",
+						caption:"CPU参数历史数据查询",
 						//hidegrid:true,
 						//loadonce:true,
 						
