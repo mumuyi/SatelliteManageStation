@@ -25,7 +25,7 @@
 	</head>
 	<body>
 		<div class="row mtbox">
-			<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
+			<div class="col-md-2 col-sm-2 col-md-offset-2 box0">
 				<div class="box1">
 					<span class="li_stack"></span>
 					<h3 id="yzl169">待执行图像成像指令计数<br>4134144</h3>
@@ -53,7 +53,7 @@
 				</div>
 				<p id="yzl1721">Some information if it's need</p>
 			</div>
-			<div class="col-md-2 col-sm-2 box0">
+			<div class="col-md-2 col-sm-2 col-md-offset-2 box0">
 				<div class="box1">
 					<span class="li_stack"></span>
 					<h3 id="yzl173">已正确执行姿控参数计数<br>352716544</h3>
@@ -61,7 +61,7 @@
 				<p id="yzl1731">Some information if it's need</p>
 			</div>
 
-			<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
+			<div class="col-md-2 col-sm-2 box0">
 				<div class="box1">
 					<span class="li_stack"></span>
 					<h3 id="yzl174">已执行供配电开关指令计数<br>4134144</h3>
@@ -82,7 +82,7 @@
 				</div>
 				<p id="yzl1761">Some information if it's need</p>
 			</div>
-			<div class="col-md-2 col-sm-2 box0">
+			<div class="col-md-2 col-sm-2 col-md-offset-2 box0">
 				<div class="box1">
 					<span class="li_stack"></span>
 					<h3 id="yzl177">已正确执行地面调试指令计数<br>1377799</h3>
@@ -97,7 +97,7 @@
 				<p id="yzl1781">Some information if it's need</p>
 			</div>
 
-			<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
+			<div class="col-md-2 col-sm-2 box0">
 				<div class="box1">
 					<span class="li_stack"></span>
 					<h3 id="yzl179">已正确执行电源系统指令计数<br>4134144</h3>
@@ -111,7 +111,7 @@
 				</div>
 				<p id="yzl1801">Some information if it's need</p>
 			</div>
-			<div class="col-md-2 col-sm-2 box0">
+			<div class="col-md-2 col-sm-2 col-md-offset-4 box0">
 				<div class="box1">
 					<span class="li_stack"></span>
 					<h3 id="yzl182">收到所有入站指令计数<br>21</h3>

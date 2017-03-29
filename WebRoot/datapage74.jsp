@@ -97,7 +97,7 @@
 				<p id="ykz0691">Some information if it's need</p>
 			</div>
 
-			<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
+			<div class="col-md-2 col-sm-2 col-md-offset-3 box0">
 				<div class="box1">
 					<span class="li_stack"></span>
 					<h3 id="ykz501">自主导航标志<br>4134144</h3>

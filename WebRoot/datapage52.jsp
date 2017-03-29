@@ -52,7 +52,7 @@
 	</head>
 	<body>
 		<div class="row mtbox">
-			<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
+			<div class="col-md-2 col-sm-2 col-md-offset-3 box0">
 				<div class="box1">
 					<span class="li_data"></span>
 					<h3 id="ydz093">图像片选(写)<br>4134144</h3>
@@ -73,7 +73,8 @@
 				</div>
 				<p id="ydz0951">Some information if it's need</p>
 			</div>
-			<div class="col-md-2 col-sm-2 box0">
+			
+			<div class="col-md-2 col-sm-2 col-md-offset-3 box0">
 				<div class="box1">
 					<span class="li_data"></span>
 					<h3 id="ydz096">图像片选(读)<br>1377799</h3>
@@ -88,14 +89,16 @@
 				<p id="ydz0971">Some information if it's need</p>
 			</div>
 			
-			<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
+			<div class="col-md-2 col-sm-2 box0">
 				<div class="box1">
 					<span class="li_data"></span>
 					<h3 id="ydz098">图像块(读)<br>117440522</h3>
 				</div>
 				<p id="ydz0981">Some information if it's need</p>
 			</div>
-			<div class="col-md-2 col-sm-2 box0">
+			
+			
+			<div class="col-md-2 col-sm-2 col-md-offset-3 box0">
 				<div class="box1">
 					<span class="li_data"></span>
 					<h3 id="ydz099">遥测片选(写)<br>666627</h3>
@@ -116,7 +119,9 @@
 				</div>
 				<p id="ydz1011">Some information if it's need</p>
 			</div>
-			<div class="col-md-2 col-sm-2 box0">
+			
+			
+			<div class="col-md-2 col-sm-2 col-md-offset-3 box0">
 				<div class="box1">
 					<span class="li_data"></span>
 					<h3 id="ydz102">遥测片选(读)<br>207617</h3>
@@ -124,7 +129,7 @@
 				<p id="ydz1021">Some information if it's need</p>
 			</div>
 
-			<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
+			<div class="col-md-2 col-sm-2 box0">
 				<div class="box1">
 					<span class="li_data"></span>
 					<h3 id="ydz103">遥测行(读)<br>53149952</h3>

@@ -56,7 +56,7 @@
 	</head>
 	<body>
 		<div class="row mtbox">
-			<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
+			<div class="col-md-2 col-sm-2 col-md-offset-3 box0">
 				<div class="box1">
 					<span class="li_data"></span>
 					<h3 id="ygp024">UTC累计秒<br>4134144</h3>
@@ -77,7 +77,7 @@
 				</div>
 				<p id="ygp0321">Some information if it's need</p>
 			</div>
-			<div class="col-md-2 col-sm-2 box0">
+			<div class="col-md-2 col-sm-2 col-md-offset-2 box0">
 				<div class="box1">
 					<span class="li_data"></span>
 					<h3 id="ygp033">工作状态<br>1377799</h3>
@@ -92,7 +92,7 @@
 				<p id="ygp0341">Some information if it's need</p>
 			</div>
 			
-			<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
+			<div class="col-md-2 col-sm-2  box0">
 				<div class="box1">
 					<span class="li_data"></span>
 					<h3 id="ygp046">最高信噪比<br>117440522</h3>
