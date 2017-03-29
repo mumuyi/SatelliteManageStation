@@ -19,101 +19,118 @@
     
     <!-- Custom styles for this template -->
     <link href="${ctx}/dashgum/css/style.css" rel="stylesheet">
+
+
+	<link href="${ctx}/jqgrid/css/bootstrap.min.css" rel="stylesheet">
+	<link href="${ctx}/jqgrid/css/font-awesome.min.css" rel="stylesheet">
+	<!-- jqgrid-->
+	<link href="${ctx}/jqgrid/css/ui.jqgrid.css" rel="stylesheet">
+	<link href="${ctx}/jqgrid/css/animate.min.css" rel="stylesheet">
+	<link href="${ctx}/jqgrid/css/style.min.css" rel="stylesheet">
+	
 	<style>
 		.font_bk{
 			width:200px;
-			height:80px;
-			background-color:#3bb7fc;
-			border-radius:20px;//左上，右上，右下，坐下都是10px
+			height:30px;
+			background-color:#7fbd5a;
+			border-radius:10px;//左上，右上，右下，坐下都是10px
 			margin:0 auto;
 			text-align:center;
-			padding-top:10px;
-			font-size:48;
+			padding-top:5px;
+			font-size:20px;
 			color:#ffffff;
+			horizontal-align:middle;
+			display:table-cell;
 		}
-		
 		.font_bk1{
-			width:200px;
-			height:80px;
-			background-color:#1189cc;
-			border-radius:20px;//左上，右上，右下，坐下都是10px
-			margin:0 auto;
-			text-align:center;
-			padding-top:10px;
-			font-size:48;
-			color:#ffffff;
+			height:100px;
 		}
-		
-		.td{
-			border-bottom:1px solid #000000;
-			height:100px;}
+		.font_bk2{
+			width:100%;
+			display:table;
+		}
+		.font_bk:hover{background-color:#65934a;}
 	</style>
-
-
 
 
     
 	</head>
 	<body>
-		<table class="container">
-			<tr height=50></tr>
-			<tr>
-				<th></th>
-				<th></th>
-				<th><div  class="font_bk" id="ykm001">控制模式信息<br>Value</div></th>
-			</tr>
-			
-			<tr height=100></tr>
-			<tr>
-				<th><div  class="font_bk1" id="ydp157">CPUA看门狗输出<br>Value</div></th>
-				<th><div  class="font_bk1" id="ydp158">CPUB看门狗输出<br>Value</div></th>
-				<th><div  class="font_bk1" id="ydp159">CPUA系统失效<br>Value</div></th>
-				<th><div  class="font_bk1" id="ydp160">CPUB系统失效<br>Value</div></th>
-				<th><div  class="font_bk1" id="ydp161">CPUA工作状态<br>Value</div></th>
-			</tr>
-			<tr height=100></tr>
-			<tr>
-				<th><div  class="font_bk" id="ydp162">CPUB工作状态<br>Value</div></th>
-				<th><div  class="font_bk" id="ydp163">CPU自动切机使能<br>Value</div></th>
-				<th><div  class="font_bk" id="ydp164">CPUB过流<br>Value</div></th>
-				<th><div  class="font_bk" id="ydp165">CPUA过流<br>Value</div></th>
-				<th><div  class="font_bk" id="ydp166">星箭分离遥测1<br>Value</div></th>
-			</tr>
-
-			<tr height=100></tr>
-			<tr>
-				<th><div  class="font_bk1" id="ydp167">星箭分离遥测2<br>Value</div></th>
-				<th><div  class="font_bk1" id="ygz185">陀螺有效<br>Value</div></th>
-				<th><div  class="font_bk1" id="ygz186">GPS有效<br>Value</div></th>
-				<th><div  class="font_bk1" id="ygz187">磁力矩器有效<br>Value</div></th>
-				<th><div  class="font_bk1" id="ygz188">太敏有效<br>Value</div></th>
-			</tr>
-
-			<tr height=100></tr>
-			<tr>
-				<th><div  class="font_bk" id="ygz189">磁强计A有效<br>Value</div></th>
-				<th><div  class="font_bk" id="ygz190">磁强计B有效<br>Value</div></th>
-				<th><div  class="font_bk" id="ygz191">动量轮有效<br>Value</div></th>
-				<th><div  class="font_bk" id="ygz192">动量轮控制器有效<br>Value</div></th>
-				<th><div  class="font_bk" id="ygz193">相机有效<br>Value</div></th>
-			</tr>
-			
-			<tr height=100></tr>
-			<tr>
-				<th><div  class="font_bk1" id="yxs504">通信体制标识<br>Value</div></th>
-				<th><div  class="font_bk1" id="yxs505">蓄电池过放保护标识<br>Value</div></th>
-				<th><div  class="font_bk1" id="yxs601">通信体制切换禁止标识<br>Value</div></th>
-				<th><div  class="font_bk1" id="yxs602">星箭分离表示<br>Value</div></th>
-				<th><div  class="font_bk1" id="yxs603">理论轨道可用标识<br>Value</div></th>
-			</tr>
-			
-			<tr height=100></tr>
-			<tr>
-				<th><div  class="font_bk" id="yxs610">地面电测模式标识<br>Value</div></th>
-			</tr>
-			<tr height=100></tr>
-		</table>
-	
+		<div class="jqGrid_wrapper">
+			<table id="table_list" class="container"></table>
+			<div id="pager_list" class="text-center"></div>
+		</div>
+		<div class="font_bk1"></div>
 	</body>
-	<script src="${ctx}/js/websocket_datapage55.js"></script>
+	
+	<script type="text/javascript" src="${ctx}/highcharts/js/jquery-1.8.3.min.js"></script>
+	<script src="${ctx}/jqgrid/js/bootstrap.min.js"></script>
+	<script src="${ctx}/jqgrid/js/jquery.peity.min.js"></script>
+	<script src="${ctx}/jqgrid/js/grid.locale-cn.js"></script>
+	<script src="${ctx}/jqgrid/js/jquery.jqGrid.min.js"></script>
+	<script src="${ctx}/jqgrid/js/content.min.js"></script>
+	<script src="${ctx}/jqgrid/js/jquery-ui-1.10.4.min.js"></script>
+	<script type="text/javascript"> jQuery.jgrid.no_legacy_api = true; </script> 
+	<script>
+		$(function(){ TableInit(); });
+		
+		function TableInit(){
+					$.jgrid.defaults.styleUI="Bootstrap";
+					$("#table_list").jqGrid(
+					{
+						url:'${ctx}/MainContentController/getTableShowData/5-5', 
+						datatype : "json",
+						postData:{
+								page : $('#table_list').getGridParam('page'), // current page
+								rows : $('#table_list').getGridParam('rows'), // rows  
+								sidx : $('#table_list').getGridParam('sidx'), // sidx
+								sord : $('#table_list').getGridParam('sord'), // sord
+						},
+						height:'100%',
+						width:'90%',
+						autowidth:true,
+						shrinkToFit:true,
+						rowNum:30,
+						colNames:["参数名称","值","星上时间 秒","星上时间 毫秒"],
+						colModel:[
+									{name:"name",index:"name",editable:true,width:60,align:"center",sorttype:"text",search:true},
+									{name:"value",index:"value",editable:true,width:90,align:"center",sorttype:"text",search:true},
+									{name:"times",index:"times",editable:true,width:100,align:"center",sorttype:"text",search:true},
+									{name:"timems",index:"times",editable:true,width:80,align:"center",sorttype:"text",search:true},
+						],
+						
+						pager:"#pager_list",
+						viewrecords:true,
+						caption:"开关量数据查询",
+						//hidegrid:true,
+						//loadonce:true,
+						
+						
+						gridComplete: function(){
+							$('#table_list').closest("div.ui-jqgrid-view")
+							.children("div.ui-jqgrid-titlebar")
+							.css("text-align", "center")
+							.children("span.ui-jqgrid-title")
+							.css("float", "none");
+							}
+						});
+						
+			
+			 
+						//$("#table_list").setSelection(4,true);
+						
+						$("#table_list").jqGrid(
+							"navGrid","#pager_list",
+							{edit:true,add:true,del:true,search:true},
+							{height:200,reloadAfterSubmit:true}
+						);
+						
+						$(window).bind("resize",function(){
+										var width=$(".jqGrid_wrapper").width();
+										//width="document.body.clientHeight";
+										$("#table_list").setGridWidth((width))
+									}
+								)
+			}    
+	</script>
 </html>

@@ -105,6 +105,29 @@ public class MainContentController extends Controller {
 		this.renderJson(JSONObject.fromObject(jsondata));
 	}
 	
+	
+	public void getTableShowData() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		//初始化类;
+		PrepareData pa=new PrepareData();
+		//初始化结果;
+		String jsondata="";
+		
+		//获取参数;
+
+		int Sort=Integer.parseInt(this.getPara(0));
+		int Sort1=Integer.parseInt(this.getPara(1));
+
+
+
+		jsondata+=pa.getTableShowData("FrameData", 1, 1,Sort,Sort1);
+
+
+		
+		
+		
+		this.renderJson(JSONObject.fromObject(jsondata));
+	}
+	
 	public void getiniData(){
 		System.out.println("1111111111111111");
 		int value=200;

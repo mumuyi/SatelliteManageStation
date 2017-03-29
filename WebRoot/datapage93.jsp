@@ -81,27 +81,14 @@
     
 	</head>
 	<body>
-		<table class="container">
-			<tr height=300></tr>
-			<tr>
-				<th><div  class="font_bkaa" id="ydp147">通信机接收机锁定<br>Value</div></th>
-				<th><div  class="font_bkaa" id="ydp148">应答机接收机锁定<br>Value</div></th>
-				<th><div  class="font_bkaa" id="ydp149">通信机发射机<br>Value</div></th>
-				<th><div  class="font_bkaa" id="ydp150">通信机发射功率<br>Value</div></th>
-				<th><div  class="font_bkaa" id="ydp151">应答机发射机<br>Value</div></th>
-			</tr>
 
-			<tr height=100></tr>
-			<tr>
-				<th><div  class="font_bkaa1" id="ydp152">应答机接收机<br>Value</div></th>
-				<th><div  class="font_bkaa1" id="ydp153">应答机测距<br>Value</div></th>
-				<th><div  class="font_bkaa1" id="ydp154">应答机相干<br>Value</div></th>
-				<th><div  class="font_bkaa1" id="ydp155">通信机加电状态<br>Value</div></th>
-				<th><div  class="font_bkaa1" id="ydp156">USB加电状态<br>Value</div></th>
-			</tr>
-
-			<tr height=100></tr>
-		</table>
+		<div class="jqGrid_wrapper">
+			<table id="table_list1" class="container"></table>
+			<div id="pager_list1" class="text-center"></div>
+		</div>
+		
+		<div class="font_bk1"></div>
+		<div class="font_bk1"></div>
 		<div class="font_bk1"></div>
 		<div class="font_bk1"></div>
 		<div class="font_bk2">
@@ -113,7 +100,7 @@
 		</div>
 		<div class="font_bk1"></div>
 	</body>
-	<script src="${ctx}/js/websocket_datapage93.js"></script>
+	
 	
 	<script type="text/javascript" src="${ctx}/highcharts/js/jquery-1.8.3.min.js"></script>
 	<script src="${ctx}/jqgrid/js/bootstrap.min.js"></script>
@@ -197,5 +184,68 @@
 	function showTable(){
 		TableInit();
 	}
+	</script>
+	
+	<script>
+		$(function(){ TableInit1(); });
+		
+		function TableInit1(){
+					$.jgrid.defaults.styleUI="Bootstrap";
+					$("#table_list1").jqGrid(
+					{
+						url:'${ctx}/MainContentController/getTableShowData/9-3', 
+						datatype : "json",
+						postData:{
+								page : $('#table_list').getGridParam('page'), // current page
+								rows : $('#table_list').getGridParam('rows'), // rows  
+								sidx : $('#table_list').getGridParam('sidx'), // sidx
+								sord : $('#table_list').getGridParam('sord'), // sord
+						},
+						height:'100%',
+						width:'90%',
+						autowidth:true,
+						shrinkToFit:true,
+						rowNum:30,
+						colNames:["参数名称","值","星上时间 秒","星上时间 毫秒"],
+						colModel:[
+									{name:"name",index:"name",editable:true,width:60,align:"center",sorttype:"text",search:true},
+									{name:"value",index:"value",editable:true,width:90,align:"center",sorttype:"text",search:true},
+									{name:"times",index:"times",editable:true,width:100,align:"center",sorttype:"text",search:true},
+									{name:"timems",index:"times",editable:true,width:80,align:"center",sorttype:"text",search:true},
+						],
+						
+						pager:"#pager_list1",
+						viewrecords:true,
+						caption:"开关量数据查询",
+						//hidegrid:true,
+						//loadonce:true,
+						
+						
+						gridComplete: function(){
+							$('#table_list1').closest("div.ui-jqgrid-view")
+							.children("div.ui-jqgrid-titlebar")
+							.css("text-align", "center")
+							.children("span.ui-jqgrid-title")
+							.css("float", "none");
+							}
+						});
+						
+			
+			 
+						//$("#table_list").setSelection(4,true);
+						
+						$("#table_list1").jqGrid(
+							"navGrid","#pager_list1",
+							{edit:true,add:true,del:true,search:true},
+							{height:200,reloadAfterSubmit:true}
+						);
+						
+						$(window).bind("resize",function(){
+										var width=$(".jqGrid_wrapper").width();
+										//width="document.body.clientHeight";
+										$("#table_list1").setGridWidth((width))
+									}
+								)
+			}    
 	</script>
 </html>
