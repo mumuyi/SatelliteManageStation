@@ -187,6 +187,10 @@ public class MyWebSocketDataPage8 {
 	    }
 	}
 	
+	/**
+	 * 准备实时显示所需信息;
+	 * 
+	 * */
 	public static String prepareData(int temp) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
 		String ans="[{";
 		// 填充数据;

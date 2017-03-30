@@ -10,6 +10,17 @@ import com.nuaa.entiy.Parameter;
 import com.nuaa.test.TestHibernate;
 
 public class PrepareData {
+	/**
+	 * 按格式获取历史记录查询的数据;
+	 * 
+	 * DataTable 查询的表;
+	 * page 查询数据的页数;
+	 * rows 一页所需显示数据条数;
+	 * Sort 数据类别;
+	 * Sort1 数据类别1;
+	 * 
+	 * Sort 和Sort1 用以从parameter 表中获取当前表格所需显示的属性集合,再用回调的方法实现获取具体数据;
+	 * */
 	public String getTableData(String DataTable, int page, int rows, int Sort, int Sort1) throws NoSuchMethodException,
 			SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		// 传过来的参数 page 是从1开始的,所以要减一;
@@ -66,6 +77,11 @@ public class PrepareData {
 		return ans;
 	}
 
+	/**按格式获取历史记录查询的数据且实现排序;
+	 * 
+	 * sidx 所需排序的列的名称;
+	 * sord 排序方式,desc或者acs;
+	 * */
 	public String getTableData(String DataTable, int page, int rows, int Sort, int Sort1, String sidx, String sord)
 			throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException,
 			InvocationTargetException {
@@ -74,12 +90,21 @@ public class PrepareData {
 		return pa.getTableData(com, page, rows, Sort, Sort1);
 	}
 
+	/**
+	 * 测试函数;
+	 * */
 	public static void main(String[] argv) throws NoSuchMethodException, SecurityException, IllegalAccessException,
 			IllegalArgumentException, InvocationTargetException {
 		PrepareData pa = new PrepareData();
 		pa.getTableData("FrameData", 1, 10, 1, 0);
 	}
 	
+	/**
+	 * 按格式获取实时显示数据的表格形式数据;
+	 * 
+	 * type==0 时,带最大值最小值;
+	 * type==1时,不带最大最小值;
+	 * */
 	public String getTableShowData(String DataTable, int page, int rows, int Sort, int Sort1,int type) throws NoSuchMethodException,
 			SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		// 传过来的参数 page 是从1开始的,所以要减一;
