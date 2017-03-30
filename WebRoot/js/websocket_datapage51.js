@@ -43,6 +43,7 @@
 		//添加数据;
 		var chart = $('#yjs087').highcharts();
 		chart.series[0].addPoint([ (new Date()).getTime(), v1+0.1 ]);
+		//chart.series[0].addPoint([v7*1000+1199145600000, v1+0.1 ]);
 		var chart2 = $('#yjs088').highcharts();
 		chart2.series[0].addPoint([ (new Date()).getTime(), v2+0.1 ]);
 		var chart3 = $('#yjs089').highcharts();
