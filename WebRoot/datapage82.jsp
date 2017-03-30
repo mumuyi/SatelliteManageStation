@@ -77,7 +77,7 @@
 					$.jgrid.defaults.styleUI="Bootstrap";
 					$("#table_list").jqGrid(
 					{
-						url:'${ctx}/MainContentController/getTableShowData/8-2', 
+						url:'${ctx}/MainContentController/getTableShowData/8-2-0', 
 						datatype : "json",
 						postData:{
 								page : $('#table_list').getGridParam('page'), // current page
@@ -92,10 +92,10 @@
 						rowNum:30,
 						colNames:["参数名称","值","星上时间 秒","星上时间 毫秒"],
 						colModel:[
-									{name:"name",index:"name",editable:true,width:60,align:"center",sorttype:"text",search:true},
-									{name:"value",index:"value",editable:true,width:90,align:"center",sorttype:"text",search:true},
-									{name:"times",index:"times",editable:true,width:100,align:"center",sorttype:"text",search:true},
-									{name:"timems",index:"times",editable:true,width:80,align:"center",sorttype:"text",search:true},
+									{name:"name",index:"name",editable:true,align:"center",sorttype:"text",search:true},
+									{name:"value",index:"value",editable:true,align:"center",sorttype:"text",search:true},
+									{name:"times",index:"times",editable:true,align:"center",sorttype:"text",search:true},
+									{name:"timems",index:"times",editable:true,align:"center",sorttype:"text",search:true},
 						],
 						
 						pager:"#pager_list",

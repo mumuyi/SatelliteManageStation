@@ -40,6 +40,8 @@
 		v6=v6-0.1;
 		var v7=jsonObj[0].ykl056;
 		v7=v7-0.1;
+		var v8=jsonObj[0].ysj023;
+		var v9=jsonObj[0].ysj024;
 		//添加数据;
 		var chart = $('#ykl057').highcharts();
 		chart.series[0].addPoint([ (new Date()).getTime(), v1+0.1 ]);
@@ -66,6 +68,23 @@
 			chart6.series[0].removePoint(0,true,true);
 			chart7.series[0].removePoint(0,true,true);
 		}
+		
+		//实时修改表格数据;
+		jQuery("#table_list1").jqGrid('setCell',0,'value',""+(v1+0.1));
+		jQuery("#table_list1").jqGrid('setCell',1,'value',""+(v2+0.1));
+		jQuery("#table_list1").jqGrid('setCell',2,'value',""+(v3+0.1));
+		jQuery("#table_list1").jqGrid('setCell',3,'value',""+(v4+0.1));
+		jQuery("#table_list1").jqGrid('setCell',4,'value',""+(v5+0.1));
+		jQuery("#table_list1").jqGrid('setCell',5,'value',""+(v6+0.1));
+		jQuery("#table_list1").jqGrid('setCell',6,'value',""+(v7+0.1));
+		
+		jQuery("#table_list1").jqGrid('setCell',0,'times',""+v8);
+		jQuery("#table_list1").jqGrid('setCell',1,'times',""+v8);
+		jQuery("#table_list1").jqGrid('setCell',2,'times',""+v8);
+		jQuery("#table_list1").jqGrid('setCell',3,'times',""+v8);
+		jQuery("#table_list1").jqGrid('setCell',4,'times',""+v8);
+		jQuery("#table_list1").jqGrid('setCell',5,'times',""+v8);
+		jQuery("#table_list1").jqGrid('setCell',6,'times',""+v8);
 	};
 	
 	//连接关闭的回调方法

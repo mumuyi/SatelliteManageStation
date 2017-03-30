@@ -116,10 +116,12 @@ public class MainContentController extends Controller {
 
 		int Sort=Integer.parseInt(this.getPara(0));
 		int Sort1=Integer.parseInt(this.getPara(1));
+		//type==1,带最大最小值,type==0,不带最大最小值;
+		int type=Integer.parseInt(this.getPara(2));
 
 
 
-		jsondata+=pa.getTableShowData("FrameData", 1, 1,Sort,Sort1);
+		jsondata+=pa.getTableShowData("FrameData", 1, 1,Sort,Sort1,type);
 
 
 		

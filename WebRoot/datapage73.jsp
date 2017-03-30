@@ -79,6 +79,10 @@
   		  </tr>
   		  <tr height=100></tr>
 		</table>
+		<div class="jqGrid_wrapper">
+			<table id="table_list1" class="container"></table>
+			<div id="pager_list1" class="text-center"></div>
+		</div>
 		<div class="font_bk2">
 			<div class="font_bk" onclick="showTable()">查看历史记录</div>
 		</div>
@@ -168,5 +172,70 @@
 	function showTable(){
 		TableInit();
 	}
+	</script>
+	
+	<script>
+		$(function(){ TableInit1(); });
+		
+		function TableInit1(){
+					$.jgrid.defaults.styleUI="Bootstrap";
+					$("#table_list1").jqGrid(
+					{
+						url:'${ctx}/MainContentController/getTableShowData/7-3-1', 
+						datatype : "json",
+						postData:{
+								page : $('#table_list1').getGridParam('page'), // current page
+								rows : $('#table_list1').getGridParam('rows'), // rows  
+								sidx : $('#table_list1').getGridParam('sidx'), // sidx
+								sord : $('#table_list1').getGridParam('sord'), // sord
+						},
+						height:'100%',
+						width:'90%',
+						autowidth:true,
+						shrinkToFit:true,
+						rowNum:30,
+						colNames:["参数名称","值","星上时间 秒","星上时间 毫秒","最小值","最大值"],
+						colModel:[
+									{name:"name",index:"name",editable:true,align:"center",sorttype:"text",search:true},
+									{name:"value",index:"value",editable:true,align:"center",sorttype:"text",search:true},
+									{name:"times",index:"times",editable:true,align:"center",sorttype:"text",search:true},
+									{name:"timems",index:"times",editable:true,align:"center",sorttype:"text",search:true},
+									{name:"min",index:"min",editable:true,align:"center",sorttype:"text",search:true},
+									{name:"max",index:"max",editable:true,align:"center",sorttype:"text",search:true},
+						],
+						
+						pager:"#pager_list1",
+						viewrecords:true,
+						caption:"开关量数据查询",
+						//hidegrid:true,
+						//loadonce:true,
+						
+						
+						gridComplete: function(){
+							$('#table_list1').closest("div.ui-jqgrid-view")
+							.children("div.ui-jqgrid-titlebar")
+							.css("text-align", "center")
+							.children("span.ui-jqgrid-title")
+							.css("float", "none");
+							}
+						});
+						
+			
+			 
+						//$("#table_list1").setSelection(4,true);
+						
+						$("#table_list1").jqGrid(
+							"navGrid","#pager_list1",
+							{edit:true,add:true,del:true,search:true},
+							{height:200,reloadAfterSubmit:true}
+						);
+						
+						$(window).bind("resize",function(){
+										var width=$(".jqGrid_wrapper").width();
+										//width="document.body.clientHeight";
+										$("#table_list1").setGridWidth((width))
+									}
+								)
+			}    
 	</script>
 </html>

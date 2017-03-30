@@ -193,13 +193,13 @@
 					$.jgrid.defaults.styleUI="Bootstrap";
 					$("#table_list1").jqGrid(
 					{
-						url:'${ctx}/MainContentController/getTableShowData/9-3', 
+						url:'${ctx}/MainContentController/getTableShowData/9-3-0', 
 						datatype : "json",
 						postData:{
-								page : $('#table_list').getGridParam('page'), // current page
-								rows : $('#table_list').getGridParam('rows'), // rows  
-								sidx : $('#table_list').getGridParam('sidx'), // sidx
-								sord : $('#table_list').getGridParam('sord'), // sord
+								page : $('#table_list1').getGridParam('page'), // current page
+								rows : $('#table_list1').getGridParam('rows'), // rows  
+								sidx : $('#table_list1').getGridParam('sidx'), // sidx
+								sord : $('#table_list1').getGridParam('sord'), // sord
 						},
 						height:'100%',
 						width:'90%',
@@ -208,10 +208,10 @@
 						rowNum:30,
 						colNames:["参数名称","值","星上时间 秒","星上时间 毫秒"],
 						colModel:[
-									{name:"name",index:"name",editable:true,width:60,align:"center",sorttype:"text",search:true},
-									{name:"value",index:"value",editable:true,width:90,align:"center",sorttype:"text",search:true},
-									{name:"times",index:"times",editable:true,width:100,align:"center",sorttype:"text",search:true},
-									{name:"timems",index:"times",editable:true,width:80,align:"center",sorttype:"text",search:true},
+									{name:"name",index:"name",editable:true,align:"center",sorttype:"text",search:true},
+									{name:"value",index:"value",editable:true,align:"center",sorttype:"text",search:true},
+									{name:"times",index:"times",editable:true,align:"center",sorttype:"text",search:true},
+									{name:"timems",index:"times",editable:true,align:"center",sorttype:"text",search:true},
 						],
 						
 						pager:"#pager_list1",

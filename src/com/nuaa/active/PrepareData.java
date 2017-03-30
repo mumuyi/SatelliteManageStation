@@ -80,7 +80,7 @@ public class PrepareData {
 		pa.getTableData("FrameData", 1, 10, 1, 0);
 	}
 	
-	public String getTableShowData(String DataTable, int page, int rows, int Sort, int Sort1) throws NoSuchMethodException,
+	public String getTableShowData(String DataTable, int page, int rows, int Sort, int Sort1,int type) throws NoSuchMethodException,
 			SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		// 传过来的参数 page 是从1开始的,所以要减一;
 		page -= 1;
@@ -110,10 +110,13 @@ public class PrepareData {
 			ans += "" + (m.invoke(frame));
 			ans += "\",";
 			//添加星上时间信息;
-			ans += "\""+frame.getYsj023()+"\","+"\""+frame.getYsj024()+"\",";
+			ans += "\""+frame.getYsj023()+"\","+"\""+frame.getYsj024()+"\"";
 			//添加最大值最小值;
-			//ans+="\""+parameter.getRangeFrom()+"\",";
-			//ans+="\""+parameter.getRangeTo()+"\"";
+			if(type==1){
+				ans+=",";
+				ans+="\""+parameter.getRangeFrom()+"\",";
+				ans+="\""+parameter.getRangeTo()+"\"";
+			}
 			ans += "]" + " },";
 		
 		}

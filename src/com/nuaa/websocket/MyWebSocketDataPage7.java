@@ -192,6 +192,10 @@ public class MyWebSocketDataPage7 {
 		// 填充数据;
 		FrameData frame = (FrameData) framelist.get(temp);
 		Class<? extends FrameData> myclass = frame.getClass();
+		//添加时间信息;
+		ans+="\""+"ysj023"+"\":"+"\""+frame.getYsj023()+"\",";
+		ans+="\""+"ysj024"+"\":"+"\""+frame.getYsj024()+"\",";
+		//添加其余信息;
 		for (int j = 0; j < list.size(); j++) {
 			Parameter parameter = (Parameter) list.get(j);
 			ans += "\""+parameter.getName()+"\":"+"\"";
