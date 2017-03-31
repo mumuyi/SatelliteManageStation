@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -30,12 +30,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  <div id="login-page">
 	  	<div class="container">
 	  	
-		      <form class="form-login" action="${ctx}/Login" method="post">
+		      <form class="form-login" action="${ctx}/Login" method="post" onsubmit="return check()">
 		        <h2 class="form-login-heading">sign in now</h2>
 		        <div class="login-wrap">
-		            <input type="text" class="form-control" placeholder="User ID" name="username" autofocus>
+		            <input type="text" class="form-control" placeholder="User ID" name="username" autofocus id="username">
 		            <br>
-		            <input type="password" class="form-control" placeholder="Password" name="password">
+		            <input type="password" class="form-control" placeholder="Password" name="password" id="password">
 		            <label class="checkbox">
 		                <span class="pull-right"></span>
 		            </label>
@@ -53,8 +53,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
     <script type="text/javascript" src="${ctx}/dashgum/js/jquery.backstretch.min.js"></script>
     <script>
-        $.backstretch("${ctx}/dashgum/img/login-bg.jpg", {speed: 500});
+        $.backstretch("${ctx}/dashgum/img/login-bg.jpg", {speed: 100});
     </script>
-  		
+    
+    <script>
+        $(function(){ 
+         	var ans="${result}";
+         	//alert("111"+ans+"111");
+        	if(ans!=null){
+        		if(ans=="false")
+         			alert("密码或用户名错误");
+         	}
+         });
+    </script>
+    
+    <script>
+		function check(){
+			var username=document.getElementById("username").value;
+			var password=document.getElementById("password").value;
+		    if(username==""||password==""){
+		    	alert("密码和用户名均不可为空");
+		        return false;
+		    }else{
+		        return true;//不写此返回值也行，此时就直接提交了
+		    }
+		}
+  	</script>
   </body>
 </html>
