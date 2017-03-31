@@ -17,6 +17,11 @@
     <link rel="stylesheet" type="text/css" href="${ctx}/dashgum/js/gritter/css/jquery.gritter.css" />
     <link rel="stylesheet" type="text/css" href="${ctx}/dashgum/lineicons/style.css">  
     
+    
+    <link rel="stylesheet" type="text/css" href="${ctx}/telescopicmenu/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="${ctx}/telescopicmenu/css/default.css">
+	<link rel="stylesheet" type="text/css" href="${ctx}/telescopicmenu/css/styles.css">
+    
     <!-- Custom styles for this template -->
     <link href="${ctx}/dashgum/css/style.css" rel="stylesheet">
     
@@ -24,65 +29,119 @@
     
 	<style>
 		.font_bk{
-			width:300px;
-			height:200px;
-			background-color:#7fbd5a;
-			border-radius:20px;//左上，右上，右下，坐下都是10px
 			margin:0 auto;
 			text-align:center;
-			padding-top:60px;
-			font-size:36px;
-			color:#ffffff;
+			float:left;
+			margin-left:200px;
 		}
 		.font_bk1{
-			width:300px;
-			height:200px;
-			background-color:#fae371;
-			border-radius:20px;//左上，右上，右下，坐下都是10px
 			margin:0 auto;
 			text-align:center;
-			padding-top:60px;
-			font-size:36px;
-			color:#ffffff;
+			margin-left:660px;
 		}
-		.font_bk:hover{background-color:#65934a;}
 	</style>
 
-
-
-
-    
 	</head>
 	<body>
-		<table class="container">
-			<tr height=50></tr>
-			<tr>
-				<th></th>
-				<th></th>
-				<th><div  class="font_bk" id="datapage5" onclick="datapagejump('${ctx}/MainContentController/5-1')">数据综合系统遥测信息</div></th>
-			</tr>
+			<div style="height:100px"></div>
+			<div>
+				<ul class="cards">
+				  <li class="card card-1"><img src="${ctx}/telescopicmenu/img/01.jpg"/>
+				    <div class="content-1">
+				      <p>指令计数</p>
+				    </div>
+				  </li>
+				  <li class="card card-2"><img src="${ctx}/telescopicmenu/img/02.jpg"/>
+				    <div class="content-1">
+				      <p>CPU</p>
+				    </div>
+				  </li>
+				  <li class="card card-3"><img src="${ctx}/telescopicmenu/img/03.jpg"/>
+				    <div class="content">
+				      <h1>数据综合</h1>
+				    </div>
+				  </li>
+				</ul>
+			</div>
 			
-			<tr height=80></tr>
-			<tr>
-				<th></th>
-				<th><div  class="font_bk" id="datapage6" onclick="datapagejump('${ctx}/MainContentController/6-1')">姿控原始测量遥测信息</div></th>
-				<th></th>
-				<th><div  class="font_bk" id="datapage7" onclick="datapagejump('${ctx}/MainContentController/7-1')">姿控功能遥测信息</div></th>
-			</tr>
-			<tr height=80></tr>
-			<tr>
-				<th></th>
-				<th><div  class="font_bk" id="datapage8" onclick="datapagejump('${ctx}/MainContentController/8-1')">电源系统遥测信息</div></th>
-				<th></th>
-				<th><div  class="font_bk" id="datapage9" onclick="datapagejump('${ctx}/MainContentController/9-1')">通信系统遥测信息</div></th>
-			</tr>
+			<div class="font_bk">
+				<ul class="cards">
+				  <li class="card card-1"><img src="${ctx}/telescopicmenu/img/01.jpg"/>
+				    <div class="content-1">
+				      <p>蓄电池</p>
+				    </div>
+				  </li>
+				  <li class="card card-2"><img src="${ctx}/telescopicmenu/img/02.jpg"/>
+				    <div class="content-1">
+				      <p>太阳电池阵</p>
+				    </div>
+				  </li>
+				  <li class="card card-3"><img src="${ctx}/telescopicmenu/img/03.jpg"/>
+				    <div class="content">
+				      <h1>电源</h1>
+				    </div>
+				  </li>
+				</ul>
+			</div>
 			
-		</table>
+			<div class="font_bk1">
+				<ul class="cards">
+					<li class="card card-1"><img src="${ctx}/telescopicmenu/img/01.jpg"></img>
+				    <div class="content-1">
+				      <p>通信接收机</p>
+				    </div>
+				  </li>
+				  <li class="card card-2"><img src="${ctx}/telescopicmenu/img/02.jpg"/>
+				    <div class="content-1">
+				      <p>通信发射机</p>
+				    </div>
+				  </li>
+				  <li class="card card-3"><img src="${ctx}/telescopicmenu/img/03.jpg"/>
+				    <div class="content">
+				      <h1>通信</h1>
+				    </div>
+				  </li>
+				</ul>
+			</div>
+			
+			<div>
+				<ul class="cards">
+				  <li class="card card-1"><img src="${ctx}/telescopicmenu/img/01.jpg"/>
+				    <div class="content-1">
+				      <p>太敏探头</p>
+				    </div>
+				  </li>
+				  <li class="card card-2"><img src="${ctx}/telescopicmenu/img/02.jpg"/>
+				    <div class="content-1">
+				      <p>磁强计</p>
+				    </div>
+				  </li>
+				  <li class="card card-4"><img src="${ctx}/telescopicmenu/img/02.jpg"/>
+				    <div class="content-1">
+				      <p>姿态</p>
+				    </div>
+				  </li>
+				  <li class="card card-5"><img src="${ctx}/telescopicmenu/img/02.jpg"/>
+				    <div class="content-1">
+				      <p>位置</p>
+				    </div>
+				  </li>
+				  <li class="card card-6"><img src="${ctx}/telescopicmenu/img/02.jpg"/>
+				    <div class="content-1">
+				      <p>速度</p>
+				    </div>
+				  </li>
+				  <li class="card card-3"><img src="${ctx}/telescopicmenu/img/03.jpg"/>
+				    <div class="content">
+				      <h1>姿控</h1>
+				    </div>
+				  </li>
+				</ul>
+			</div>
+
 		<!-- <button onclick="add()">add</button> -->
 		<script>
 			function datapagejump(src) {
-				//alert("1111111");
-
 				parent.document.getElementById("MainContentPage").src=src;
 			}
 		</script>
@@ -100,4 +159,12 @@
     <script>
         $.backstretch("${ctx}/dashgum/img/background.jpg");
     </script>
+    
+	<script>
+		jQuery(document).ready(function ($) {
+		    $('ul.cards').on('click', function () {
+		        $(this).toggleClass('transition');
+		    });
+		});
+	</script>
 </html>
