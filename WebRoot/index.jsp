@@ -55,7 +55,7 @@
 	<div class="top-menu">
 		<ul class="nav pull-right top-menu">
 			<li><a class="screenlock" href="${ctx}/ScreenLockController/Lock">Screen Lock</a></li>
-			<li><a class="logout" href="${ctx}/">Logout</a></li>
+			<li><a class="logout" href="${ctx}/Logout">Logout</a></li>
 		</ul>
 	</div>
 	</header> 

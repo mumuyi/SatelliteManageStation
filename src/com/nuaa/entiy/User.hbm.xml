@@ -7,5 +7,6 @@
     <class name="User" table="user"><!-- 如果表名跟类名一个样的话，那么table属性可以不写 -->
         <id name="UserName"></id>
         <property name="PassWord"></property>
+        <property name="Permission"></property>
     </class>
 </hibernate-mapping>

@@ -167,4 +167,14 @@
 		    });
 		});
 	</script>
+	
+    <script>
+        $(function(){ 
+         	var ans="${permissionverify}";
+         	//alert("111"+ans+"111");
+        	if(ans!=null&&ans=="false"){
+         		alert("本用户无权限进行此操作");
+         	}
+         });
+    </script>
 </html>

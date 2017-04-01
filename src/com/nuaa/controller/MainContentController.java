@@ -12,7 +12,10 @@ public class MainContentController extends Controller {
 	public void index() {
 		String Sord=this.getPara(0);
 		String Sord1=this.getPara(1);
-		if(Sord.equals("5")){
+		//如果为空可能会报错,需要注意一下;
+		String username=this.getSessionAttr("username");
+		String permission=this.getSessionAttr("permission");
+		if(Sord.equals("5")&&permission.charAt(0)=='1'){
 			if(Sord1.equals("1")){
 				this.render("/datapage51.jsp");
 			}else if(Sord1.equals("2")){
@@ -24,7 +27,7 @@ public class MainContentController extends Controller {
 			}else if(Sord1.equals("5")){
 				this.render("/datapage55.jsp");
 			}
-		}else if(Sord.equals("6")){
+		}else if(Sord.equals("6")&&permission.charAt(1)=='1'){
 			if(Sord1.equals("1")){
 				this.render("/datapage61.jsp");
 			}else if(Sord1.equals("2")){
@@ -36,7 +39,7 @@ public class MainContentController extends Controller {
 			}else if(Sord1.equals("5")){
 				this.render("/datapage65.jsp");
 			}
-		}else if(Sord.equals("7")){
+		}else if(Sord.equals("7")&&permission.charAt(1)=='1'){
 			if(Sord1.equals("1")){
 				this.render("/datapage71.jsp");
 			}else if(Sord1.equals("2")){
@@ -46,7 +49,7 @@ public class MainContentController extends Controller {
 			}else if(Sord1.equals("4")){
 				this.render("/datapage74.jsp");
 			}
-		}else if(Sord.equals("8")){
+		}else if(Sord.equals("8")&&permission.charAt(2)=='1'){
 			if(Sord1.equals("1")){
 				this.render("/datapage81.jsp");
 			}else if(Sord1.equals("2")){
@@ -54,7 +57,7 @@ public class MainContentController extends Controller {
 			}else if(Sord1.equals("3")){
 				this.render("/datapage83.jsp");
 			}
-		}else if(Sord.equals("9")){
+		}else if(Sord.equals("9")&&permission.charAt(3)=='1'){
 			if(Sord1.equals("1")){
 				this.render("/datapage91.jsp");
 			}else if(Sord1.equals("2")){
@@ -62,6 +65,12 @@ public class MainContentController extends Controller {
 			}else if(Sord1.equals("3")){
 				this.render("/datapage93.jsp");
 			}
+		}else{
+			//无权限做此操作;
+			System.out.println(username+" 此用户无权进行此操作");
+			//返回界面,进行提示;
+			this.setAttr("permissionverify", "false");
+			this.render("/datapage1.jsp");
 		}
 		
 		/*
