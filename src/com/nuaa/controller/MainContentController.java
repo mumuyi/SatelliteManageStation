@@ -14,7 +14,8 @@ public class MainContentController extends Controller {
 		String Sord1=this.getPara(1);
 		//如果为空可能会报错,需要注意一下;
 		String username=this.getSessionAttr("username");
-		String permission=this.getSessionAttr("permission");
+		//String permission=this.getSessionAttr("permission");
+		String permission="11111111";
 		if(Sord.equals("5")&&permission.charAt(0)=='1'){
 			if(Sord1.equals("1")){
 				this.render("/datapage51.jsp");
@@ -65,6 +66,8 @@ public class MainContentController extends Controller {
 			}else if(Sord1.equals("3")){
 				this.render("/datapage93.jsp");
 			}
+		}else if(Sord.equals("0")&&Sord.equals("0")){
+			this.render("/datapage1.jsp");
 		}else{
 			//无权限做此操作;
 			System.out.println(username+" 此用户无权进行此操作");

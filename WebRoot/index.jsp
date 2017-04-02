@@ -48,8 +48,8 @@
 	<div class="sidebar-toggle-box">
 		<div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
 	</div>
-	<!--logo start--> 
-	<a href="index.html" class="logo"><b>DASHGUM FREE</b></a> 
+	<!--logo start-->
+	<a href="index.html" class="logo"><b>Satellite Manage Station</b></a> 
 	<!--logo end-->
 	
 	<div class="top-menu">
@@ -73,10 +73,10 @@
 					<img src="${ctx}/dashgum/img/ui-sam.jpg"class="img-circle" width="60">
 				</a>
 			</p>
-			<h5 class="centered">Marcel Newman</h5>
+			<h5 class="centered">菜单</h5>
 			
-			<li class="mt">
-				<a class="active" href=""> 
+			<li class="mt" onclick="changeSrc('0-0')">
+				<a class="active"> 
 					<i class="fa fa-dashboard"></i> 
 					<span>主页</span>
 				</a>
@@ -84,42 +84,42 @@
 
 			<li class="sub-menu"><a href="javascript:;"><i class="fa fa-desktop"></i><span>数据综合系统遥测信息</span></a>
 				<ul class="sub">
-					<li onclick="changeSrc('${ctx}/MainContentController/5-1')"><a>CPU参数</a></li>
-					<li onclick="changeSrc('${ctx}/MainContentController/5-2')"><a>图像信息</a></li>
-					<li onclick="changeSrc('${ctx}/MainContentController/5-3')"><a>时间信息</a></li>
-					<li onclick="changeSrc('${ctx}/MainContentController/5-4')"><a>计数信息</a></li>
-					<li onclick="changeSrc('${ctx}/MainContentController/5-5')"><a>开关量</a></li>
+					<li onclick="changeSrc('5-1')"><a>CPU参数</a></li>
+					<li onclick="changeSrc('5-2')"><a>图像信息</a></li>
+					<li onclick="changeSrc('5-3')"><a>时间信息</a></li>
+					<li onclick="changeSrc('5-4')"><a>计数信息</a></li>
+					<li onclick="changeSrc('5-5')"><a>开关量</a></li>
 				</ul>
 			</li>
 			<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-cogs"></i> <span>姿控原始测量遥测信息</span></a>
 				<ul class="sub">
-					<li onclick="changeSrc('${ctx}/MainContentController/6-1')"><a>磁强计输出</a></li>
-					<li onclick="changeSrc('${ctx}/MainContentController/6-2')"><a>模拟太敏输出</a></li>
-					<li onclick="changeSrc('${ctx}/MainContentController/6-3')"><a>位置及速度信息</a></li>
-					<li onclick="changeSrc('${ctx}/MainContentController/6-4')"><a>功能遥测参数</a></li>
-					<li onclick="changeSrc('${ctx}/MainContentController/6-5')"><a>直显信息</a></li>
+					<li onclick="changeSrc('6-1')"><a>磁强计输出</a></li>
+					<li onclick="changeSrc('6-2')"><a>模拟太敏输出</a></li>
+					<li onclick="changeSrc('6-3')"><a>位置及速度信息</a></li>
+					<li onclick="changeSrc('6-4')"><a>功能遥测参数</a></li>
+					<li onclick="changeSrc('6-5')"><a>直显信息</a></li>
 				</ul>
 			</li>
 			<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-book"></i> <span>姿控功能遥测信息</span></a>
 				<ul class="sub">
-					<li onclick="changeSrc('${ctx}/MainContentController/7-1')"><a>轨道解算</a></li>
-					<li onclick="changeSrc('${ctx}/MainContentController/7-2')"><a>力矩信息</a></li>
-					<li onclick="changeSrc('${ctx}/MainContentController/7-3')"><a>俯仰信息</a></li>
-					<li onclick="changeSrc('${ctx}/MainContentController/7-4')"><a>标志及统计信息</a></li>
+					<li onclick="changeSrc('7-1')"><a>轨道解算</a></li>
+					<li onclick="changeSrc('7-2')"><a>力矩信息</a></li>
+					<li onclick="changeSrc('7-3')"><a>俯仰信息</a></li>
+					<li onclick="changeSrc('7-4')"><a>标志及统计信息</a></li>
 				</ul>
 			</li>
 			<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-tasks"></i> <span>电源系统遥测信息</span></a>
 				<ul class="sub">
-					<li onclick="changeSrc('${ctx}/MainContentController/8-1')"><a>电流电压信息</a></li>
-					<li onclick="changeSrc('${ctx}/MainContentController/8-2')"><a>开关量</a></li>
-					<li onclick="changeSrc('${ctx}/MainContentController/8-3')"><a>电池温度信息</a></li>
+					<li onclick="changeSrc('8-1')"><a>电流电压信息</a></li>
+					<li onclick="changeSrc('8-2')"><a>开关量</a></li>
+					<li onclick="changeSrc('8-3')"><a>电池温度信息</a></li>
 				</ul>
 			</li>
 			<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-th"></i> <span>通信系统遥测信息</span></a>
 				<ul class="sub">
-					<li onclick="changeSrc('${ctx}/MainContentController/9-1')"><a>通信机功率场强信息</a></li>
-					<li onclick="changeSrc('${ctx}/MainContentController/9-2')"><a>通信机计数信息</a></li>
-					<li onclick="changeSrc('${ctx}/MainContentController/9-3')"><a>开关量</a></li>
+					<li onclick="changeSrc('9-1')"><a>通信机功率场强信息</a></li>
+					<li onclick="changeSrc('9-2')"><a>通信机计数信息</a></li>
+					<li onclick="changeSrc('9-3')"><a>开关量</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -174,6 +174,7 @@
 	<script src="${ctx}/dashgum/js/sparkline-chart.js"></script>
 	<script src="${ctx}/dashgum/js/zabuto_calendar.js"></script>
 
+
 	<script type="application/javascript">
 		$(document).ready(function() {
 			$("#date-popover").popover({
@@ -222,7 +223,8 @@
 	<script>
 	function changeSrc(src)
 	{
-		document.getElementById("MainContentPage").src=src;
+		document.getElementById("MainContentPage").src="${ctx}/MainContentController/"+src;
+		send(src);
 	}
 	</script>
 	

@@ -1,6 +1,9 @@
 package com.nuaa.websocket;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.List;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 import javax.websocket.OnClose;
@@ -9,6 +12,11 @@ import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
+
+import com.nuaa.entiy.FrameData;
+import com.nuaa.entiy.MyHibernate;
+import com.nuaa.entiy.Parameter;
+import com.nuaa.test.TestHibernate;
 
 
 
@@ -25,8 +33,17 @@ public class MyWebSocketMain {
 	// 与某个客户端的连接会话，需要通过它来给客户端发送数据
 	private Session session;
 
-
+	private static int Sord=0;
+	private static int Sord1=0;
 	
+	private static int flag=0;
+	private static List<?> framelist;
+	private static List<?> list;
+	
+	private static int preSord=0;
+	
+	private static Runnable1 r;
+	private static Thread t;
 	/**
 	 * 连接建立成功调用的方法
 	 * 
@@ -40,7 +57,12 @@ public class MyWebSocketMain {
 		addOnlineCount(); // 在线数加1
 		System.out.println("有新连接加入！当前在线人数为" + getOnlineCount());
 		
-
+		//第一次,初始化数据;
+		if(flag==0){
+			framelist = MyHibernate.sqlQuery(0, 400, "from FrameData");
+			r = new Runnable1();
+			flag=1;
+		}
 	}
 
 	/**
@@ -65,6 +87,18 @@ public class MyWebSocketMain {
 	@OnMessage
 	public void onMessage(String message, Session session) throws IOException {
 		System.out.println("来自客户端的消息:" + message);
+		//更新当前显示页面;
+		Sord=message.charAt(0)-'0';
+		Sord1=message.charAt(2)-'0';
+		//更新list信息;
+		//if(preSord!=Sord){
+			if(t!=null)
+				t.stop();
+			list = MyHibernate.sqlQueryWithCondition("from Parameter where Sort=?", ""+Sord);
+	        t = new Thread(r);//创建线程
+	        t.start(); //线程开启
+		//}
+		preSord=Sord;
 	}
 
 	/**
@@ -106,6 +140,68 @@ public class MyWebSocketMain {
 
 	public static synchronized void subOnlineCount() {
 		MyWebSocketMain.onlineCount--;
+	}
+	
+	
+	class Runnable1 implements Runnable{
+	    public void run() {
+	        for (int i = 0; i < 100; i++) {
+	            String data="";
+				try {
+					data += MyWebSocketMain.prepareData(i);
+				} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
+						| InvocationTargetException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+	            try {
+					sendMessage(data);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+	            
+	            
+	            try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	        }
+	    }
+	}
+	
+	
+	/**
+	 * 准备实时显示所需信息;
+	 * 
+	 * */
+	public static String prepareData(int temp) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
+		String ans="[{";
+		//添加数据类型标识;
+		ans+="\""+"datatype"+"\":"+"\""+"timedata"+"\",";
+		// 填充数据;
+		FrameData frame = (FrameData) framelist.get(temp);
+		Class<? extends FrameData> myclass = frame.getClass();
+		//添加时间信息;
+		ans+="\""+"ysj023"+"\":"+"\""+frame.getYsj023()+"\",";
+		ans+="\""+"ysj024"+"\":"+"\""+frame.getYsj024()+"\",";
+		//添加其余信息;
+		for (int j = 0; j < list.size(); j++) {
+			Parameter parameter = (Parameter) list.get(j);
+			ans += "\""+parameter.getName()+"\":"+"\"";
+			Method m = (Method) myclass.getMethod("get" + TestHibernate.captureName(parameter.getName()));
+			ans +="" + (m.invoke(frame));
+
+			if (j == list.size() - 1) {
+				ans += "\"";
+			} else {
+				ans += "\",";
+			}
+		}
+		ans += "}]";
+		return ans;
 	}
 }
 

@@ -15,12 +15,21 @@
 	
 	//连接成功建立的回调方法
 	websocket.onopen = function(event) {
-		//alert("open");
+		alert("open");
 	};
 	
 	//接收到消息的回调方法
 	websocket.onmessage = function() {
-
+		var jsonDate = (event.data);
+        var jsonObj = JSON.parse( jsonDate );  // JSON.parse(); 方法;
+		var datatype=jsonObj[0].datatype;
+		if(datatype=="timedata"){
+			var v1=jsonObj[0].yjs087;
+			v1=v1-0.1;
+			var chart=$("#MainContentPage").contents().find("#yjs087").highcharts();
+			//var chart = $('#yjs087').highcharts();
+			chart.series[0].addPoint([ (new Date()).getTime(), v1+0.1 ]);
+		}
 	};
 	
 	//连接关闭的回调方法
@@ -45,6 +54,6 @@
 	}
 	
 	//发送消息
-	function send() {
+	function send(message) {
 		websocket.send(message);
 	}	
