@@ -2,6 +2,7 @@ package com.nuaa.nervenet;
 
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
+import java.util.List;
 
 import org.joone.engine.FullSynapse;
 import org.joone.engine.LinearLayer;
@@ -14,6 +15,9 @@ import org.joone.io.MemoryInputSynapse;
 import org.joone.io.MemoryOutputSynapse;
 import org.joone.net.NeuralNet;
 import org.joone.net.NeuralNetLoader;
+
+import com.nuaa.entiy.FrameData;
+import com.nuaa.entiy.MyHibernate;
 
 public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 	private static final long serialVersionUID = 8904087654343983744L;
@@ -29,7 +33,7 @@ public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 	//desired output
 	private double[][] desiredOutputArray = new double[][] { { 0.03 }, { 0.05 }, { 0.07 }, { 0.09 } ,{0.01}};
 
-	private static String filename="F://Java/TestJoone/model/model.snet";
+	private static String filename="C:/Users/ai/Desktop/data/model/modelyjs088.nnet";
 	
 	
 	/**
@@ -44,16 +48,18 @@ public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 		 //训练神经网络;
 		 //测试神经网络;
 		
-		NerveNetTest xor = new NerveNetTest();  
-        xor.initNeuralNet();  
-        xor.train();  
-        xor.interrogate();  
-        
+		NerveNetTest bp = new NerveNetTest();  
+		bp.inputArray=bp.prepareinputData();
+		bp.desiredOutputArray=bp.prepareoutputData();
+        bp.initNeuralNet();  
+        bp.train();  
+        bp.interrogate();  
+        bp.saveModel();
 		
 		
 		
-		//NerveNetTest xor = new NerveNetTest();
-		//xor.test();
+		//NerveNetTest bp = new NerveNetTest();
+		//bp.test();
 	}
 
 	/**
@@ -79,7 +85,7 @@ public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 		// 设置神经网络的输入层的数据大小size;
 		monitor.setTrainingPatterns(inputArray.length);
 		// 这个指的是设置迭代数目;
-		monitor.setTotCicles(1000);
+		monitor.setTotCicles(5000);
 		// 这个true表示是在训练过程;
 		monitor.setLearning(true);
 
@@ -95,7 +101,7 @@ public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 	 */
 	public void interrogate() {
 
-		double[][] inputArray = new double[][] { { 3 } };
+		double[][] inputArray = new double[][] { { 200 },{201},{202},{303} };
 		// set the inputs
 		inputSynapse.setInputArray(inputArray);
 		inputSynapse.setAdvancedColumnSelector(" 1 ");
@@ -114,9 +120,10 @@ public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 			nnet.getMonitor().setSingleThreadMode(singleThreadMode);
 			nnet.go();
 
-			double[] pattern = memOut.getNextPattern();
-			System.out.println(" Output pattern" + " = " + pattern[0]);
-
+			for(int i=0;i<4;i++){
+				double[] pattern = memOut.getNextPattern();
+				System.out.println(" Output pattern " +i+ " = " + pattern[0]);
+			}
 			System.out.println(" Interrogating Finished ");
 		}
 	}
@@ -125,11 +132,11 @@ public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 	 * 测试从文件中读取神经网络;
 	 */
 	public void test() {
-		NeuralNet xorNNet = restoreNeuralNet();
-		if (xorNNet != null) {
+		NeuralNet bpNNet = restoreNeuralNet();
+		if (bpNNet != null) {
 			double[][] inputArray = new double[][] { { 100 } };
 			//获取之前的输入层;
-			LinearLayer input = (LinearLayer) xorNNet.getInputLayer();
+			LinearLayer input = (LinearLayer) bpNNet.getInputLayer();
 			inputSynapse = new MemoryInputSynapse();
 			//将原来的输入突触去掉;
 			input.removeAllInputs();
@@ -138,7 +145,7 @@ public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 			//设置新的突触;
 			inputSynapse.setInputArray(inputArray);
 			inputSynapse.setAdvancedColumnSelector(" 1 ");
-			Monitor monitor = xorNNet.getMonitor();
+			Monitor monitor = bpNNet.getMonitor();
 			// 这个是指测试的数量;
 			monitor.setTrainingPatterns(4);
 			monitor.setTotCicles(1);
@@ -147,13 +154,15 @@ public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 			MemoryOutputSynapse memOut = new MemoryOutputSynapse();
 			// set the output synapse to write the output of the net
 
-			xorNNet.addOutputSynapse(memOut);
-			System.out.println(xorNNet.check());
-			xorNNet.getMonitor().setSingleThreadMode(singleThreadMode);
-			xorNNet.go();
+			bpNNet.addOutputSynapse(memOut);
+			System.out.println(bpNNet.check());
+			bpNNet.getMonitor().setSingleThreadMode(singleThreadMode);
+			bpNNet.go();
 
-			double[] pattern = memOut.getNextPattern();
-			System.out.println(" Output pattern" + " = " + pattern[0]);
+			for(int i=0;i<4;i++){
+				double[] pattern = memOut.getNextPattern();
+				System.out.println(" Output pattern " +i+ " = " + pattern[0]);
+			}
 
 			System.out.println(" Interrogating Finished ");
 		}
@@ -265,5 +274,23 @@ public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 		NeuralNetLoader loader = new NeuralNetLoader(filename);
 		NeuralNet nnet = loader.getNeuralNet();
 		return nnet;
+	}
+	
+	private double[][] prepareoutputData(){
+		double[][] output=new double[200][1];
+		List<?> list=MyHibernate.sqlQuery(0, 200, "from FrameData");
+		for(int i=0;i<200;i++){
+			FrameData frame=(FrameData)list.get(i);
+			output[i][0]=frame.getYjs088()+0.1;
+		}
+		return output;
+	}
+	
+	private double[][] prepareinputData(){
+		double[][] input=new double[200][1];
+		for(int i=0;i<200;i++){
+			input[i][0]=i;
+		}
+		return input;
 	}
 }
