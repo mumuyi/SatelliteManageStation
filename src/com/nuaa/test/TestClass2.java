@@ -13,7 +13,7 @@ public class TestClass2 {
 		PassWordChangeDate pcd=new PassWordChangeDate();
 		pcd.setUserName("11");
 		pcd.setChangeDate(new Date());
-		MyHibernate.sqlSaveOrUpdate(pcd);
+		//MyHibernate.sqlSaveOrUpdate(pcd);
 		
 		//List<?> list=MyHibernate.sqlQuery(0, 1, "from PassWordChangeDate");
 		//PassWordChangeDate pcd1=(PassWordChangeDate) list.get(0);
@@ -24,6 +24,8 @@ public class TestClass2 {
 		//	System.out.println("11111111111111111");
 		//else
 		//	System.out.println("22222222222222222");
+		
+		
 	}
 
 }

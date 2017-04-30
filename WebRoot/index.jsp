@@ -56,6 +56,7 @@
 		<ul class="nav pull-right top-menu">
 			<li><a class="screenlock" href="${ctx}/ScreenLockController/Lock">Screen Lock</a></li>
 			<li><a class="logout" href="${ctx}/Logout">Logout</a></li>
+			<li><a class="logout" onclick="changeSrcTopermission()">Permission</a></li>
 		</ul>
 	</div>
 	</header> 
@@ -227,7 +228,12 @@
 		send(src);
 	}
 	</script>
-	
+	<script>
+	function changeSrcTopermission()
+	{
+		document.getElementById("MainContentPage").src="${ctx}/UserManageController";
+	}
+	</script>
 	
 	
 	</body>

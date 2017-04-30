@@ -13,6 +13,7 @@ import com.nuaa.controller.LoginController;
 import com.nuaa.controller.MainContentController;
 import com.nuaa.controller.PassWordChangeController;
 import com.nuaa.controller.ScreenLockController;
+import com.nuaa.controller.UserManageController;
 import com.nuaa.handler.ContextPathHandler;
 
 public class MyAppConfig extends JFinalConfig {
@@ -57,6 +58,7 @@ public class MyAppConfig extends JFinalConfig {
 		me.add("/MainContentController",MainContentController.class);
 		me.add("/ScreenLockController",ScreenLockController.class);
 		me.add("/PassWordChangeController",PassWordChangeController.class);
+		me.add("/UserManageController",UserManageController.class);
 	}
 
 }
