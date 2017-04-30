@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import com.jfinal.core.Controller;
 import com.nuaa.active.LoginActivity;
+import com.nuaa.entiy.PassWordChangeDate;
 import com.nuaa.entiy.User;
 
 
@@ -19,10 +20,12 @@ public class LoginController extends Controller{
 	
 	public void Login(){
 		LoginActivity login=new LoginActivity();
-		
+		User user=new User();
 		String userName = this.getPara("username"); 
 		String passWord = this.getPara("password"); 
 		
+		user.setPassWord(passWord);
+		user.setUserName(userName);
 
 		List<?> list=login.LoginCheck(userName, passWord);
 		int i=0;
@@ -37,8 +40,17 @@ public class LoginController extends Controller{
 			this.render("/login.jsp");
 		}else{
 			//正确,则跳转;但是为了保证返回时不再次出现提示,需要重写参数;
-			this.setAttr("result", "true"); 
-			this.redirect("/IndexController");
+			PassWordChangeDate pcd=new PassWordChangeDate();
+			if(pcd.JudgeTime(user)){
+				//密码修改日期有效,则跳转主界面;
+				this.setAttr("result", "true"); 
+				this.redirect("/IndexController");
+			}
+			else{
+				//无效则跳转密码修改界面,修改密码;
+				this.setAttr("result", "true"); 
+				this.redirect("/PassWordChangeController");
+			}
 			
 			//正确写入session;
 			this.setSessionAttr("username", userName);
