@@ -19,6 +19,7 @@ import com.nuaa.entiy.FrameData;
 import com.nuaa.entiy.MyHibernate;
 import com.nuaa.entiy.Parameter;
 import com.nuaa.test.TestHibernate;
+import com.nuaa.utils.DataOpration;
 
 
 //该注解用来指定一个URI，客户端可以通过这个URI来连接到WebSocket。类似Servlet的注解mapping。无需在web.xml中配置。
@@ -203,7 +204,7 @@ public class MyWebSocketDataPage8 {
 		for (int j = 0; j < list.size(); j++) {
 			Parameter parameter = (Parameter) list.get(j);
 			ans += "\""+parameter.getName()+"\":"+"\"";
-			Method m = (Method) myclass.getMethod("get" + TestHibernate.captureName(parameter.getName()));
+			Method m = (Method) myclass.getMethod("get" + DataOpration.captureName(parameter.getName()));
 			ans +="" + (m.invoke(frame));
 
 			if (j == list.size() - 1) {

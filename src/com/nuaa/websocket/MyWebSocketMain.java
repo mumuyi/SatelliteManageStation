@@ -17,6 +17,7 @@ import com.nuaa.entiy.FrameData;
 import com.nuaa.entiy.MyHibernate;
 import com.nuaa.entiy.Parameter;
 import com.nuaa.test.TestHibernate;
+import com.nuaa.utils.DataOpration;
 
 
 
@@ -191,7 +192,7 @@ public class MyWebSocketMain {
 		for (int j = 0; j < list.size(); j++) {
 			Parameter parameter = (Parameter) list.get(j);
 			ans += "\""+parameter.getName()+"\":"+"\"";
-			Method m = (Method) myclass.getMethod("get" + TestHibernate.captureName(parameter.getName()));
+			Method m = (Method) myclass.getMethod("get" + DataOpration.captureName(parameter.getName()));
 			ans +="" + (m.invoke(frame));
 
 			if (j == list.size() - 1) {
