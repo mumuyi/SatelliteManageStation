@@ -135,7 +135,7 @@
 	<section id="main-content"> 
 		<section class="wrapper">
 			<div class="row">
-				<iframe id ="MainContentPage" src="${ctx}/IndexController/iniDataPage" width="100%" height="100%"></iframe>
+				<iframe name="myiframe" id ="MainContentPage" src="${ctx}/IndexController/iniDataPage" width="100%" height="100%"></iframe>
 			</div>
 		</section>
 	</section>
@@ -224,8 +224,8 @@
 	<script>
 	function changeSrc(src)
 	{
+	 	myiframe.window.closeWebSocket();
 		document.getElementById("MainContentPage").src="${ctx}/MainContentController/"+src;
-		send(src);
 	}
 	</script>
 	<script>

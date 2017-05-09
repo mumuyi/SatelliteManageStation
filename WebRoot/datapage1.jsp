@@ -142,6 +142,7 @@
 		<!-- <button onclick="add()">add</button> -->
 		<script>
 			function datapagejump(src) {
+				closeWebSocket();
 				parent.document.getElementById("MainContentPage").src="${ctx}/MainContentController/"+src;
 			}
 		</script>

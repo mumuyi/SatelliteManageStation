@@ -59,7 +59,7 @@
 	
 	//连接关闭的回调方法
 	websocket.onclose = function() {
-		alert("close");
+		//alert("close");
 		//setMessageInnerHTML("close");
 	};
 	

@@ -133,16 +133,16 @@ public class MyWebSocketDataPage1 {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}		
-
-			String data = "";
-			data += getEarlyWarning();
-			try {
-				sendMessage(data);
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+			if(MyWebSocketDataPage1.onlineCount>0){
+				String data = "";
+				data += getEarlyWarning();
+				try {
+					sendMessage(data);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
-
 
 		}
 	}

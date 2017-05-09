@@ -160,29 +160,31 @@ public class MyWebSocketDataPage6 {
 	class Runnable1 implements Runnable{
 	    public void run() {
 	        for (int i = 0; i < 100; i++) {
-	            String data="";
-				try {
-					//data += MyWebSocketDataPage6.prepareData(i);
-					data+=pd.prepareDynamicDisplayData(i, framelist, list);
-				} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
-						| InvocationTargetException e2) {
-					// TODO Auto-generated catch block
-					e2.printStackTrace();
-				}
-	            try {
-					sendMessage(data);
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-	            
-	            
-	            try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+	        	if(MyWebSocketDataPage6.onlineCount>0){
+		            String data="";
+					try {
+						//data += MyWebSocketDataPage6.prepareData(i);
+						data+=pd.prepareDynamicDisplayData(i, framelist, list);
+					} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
+							| InvocationTargetException e2) {
+						// TODO Auto-generated catch block
+						e2.printStackTrace();
+					}
+		            try {
+						sendMessage(data);
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+		            
+		            
+		            try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		        }
 	        }
 	    }
 	}
