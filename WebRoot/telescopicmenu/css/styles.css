@@ -68,9 +68,57 @@ ul.cards li.card {
   -webkit-transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
           transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
 }
+ul.cards li.card-33 {
+  background: #FFCB00;
+  overflow: hidden;
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
+  position: absolute;
+  left: 200px;
+  box-shadow: 1px 2px 2px 0 #aaa;
+  -webkit-transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+          transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+}
+ul.cards li.card-333 {
+  background: #FE4365;
+  overflow: hidden;
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
+  position: absolute;
+  left: 200px;
+  box-shadow: 1px 2px 2px 0 #aaa;
+  -webkit-transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+          transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+}
 
 ul.cards li.card-1 {
   background: #FFF;
+  overflow: hidden;
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
+  position: absolute;
+  left: 200px;
+  box-shadow: 1px 2px 2px 0 #aaa;
+  -webkit-transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+          transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+}
+ul.cards li.card-11 {
+  background: #FFCB00;
+  overflow: hidden;
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
+  position: absolute;
+  left: 200px;
+  box-shadow: 1px 2px 2px 0 #aaa;
+  -webkit-transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+          transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+}
+ul.cards li.card-111 {
+  background: #FE4365;
   overflow: hidden;
   height: 100px;
   width: 100px;
@@ -94,9 +142,57 @@ ul.cards li.card-2 {
   -webkit-transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
           transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
 }
+ul.cards li.card-22 {
+  background: #FFCB00;
+  overflow: hidden;
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
+  position: absolute;
+  left: 200px;
+  box-shadow: 1px 2px 2px 0 #aaa;
+  -webkit-transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+          transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+}
+ul.cards li.card-222 {
+  background: #FE4365;
+  overflow: hidden;
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
+  position: absolute;
+  left: 200px;
+  box-shadow: 1px 2px 2px 0 #aaa;
+  -webkit-transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+          transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+}
 
 ul.cards li.card-4 {
   background: #FFF;
+  overflow: hidden;
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
+  position: absolute;
+  left: 200px;
+  box-shadow: 1px 2px 2px 0 #aaa;
+  -webkit-transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+          transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+}
+ul.cards li.card-44 {
+  background: #FFCB00;
+  overflow: hidden;
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
+  position: absolute;
+  left: 200px;
+  box-shadow: 1px 2px 2px 0 #aaa;
+  -webkit-transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+          transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+}
+ul.cards li.card-444 {
+  background: #FE4365;
   overflow: hidden;
   height: 100px;
   width: 100px;
@@ -120,6 +216,30 @@ ul.cards li.card-5 {
   -webkit-transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
           transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
 }
+ul.cards li.card-55 {
+  background: #FFCB00;
+  overflow: hidden;
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
+  position: absolute;
+  left: 200px;
+  box-shadow: 1px 2px 2px 0 #aaa;
+  -webkit-transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+          transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+}
+ul.cards li.card-555 {
+  background: #FE4365;
+  overflow: hidden;
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
+  position: absolute;
+  left: 200px;
+  box-shadow: 1px 2px 2px 0 #aaa;
+  -webkit-transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+          transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+}
 
 ul.cards li.card-6 {
   background: #FFF;
@@ -133,6 +253,31 @@ ul.cards li.card-6 {
   -webkit-transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
           transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
 }
+ul.cards li.card-66 {
+  background: #FFCB00;
+  overflow: hidden;
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
+  position: absolute;
+  left: 200px;
+  box-shadow: 1px 2px 2px 0 #aaa;
+  -webkit-transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+          transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+}
+ul.cards li.card-666 {
+  background: #FE4365;
+  overflow: hidden;
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
+  position: absolute;
+  left: 200px;
+  box-shadow: 1px 2px 2px 0 #aaa;
+  -webkit-transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+          transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.12);
+}
+
 ul.cards li.card img {
   max-width: 100%;
   padding: 5px;
@@ -169,9 +314,20 @@ ul.cards.transition li.card {
 }
 ul.cards.transition li.card.card-1 {
   left: 530px;
-  
+}
+ul.cards.transition li.card.card-11 {
+  left: 530px;
+}
+ul.cards.transition li.card.card-111 {
+  left: 530px;
 }
 ul.cards.transition li.card.card-2 {
+  left: 420px;
+}
+ul.cards.transition li.card.card-22 {
+  left: 420px;
+}
+ul.cards.transition li.card.card-222 {
   left: 420px;
 }
 ul.cards.transition li.card.card-3 {
@@ -180,10 +336,28 @@ ul.cards.transition li.card.card-3 {
 ul.cards.transition li.card.card-4 {
   left: 640px;
 }
+ul.cards.transition li.card.card-44 {
+  left: 640px;
+}
+ul.cards.transition li.card.card-444 {
+  left: 640px;
+}
 ul.cards.transition li.card.card-5 {
   left: 750px;
 }
+ul.cards.transition li.card.card-55 {
+  left: 750px;
+}
+ul.cards.transition li.card.card-555 {
+  left: 750px;
+}
 ul.cards.transition li.card.card-6 {
+  left: 860px;
+}
+ul.cards.transition li.card.card-66 {
+  left: 860px;
+}
+ul.cards.transition li.card.card-666 {
   left: 860px;
 }
 ul.card-stacks {

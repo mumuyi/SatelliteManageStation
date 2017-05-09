@@ -1,0 +1,155 @@
+package com.nuaa.websocket;
+
+import java.io.IOException;
+import java.util.Date;
+import java.util.Random;
+import java.util.concurrent.CopyOnWriteArraySet;
+
+import javax.websocket.OnClose;
+import javax.websocket.OnError;
+import javax.websocket.OnMessage;
+import javax.websocket.OnOpen;
+import javax.websocket.Session;
+import javax.websocket.server.ServerEndpoint;
+
+
+
+//该注解用来指定一个URI，客户端可以通过这个URI来连接到WebSocket。类似Servlet的注解mapping。无需在web.xml中配置。
+@ServerEndpoint("/chat1.ws")
+public class MyWebSocketDataPage1 {
+	// 静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
+	private static int onlineCount = 0;
+
+	// concurrent包的线程安全Set，用来存放每个客户端对应的MyWebSocket对象。若要实现服务端与单一客户端通信的话，可以使用Map来存放，其中Key可以为用户标识
+	private static CopyOnWriteArraySet<MyWebSocketDataPage1> webSocketSet = new CopyOnWriteArraySet<MyWebSocketDataPage1>();
+
+	// 与某个客户端的连接会话，需要通过它来给客户端发送数据
+	private Session session;
+
+	/**
+	 * 连接建立成功调用的方法
+	 * 
+	 * @param session
+	 *            可选的参数。session为与某个客户端的连接会话，需要通过它来给客户端发送数据
+	 */
+	@OnOpen
+	public void onOpen(Session session) {
+		this.session = session;
+		webSocketSet.add(this); // 加入set中
+		addOnlineCount(); // 在线数加1
+		System.out.println("有新连接加入！当前在线人数为" + getOnlineCount());
+
+		Runnable1 r = new Runnable1();
+		// r.run();并不是线程开启，而是简单的方法调用
+		Thread t = new Thread(r);// 创建线程
+		// t.run(); //如果该线程是使用独立的 Runnable 运行对象构造的，则调用该 Runnable 对象的 run
+		// 方法；否则，该方法不执行任何操作并返回。
+		t.start(); // 线程开启
+	}
+
+	/**
+	 * 连接关闭调用的方法
+	 */
+	@OnClose
+	public void onClose() {
+		webSocketSet.remove(this); // 从set中删除
+		subOnlineCount(); // 在线数减1
+		System.out.println("有一连接关闭！当前在线人数为" + getOnlineCount());
+	}
+
+	/**
+	 * 收到客户端消息后调用的方法
+	 * 
+	 * @param message
+	 *            客户端发送过来的消息
+	 * @param session
+	 *            可选的参数
+	 * @throws IOException
+	 */
+	@OnMessage
+	public void onMessage(String message, Session session) throws IOException {
+		System.out.println("来自客户端的消息:" + message);
+	}
+
+	/**
+	 * 发生错误时调用
+	 * 
+	 * @param session
+	 * @param error
+	 */
+	@OnError
+	public void onError(Session session, Throwable error) {
+		System.out.println("发生错误");
+		error.printStackTrace();
+	}
+
+	/**
+	 * 这个方法与上面几个方法不一样。没有用注解，是根据自己需要添加的方法。
+	 * 
+	 * @param message
+	 * @throws IOException
+	 */
+	public void sendMessage(String message, Session session) throws IOException {
+		// session.getBasicRemote().sendText(message);
+		this.session.getAsyncRemote().sendText(message);
+	}
+
+	public void sendMessage(String message) throws IOException {
+		// session.getBasicRemote().sendText(message);
+		this.session.getAsyncRemote().sendText(message);
+	}
+
+	public static synchronized int getOnlineCount() {
+		return onlineCount;
+	}
+
+	public static synchronized void addOnlineCount() {
+		MyWebSocketDataPage1.onlineCount++;
+	}
+
+	public static synchronized void subOnlineCount() {
+		MyWebSocketDataPage1.onlineCount--;
+	}
+
+	public static void main(String[] args) {
+		for (int i = 0; i < 100; i++) {
+			Date d = new Date();
+			String time = Long.toString(d.getTime());
+			Random random = new Random();
+			String value = Integer.toString((random.nextInt(200) % (151) + 50));
+
+			System.out.println("Thread-----:" + " time:" + time + " value:" + value);
+			System.out.println("[{\"time\":\"" + time + "\",\"value\":\"" + value + "\"}]");
+		}
+	}
+
+
+	class Runnable1 implements Runnable {
+		public void run() {
+
+			try {
+				Thread.sleep(6000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}		
+
+			String data = "";
+			data += getEarlyWarning();
+			try {
+				sendMessage(data);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
+
+		}
+	}
+
+	public String getEarlyWarning() {
+		String ans = "";
+		ans += "[{\"alerttype\":\"" + "error" + "\",\"alertsort\":\"" + 1 + "\",\"alertsort1\":\"" + 1 + "\"}]";
+		return ans;
+	}
+}
