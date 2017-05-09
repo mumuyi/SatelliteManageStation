@@ -2,7 +2,6 @@ package com.nuaa.websocket;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -15,11 +14,9 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-import com.nuaa.entiy.FrameData;
+import com.nuaa.active.PrepareData;
 import com.nuaa.entiy.MyHibernate;
-import com.nuaa.entiy.Parameter;
-import com.nuaa.test.TestHibernate;
-import com.nuaa.utils.DataOpration;
+
 
 
 //该注解用来指定一个URI，客户端可以通过这个URI来连接到WebSocket。类似Servlet的注解mapping。无需在web.xml中配置。
@@ -38,6 +35,7 @@ public class MyWebSocketDataPage9 {
 	private static List<?> framelist;
 	private static List<?> list;
 	
+	private static PrepareData pd=new PrepareData();
 	/**
 	 * 连接建立成功调用的方法
 	 * 
@@ -164,7 +162,8 @@ public class MyWebSocketDataPage9 {
 	        for (int i = 0; i < 100; i++) {
 	            String data="";
 				try {
-					data += MyWebSocketDataPage9.prepareData(i);
+					//data += MyWebSocketDataPage9.prepareData(i);
+					data+=pd.prepareDynamicDisplayData(i, framelist, list);
 				} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
 						| InvocationTargetException e2) {
 					// TODO Auto-generated catch block
@@ -186,35 +185,6 @@ public class MyWebSocketDataPage9 {
 				}
 	        }
 	    }
-	}
-	
-	/**
-	 * 准备实时显示所需信息;
-	 * 
-	 * */
-	public static String prepareData(int temp) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
-		String ans="[{";
-		// 填充数据;
-		FrameData frame = (FrameData) framelist.get(temp);
-		Class<? extends FrameData> myclass = frame.getClass();
-		//添加时间信息;
-		ans+="\""+"ysj023"+"\":"+"\""+frame.getYsj023()+"\",";
-		ans+="\""+"ysj024"+"\":"+"\""+frame.getYsj024()+"\",";
-		//添加其余信息;
-		for (int j = 0; j < list.size(); j++) {
-			Parameter parameter = (Parameter) list.get(j);
-			ans += "\""+parameter.getName()+"\":"+"\"";
-			Method m = (Method) myclass.getMethod("get" + DataOpration.captureName(parameter.getName()));
-			ans +="" + (m.invoke(frame));
-
-			if (j == list.size() - 1) {
-				ans += "\"";
-			} else {
-				ans += "\",";
-			}
-		}
-		ans += "}]";
-		return ans;
 	}
 }
 

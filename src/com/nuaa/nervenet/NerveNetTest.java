@@ -33,7 +33,8 @@ public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 	//desired output
 	private double[][] desiredOutputArray = new double[][] { { 0.03 }, { 0.05 }, { 0.07 }, { 0.09 } ,{0.01}};
 
-	private static String filename="C:/Users/ai/Desktop/data/model/modelyjs088.nnet";
+//	private static String filename="C:/Users/ai/Desktop/data/model/modelyjs088.nnet";
+	private static String filename="C:/Users/ai/Desktop/data/model/model";
 	
 	
 	/**
@@ -49,14 +50,14 @@ public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 		 //测试神经网络;
 		
 		NerveNetTest bp = new NerveNetTest();  
-		bp.inputArray=bp.prepareinputData();
-		bp.desiredOutputArray=bp.prepareoutputData();
-        bp.initNeuralNet();  
-        bp.train();  
-        bp.interrogate();  
-        bp.saveModel();
+		//bp.inputArray=bp.prepareinputData();
+		//bp.desiredOutputArray=bp.prepareoutputData();
+        //bp.initNeuralNet();  
+        //bp.train();  
+        //bp.interrogate();  
+        //bp.saveModel();
 		
-		
+		bp.getPredictData("yjs088",200);
 		
 		//NerveNetTest bp = new NerveNetTest();
 		//bp.test();
@@ -132,7 +133,7 @@ public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 	 * 测试从文件中读取神经网络;
 	 */
 	public void test() {
-		NeuralNet bpNNet = restoreNeuralNet();
+		NeuralNet bpNNet = restoreNeuralNet("yjs088");
 		if (bpNNet != null) {
 			double[][] inputArray = new double[][] { { 100 } };
 			//获取之前的输入层;
@@ -270,8 +271,8 @@ public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 		}
 	}
 
-	private NeuralNet restoreNeuralNet() {
-		NeuralNetLoader loader = new NeuralNetLoader(filename);
+	private NeuralNet restoreNeuralNet(String parameterName) {
+		NeuralNetLoader loader = new NeuralNetLoader(filename+parameterName+".nnet");
 		NeuralNet nnet = loader.getNeuralNet();
 		return nnet;
 	}
@@ -292,5 +293,42 @@ public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 			input[i][0]=i;
 		}
 		return input;
+	}
+	
+	public double getPredictData(String parameterName,int point){
+		double ans=-1.11111;
+		NeuralNet bpNNet = restoreNeuralNet(parameterName);
+		if (bpNNet != null) {
+			double[][] inputArray = new double[][] { { point } };
+			//获取之前的输入层;
+			LinearLayer input = (LinearLayer) bpNNet.getInputLayer();
+			inputSynapse = new MemoryInputSynapse();
+			//将原来的输入突触去掉;
+			input.removeAllInputs();
+			//加上新的突触;
+			input.addInputSynapse(inputSynapse);
+			//设置新的突触;
+			inputSynapse.setInputArray(inputArray);
+			inputSynapse.setAdvancedColumnSelector(" 1 ");
+			Monitor monitor = bpNNet.getMonitor();
+			// 这个是指测试的数量;
+			monitor.setTrainingPatterns(1);
+			monitor.setTotCicles(1);
+			// 这不是训练过程，并不需要学习;
+			monitor.setLearning(false);
+			MemoryOutputSynapse memOut = new MemoryOutputSynapse();
+			// set the output synapse to write the output of the net
+
+			bpNNet.addOutputSynapse(memOut);
+			System.out.println(bpNNet.check());
+			bpNNet.getMonitor().setSingleThreadMode(singleThreadMode);
+			bpNNet.go();
+
+
+			double[] pattern = memOut.getNextPattern();
+			System.out.println(" Output pattern " + " = " + pattern[0]);
+			return pattern[0];
+		}
+		return ans;
 	}
 }
