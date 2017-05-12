@@ -143,7 +143,6 @@ public class MyWebSocketDataPage1 {
 					e1.printStackTrace();
 				}
 			}
-
 		}
 	}
 
