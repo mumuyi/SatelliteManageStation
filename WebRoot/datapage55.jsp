@@ -133,4 +133,13 @@
 								)
 			}    
 	</script>
+	
+	
+	<script>
+		function closeWebSocket()
+		{
+			//alert("nice to meet you");
+		}
+	</script>
+	
 </html>

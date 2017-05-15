@@ -231,6 +231,7 @@
 	<script>
 	function changeSrcTopermission()
 	{
+		myiframe.window.closeWebSocket();
 		document.getElementById("MainContentPage").src="${ctx}/UserManageController";
 	}
 	</script>
