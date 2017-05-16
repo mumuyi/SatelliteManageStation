@@ -46,17 +46,17 @@
 			<div style="height:100px"></div>
 			<div>
 				<ul class="cards">
-				  <li class="card card-1" id="data11" onclick="datapagejump('5-4')"><img src="${ctx}/telescopicmenu/img/01.jpg"/>
+				  <li class="card card-1" id="data11" onclick="datapagejump('5-4')"><img src="${ctx}/telescopicmenu/img/img9.jpg"/>
 				    <div class="content-1">
 				      <p>指令计数</p>
 				    </div>
 				  </li>
-				  <li class="card card-2"  id="data12" onclick="datapagejump('5-1')"><img src="${ctx}/telescopicmenu/img/02.jpg"/>
+				  <li class="card card-2"  id="data12" onclick="datapagejump('5-1')"><img src="${ctx}/telescopicmenu/img/img10.jpg"/>
 				    <div class="content-1">
 				      <p>CPU</p>
 				    </div>
 				  </li>
-				  <li class="card card-3" id="data1"><img src="${ctx}/telescopicmenu/img/03.jpg"/>
+				  <li class="card card-3" id="data1"><img src="${ctx}/telescopicmenu/img/img5.jpg"/>
 				    <div class="content">
 				      <h1>数据综合</h1>
 				    </div>
@@ -66,17 +66,17 @@
 			
 			<div class="font_bk">
 				<ul class="cards">
-				  <li class="card card-1" id="data21" onclick="datapagejump('8-1')"><img src="${ctx}/telescopicmenu/img/01.jpg"/>
+				  <li class="card card-1" id="data21" onclick="datapagejump('8-1')"><img src="${ctx}/telescopicmenu/img/img6.jpg"/>
 				    <div class="content-1">
 				      <p>蓄电池</p>
 				    </div>
 				  </li>
-				  <li class="card card-2" id="data22" onclick="datapagejump('8-3')"><img src="${ctx}/telescopicmenu/img/02.jpg"/>
+				  <li class="card card-2" id="data22" onclick="datapagejump('8-3')"><img src="${ctx}/telescopicmenu/img/img7.jpg"/>
 				    <div class="content-1">
 				      <p>太阳电池阵</p>
 				    </div>
 				  </li>
-				  <li class="card card-3" id="data2"><img src="${ctx}/telescopicmenu/img/03.jpg"/>
+				  <li class="card card-3" id="data2"><img src="${ctx}/telescopicmenu/img/img11.jpg"/>
 				    <div class="content">
 				      <h1>电源</h1>
 				    </div>
@@ -86,17 +86,17 @@
 			
 			<div class="font_bk1">
 				<ul class="cards">
-					<li class="card card-1" id="data31" onclick="datapagejump('9-1')"><img src="${ctx}/telescopicmenu/img/01.jpg"></img>
+					<li class="card card-1" id="data31" onclick="datapagejump('9-1')"><img src="${ctx}/telescopicmenu/img/img2.jpg"></img>
 				    <div class="content-1">
 				      <p>通信接收机</p>
 				    </div>
 				  </li>
-				  <li class="card card-2" id="data32" onclick="datapagejump('9-1')"><img src="${ctx}/telescopicmenu/img/02.jpg"/>
+				  <li class="card card-2" id="data32" onclick="datapagejump('9-1')"><img src="${ctx}/telescopicmenu/img/img3.jpg"/>
 				    <div class="content-1">
 				      <p>通信发射机</p>
 				    </div>
 				  </li>
-				  <li class="card card-3" id="data3"><img src="${ctx}/telescopicmenu/img/03.jpg"/>
+				  <li class="card card-3" id="data3"><img src="${ctx}/telescopicmenu/img/img1.jpg"/>
 				    <div class="content">
 				      <h1>通信</h1>
 				    </div>
@@ -106,32 +106,32 @@
 			
 			<div>
 				<ul class="cards">
-				  <li class="card card-1" id="data41" onclick="datapagejump('6-2')"><img src="${ctx}/telescopicmenu/img/01.jpg"/>
+				  <li class="card card-1" id="data41" onclick="datapagejump('6-2')"><img src="${ctx}/telescopicmenu/img/img4.jpg"/>
 				    <div class="content-1">
 				      <p>太敏探头</p>
 				    </div>
 				  </li>
-				  <li class="card card-2" id="data42" onclick="datapagejump('6-1')"><img src="${ctx}/telescopicmenu/img/02.jpg"/>
+				  <li class="card card-2" id="data42" onclick="datapagejump('6-1')"><img src="${ctx}/telescopicmenu/img/img8.jpg"/>
 				    <div class="content-1">
 				      <p>磁强计</p>
 				    </div>
 				  </li>
-				  <li class="card card-4" id="data44" onclick="datapagejump('7-3')"><img src="${ctx}/telescopicmenu/img/02.jpg"/>
+				  <li class="card card-4" id="data44" onclick="datapagejump('7-3')"><img src="${ctx}/telescopicmenu/img/img12.jpg"/>
 				    <div class="content-1">
 				      <p>姿态</p>
 				    </div>
 				  </li>
-				  <li class="card card-5" id="data45" onclick="datapagejump('6-3')"><img src="${ctx}/telescopicmenu/img/02.jpg"/>
+				  <li class="card card-5" id="data45" onclick="datapagejump('6-3')"><img src="${ctx}/telescopicmenu/img/img13.jpg"/>
 				    <div class="content-1">
 				      <p>位置</p>
 				    </div>
 				  </li>
-				  <li class="card card-6"  id="data46" onclick="datapagejump('6-3')"><img src="${ctx}/telescopicmenu/img/02.jpg"/>
+				  <li class="card card-6"  id="data46" onclick="datapagejump('6-3')"><img src="${ctx}/telescopicmenu/img/img14.jpg"/>
 				    <div class="content-1">
 				      <p>速度</p>
 				    </div>
 				  </li>
-				  <li class="card card-3"  id="data4"><img src="${ctx}/telescopicmenu/img/03.jpg"/>
+				  <li class="card card-3"  id="data4"><img src="${ctx}/telescopicmenu/img/img16.jpg"/>
 				    <div class="content">
 				      <h1>姿控</h1>
 				    </div>

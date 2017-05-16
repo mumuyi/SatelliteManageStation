@@ -135,7 +135,23 @@ public class MyWebSocketDataPage1 {
 			}		
 			if(MyWebSocketDataPage1.onlineCount>0){
 				String data = "";
-				data += getEarlyWarning();
+				data += getEarlyWarning(0);
+				try {
+					sendMessage(data);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			try {
+				Thread.sleep(6000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if(MyWebSocketDataPage1.onlineCount>0){
+				String data = "";
+				data += getEarlyWarning(1);
 				try {
 					sendMessage(data);
 				} catch (IOException e1) {
@@ -146,9 +162,12 @@ public class MyWebSocketDataPage1 {
 		}
 	}
 
-	public String getEarlyWarning() {
+	public String getEarlyWarning(int i) {
 		String ans = "";
-		ans += "[{\"alerttype\":\"" + "error" + "\",\"alertsort\":\"" + 1 + "\",\"alertsort1\":\"" + 1 + "\"}]";
+		if(i==0)
+			ans += "[{\"alerttype\":\"" + "warning" + "\",\"alertsort\":\"" + 1 + "\",\"alertsort1\":\"" + 1 + "\"}]";
+		else
+			ans += "[{\"alerttype\":\"" + "error" + "\",\"alertsort\":\"" + 1 + "\",\"alertsort1\":\"" + 1 + "\"}]";
 		return ans;
 	}
 }
