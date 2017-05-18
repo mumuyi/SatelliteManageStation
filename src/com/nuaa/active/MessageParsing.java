@@ -235,7 +235,7 @@ public class MessageParsing {
 					}else if(parameter.getOpration()==173){
 						ans=ans/80.0*1000000;
 					}
-					
+					ans=DataOpration.doubleFix(ans);
 					System.out.println(j+": "+ans);
 					
 					//回调存数据;
@@ -258,6 +258,7 @@ public class MessageParsing {
 					}else if(parameter.getOpration()==24){
 						ans=tempans*2.0;
 					}
+					ans=DataOpration.doubleFix(ans);
 					System.out.println(j+": "+ans);
 					//回调存数据;
 					Method m = (Method) myclass.getMethod("set"+MessageParsing.captureName(parameter.getName()),double.class);
@@ -284,6 +285,7 @@ public class MessageParsing {
 				//模拟太敏;
 				else if(parameter.getOpration()==16){
 					double ans=DataOpration.Table16Opration(filebt[pointer]);
+					ans=DataOpration.doubleFix(ans);
 					System.out.println(j+": "+ans);
 					
 					//回调存数据;
@@ -306,6 +308,7 @@ public class MessageParsing {
 					}else if(parameter.getOpration()==26){
 						ans=tempans*0.01;
 					}
+					ans=DataOpration.doubleFix(ans);
 					System.out.println(j+": "+ans);
 					
 					//回调存数据;
@@ -351,6 +354,7 @@ public class MessageParsing {
 						ans*=13.5;
 						ans/=5;
 					}
+					ans=DataOpration.doubleFix(ans);
 					System.out.println(j+": "+ans);
 					
 					//回调存数据;
@@ -369,6 +373,7 @@ public class MessageParsing {
 					}else if(parameter.getOpration()==31){
 						//无操作;
 					}
+					ans=DataOpration.doubleFix(ans);
 					System.out.println(j+": "+ans);
 					
 					//回调存数据;
@@ -390,6 +395,7 @@ public class MessageParsing {
 					}else if(parameter.getOpration()==34){
 						ans=tempans*5/128;
 					}
+					ans=DataOpration.doubleFix(ans);
 					System.out.println(j+": "+ans);
 					
 					//回调存数据;
@@ -404,6 +410,7 @@ public class MessageParsing {
 					temp[1]=filebt[pointer];
 					temp[0]=filebt[pointer+1];
 					double ans=DataOpration.Table17Opration(temp);
+					ans=DataOpration.doubleFix(ans);
 					System.out.println(j+": "+ans);
 					
 					//回调存数据;
@@ -414,7 +421,7 @@ public class MessageParsing {
 				}
 			}
 			//先把这里注释掉,不存数据库,以免误操作,存入重复数据;
-			//MyHibernate.sqlSaveOrUpdate(frame);
+			MyHibernate.sqlSaveOrUpdate(frame);
 		}
 		
 		System.out.println("Message Parsing End");

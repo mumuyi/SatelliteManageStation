@@ -1,13 +1,15 @@
 package com.nuaa.utils;
 
+import java.text.DecimalFormat;
+
 public class DataOpration {
 	// 表14操作;
 	public static int Table14Opration(byte[] filebt, int pointer, int length) {
 		byte[] temp = new byte[length];
 		for (int m = 0; m < length; m++) {
-			temp[m] = filebt[pointer + length-1-m];
+			temp[m] = filebt[pointer + length - 1 - m];
 		}
-		//return Long.parseLong(DataOpration.HexToString(temp));
+		// return Long.parseLong(DataOpration.HexToString(temp));
 		return DataOpration.byteToint(temp);
 	}
 
@@ -76,76 +78,79 @@ public class DataOpration {
 	}
 
 	public static double Table17Opration(byte[] temp) {
-		double ans=0.0;
-		
-		byte[] temp1=new byte[4];
-		temp1[0]=temp[0];
-		temp1[1]=temp[1];
-		temp1[2]=(byte)0x00;
-		temp1[3]=(byte)0x00;
-		
-		if((temp[1]&(byte)0x80)==(byte)0x00){//首位为0
-			//System.out.println("22222222222          "+DataOpration.byteToint(temp1));
-			ans=(5.0*DataOpration.byteToint(temp1)+1.024)/2048;
-		}
-		else{//首位为1
-			temp1[3]=(byte)0x80;
-			//12位取补码操作;
-			temp1[1]=(byte) ~temp[1];
-			temp1[1]=(byte) (temp1[1]&0x0F);
-			temp1[0]=(byte) ~temp[0];
-			temp1[0]+=1;
-			if(temp1[0]==(byte)0x00){
-				temp1[1]+=1;
+		double ans = 0.0;
+
+		byte[] temp1 = new byte[4];
+		temp1[0] = temp[0];
+		temp1[1] = temp[1];
+		temp1[2] = (byte) 0x00;
+		temp1[3] = (byte) 0x00;
+
+		if ((temp[1] & (byte) 0x80) == (byte) 0x00) {// 首位为0
+			// System.out.println("22222222222 "+DataOpration.byteToint(temp1));
+			ans = (5.0 * DataOpration.byteToint(temp1) + 1.024) / 2048;
+		} else {// 首位为1
+			temp1[3] = (byte) 0x80;
+			// 12位取补码操作;
+			temp1[1] = (byte) ~temp[1];
+			temp1[1] = (byte) (temp1[1] & 0x0F);
+			temp1[0] = (byte) ~temp[0];
+			temp1[0] += 1;
+			if (temp1[0] == (byte) 0x00) {
+				temp1[1] += 1;
 			}
-			ans=-1.0*(5*DataOpration.byteToint(temp1)+1.024)/2048;
+			ans = -1.0 * (5 * DataOpration.byteToint(temp1) + 1.024) / 2048;
 		}
-		
+
 		return ans;
 	}
 
-	//byte[] 转int
+	// byte[] 转int
 	public static int byteToint(byte[] res) {
 		// 一个byte数据左移24位变成0x??000000，再右移8位变成0x00??0000
-		int targets=0;
-		if(res.length==4){
+		int targets = 0;
+		if (res.length == 4) {
 			targets = (res[0] & 0xff) | ((res[1] << 8) & 0xff00) // | 表示安位或
 					| ((res[2] << 24) >>> 8) | (res[3] << 24);
-		}
-		else if(res.length==2){
+		} else if (res.length == 2) {
 			targets = (res[0] & 0xff) | ((res[1] << 8) & 0xff00); // | 表示安位或
-		}
-		else if(res.length==1){
+		} else if (res.length == 1) {
 			targets = (res[0] & 0xff); // | 表示安位或
 		}
 		return targets;
 	}
-	
-	public static double Table16Opration(byte temp){
-		double ans=0.0;
-		byte[] temp1=new byte[2];
-		if((temp&(byte)0x80)==(byte)0x00){//首位为0;
-			//System.out.println("111111");
-			temp1[1]=(byte) (temp>>4);
-			temp1[0]=(byte) (temp<<4);
-			ans=(5.0*DataOpration.byteToint(temp1)+1.024)/2048;
-		}else{//首位为1;
-			//8位取补码操作;
-			temp=(byte) ~temp;
-			temp+=1;
-			
-			temp1[1]=(byte) (temp>>4);
-			temp1[0]=(byte) (temp<<4);
-			ans=-1.0*((5.0*DataOpration.byteToint(temp1)+1.024))/2048;
+
+	public static double Table16Opration(byte temp) {
+		double ans = 0.0;
+		byte[] temp1 = new byte[2];
+		if ((temp & (byte) 0x80) == (byte) 0x00) {// 首位为0;
+			// System.out.println("111111");
+			temp1[1] = (byte) (temp >> 4);
+			temp1[0] = (byte) (temp << 4);
+			ans = (5.0 * DataOpration.byteToint(temp1) + 1.024) / 2048;
+		} else {// 首位为1;
+				// 8位取补码操作;
+			temp = (byte) ~temp;
+			temp += 1;
+
+			temp1[1] = (byte) (temp >> 4);
+			temp1[0] = (byte) (temp << 4);
+			ans = -1.0 * ((5.0 * DataOpration.byteToint(temp1) + 1.024)) / 2048;
 		}
 		return ans;
 	}
-	
-    public static String captureName(String name) {
-    	//     name = name.substring(0, 1).toUpperCase() + name.substring(1);
-    	//     return  name;
-        char[] cs=name.toCharArray();
-        cs[0]-=32;
-        return String.valueOf(cs);
-    }
+
+	public static String captureName(String name) {
+		// name = name.substring(0, 1).toUpperCase() + name.substring(1);
+		// return name;
+		char[] cs = name.toCharArray();
+		cs[0] -= 32;
+		return String.valueOf(cs);
+	}
+
+	public static double doubleFix(double d) {
+		DecimalFormat df = new DecimalFormat("########0.000");
+		double d1 = Double.valueOf(df.format(d)).doubleValue();
+		return d1;
+	}
 }
