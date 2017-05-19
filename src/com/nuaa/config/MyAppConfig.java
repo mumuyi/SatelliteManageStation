@@ -6,6 +6,7 @@ import com.jfinal.config.Interceptors;
 import com.jfinal.config.JFinalConfig;
 import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
+import com.jfinal.plugin.cron4j.Cron4jPlugin;
 import com.jfinal.render.ViewType;
 import com.jfinal.template.Engine;
 import com.nuaa.controller.IndexController;
@@ -15,6 +16,8 @@ import com.nuaa.controller.PassWordChangeController;
 import com.nuaa.controller.ScreenLockController;
 import com.nuaa.controller.UserManageController;
 import com.nuaa.handler.ContextPathHandler;
+import com.nuaa.myrunnable.MyTask;
+
 
 public class MyAppConfig extends JFinalConfig {
 
@@ -45,9 +48,11 @@ public class MyAppConfig extends JFinalConfig {
 	}
 
 	@Override
-	public void configPlugin(Plugins arg0) {
+	public void configPlugin(Plugins me) {
 		// TODO Auto-generated method stub
-
+		Cron4jPlugin cp=new Cron4jPlugin();
+		cp.addTask("0 3,9,15,21 * * *", new MyTask());
+		//me.add(cp);
 	}
 
 	@Override
