@@ -29,7 +29,7 @@ public class MyWebSocketDataPage9 {
 	private static CopyOnWriteArraySet<MyWebSocketDataPage9> webSocketSet = new CopyOnWriteArraySet<MyWebSocketDataPage9>();
 
 	// 与某个客户端的连接会话，需要通过它来给客户端发送数据
-	private Session session;
+	private static Session session;
 
 	private static int flag=0;
 	private static List<?> framelist;
@@ -44,7 +44,7 @@ public class MyWebSocketDataPage9 {
 	 */
 	@OnOpen
 	public void onOpen(Session session) {
-		this.session = session;
+		MyWebSocketDataPage9.session = session;
 		webSocketSet.add(this); // 加入set中
 		addOnlineCount(); // 在线数加1
 		System.out.println("有新连接加入！当前在线人数为" + getOnlineCount());
@@ -56,11 +56,11 @@ public class MyWebSocketDataPage9 {
 			flag=1;
 		}
 
-		Runnable1 r = new Runnable1();
+		//Runnable1 r = new Runnable1();
         //r.run();并不是线程开启，而是简单的方法调用
-        Thread t = new Thread(r);//创建线程
+        //Thread t = new Thread(r);//创建线程
         //t.run(); //如果该线程是使用独立的 Runnable 运行对象构造的，则调用该 Runnable 对象的 run 方法；否则，该方法不执行任何操作并返回。
-        t.start(); //线程开启
+        //t.start(); //线程开启
 	}
 
 	/**
@@ -107,12 +107,12 @@ public class MyWebSocketDataPage9 {
 	 */
 	public void sendMessage(String message, Session session) throws IOException {
 		// session.getBasicRemote().sendText(message);
-		this.session.getAsyncRemote().sendText(message);
+		session.getAsyncRemote().sendText(message);
 	}
 
-	public void sendMessage(String message) throws IOException {
+	public static void sendMessage(String message) throws IOException {
 		// session.getBasicRemote().sendText(message);
-		this.session.getAsyncRemote().sendText(message);
+		session.getAsyncRemote().sendText(message);
 	}
 	
 	
@@ -147,14 +147,11 @@ public class MyWebSocketDataPage9 {
 	
 	
 	
-	/*
-	 * public static void main(String args[]) { ArrayList<User> users = new
-	 * ArrayList<User>(); users.add(new User("zhangsan", "21")); users.add(new
-	 * User("lisi", "18")); users.add(new User("wangwu", "32"));
-	 * 
-	 * JSONArray result = JSONArray.fromObject(users);
-	 * System.out.println(result); }
-	 */
+	public static void sendOnTimeMessage(int i) throws Exception{
+		String data="";
+		data+=pd.prepareDynamicDisplayData(i, framelist, list);
+		sendMessage(data);
+	}
 	
 	
 	class Runnable1 implements Runnable{
