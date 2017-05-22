@@ -15,7 +15,6 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
 import com.nuaa.active.PrepareData;
-import com.nuaa.entiy.MyHibernate;
 
 
 
@@ -31,7 +30,7 @@ public class MyWebSocketDataPage5 {
 	// 与某个客户端的连接会话，需要通过它来给客户端发送数据
 	private static Session session;
 
-	private static int flag=0;
+	//private static int flag=0;
 	private static List<?> framelist;
 	private static List<?> list;
 	
@@ -50,11 +49,11 @@ public class MyWebSocketDataPage5 {
 		System.out.println("有新连接加入！当前在线人数为" + getOnlineCount());
 		
 		//第一次,初始化数据;
-		if(flag==0){
-			framelist = MyHibernate.sqlQuery(0, 400, "from FrameData");
-			list = MyHibernate.sqlQueryWithCondition("from Parameter where Sort=?", "5");
-			flag=1;
-		}
+		//if(flag==0){
+		//	framelist = MyHibernate.sqlQuery(0, 400, "from FrameData");
+		//	list = MyHibernate.sqlQueryWithCondition("from Parameter where Sort=?", "5");
+		//	flag=1;
+		//}
 
 		//Runnable1 r = new Runnable1();
         //r.run();并不是线程开启，而是简单的方法调用
@@ -145,7 +144,7 @@ public class MyWebSocketDataPage5 {
 		}
 	}
 	
-	public static void sendOnTimeMessage(int i) throws Exception{
+	public static void sendOnTimeMessage(int i,List <?> framelist,List<?> list) throws Exception{
 		String data="";
 		data+=pd.prepareDynamicDisplayData(i, framelist, list);
 		sendMessage(data);
