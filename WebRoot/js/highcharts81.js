@@ -121,6 +121,44 @@
 	                    width: 1,
 	                    color: '#808080'
 	                }],
+	                
+	                
+				min: -2,  //最小
+				tickInterval: 0.2, //步长
+				max:2,//最大 
+				
+				// 不同Y轴范围设置不同颜色 begin
+				plotBands: [{ 
+		              from: -2,
+		              to: -1,
+		              color: 'rgba(255, 97, 0, 0.3)',
+		              label: {
+		                  text: '预警',
+		                  style: {
+		                      color: '#606060'
+		                  }
+		              }
+		          },  { 
+		              from: -1,
+		              to: 1,
+		              color: 'rgba(168, 255, 213, 0.3)',
+		              label: {
+		                  text: '正常',
+		                  style: {
+		                      color: '#606060'
+		                  }
+		              }
+		          },  { 
+		              from: 1,
+		              to: 2,
+		              color: 'rgba(255, 97, 0, 0.3)',
+		              label: {
+		                  text: '预警',
+		                  style: {
+		                      color: '#606060'
+		                  }
+		              }
+		          }]    
 	            },
 	            tooltip: {
 	                formatter: function () {
@@ -442,6 +480,43 @@
 	                    width: 1,
 	                    color: '#808080'
 	                }],
+	                
+				min: -2,  //最小
+				tickInterval: 0.2, //步长
+				max:2,//最大 
+				
+				// 不同Y轴范围设置不同颜色 begin
+				plotBands: [{ 
+		              from: -2,
+		              to: -1,
+		              color: 'rgba(255, 97, 0, 0.3)',
+		              label: {
+		                  text: '预警',
+		                  style: {
+		                      color: '#606060'
+		                  }
+		              }
+		          },  { 
+		              from: -1,
+		              to: 1,
+		              color: 'rgba(168, 255, 213, 0.3)',
+		              label: {
+		                  text: '正常',
+		                  style: {
+		                      color: '#606060'
+		                  }
+		              }
+		          },  { 
+		              from: 1,
+		              to: 2,
+		              color: 'rgba(255, 97, 0, 0.3)',
+		              label: {
+		                  text: '预警',
+		                  style: {
+		                      color: '#606060'
+		                  }
+		              }
+		          }]
 	            },
 	            tooltip: {
 	                formatter: function () {

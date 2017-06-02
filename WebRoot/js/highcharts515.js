@@ -30,13 +30,13 @@
 	                }],
 	                
 					min: -1,  //最小
-					tickInterval: 0.1, //步长
+					tickInterval: 0.2, //步长
 					max:1,//最大 
 					
 					// 不同Y轴范围设置不同颜色 begin
 					plotBands: [{ 
 			              from: -1,
-			              to: 0,
+			              to: -0.5,
 			              color: 'rgba(255, 97, 0, 0.3)',
 			              label: {
 			                  text: '预警',
@@ -45,8 +45,8 @@
 			                  }
 			              }
 			          },  { 
-			              from: 0,
-			              to: 1,
+			              from: -0.5,
+			              to: 0.5,
 			              color: 'rgba(168, 255, 213, 0.3)',
 			              label: {
 			                  text: '正常',
@@ -55,8 +55,8 @@
 			                  }
 			              }
 			          },  { 
-			              from: 3.5,
-			              to: 4,
+			              from: 0.5,
+			              to: 1,
 			              color: 'rgba(255, 97, 0, 0.3)',
 			              label: {
 			                  text: '预警',

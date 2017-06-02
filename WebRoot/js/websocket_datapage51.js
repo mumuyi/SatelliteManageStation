@@ -3,6 +3,9 @@
 	var dataflag=0;
 	var websocket = null;
 	var num=0;
+	
+	
+	
 	//判断当前浏览器是否支持WebSocket
 	if ('WebSocket' in window) {
 		websocket = new WebSocket("ws://localhost:8080/SatelliteManageStation/chat5.ws");
@@ -23,6 +26,13 @@
 	
 	//接收到消息的回调方法
 	websocket.onmessage = function() {
+		var chart = $('#yjs087').highcharts();
+		var chart2 = $('#yjs088').highcharts();
+		var chart3 = $('#yjs089').highcharts();
+		var chart4 = $('#yjs090').highcharts();
+		var chart5 = $('#yjs091').highcharts();
+		var chart6 = $('#yjs092').highcharts();
+		
 		//解析获取数据;
 		var jsonDate = (event.data);
         var jsonObj = JSON.parse( jsonDate );  // JSON.parse(); 方法;
@@ -40,23 +50,17 @@
 		v6=v6-0.1;
 		var v7=jsonObj[0].ysj023;
 		var v8=jsonObj[0].ysj024;
+		
 		//添加数据;
-		var chart = $('#yjs087').highcharts();
-		chart.series[0].addPoint([ (new Date()).getTime(), v1+0.1 ]);
-		//chart.series[0].addPoint([v7*1000+1199145600000, v1+0.1 ]);
-		var chart2 = $('#yjs088').highcharts();
-		chart2.series[0].addPoint([ (new Date()).getTime(), v2+0.1 ]);
-		var chart3 = $('#yjs089').highcharts();
-		chart3.series[0].addPoint([ (new Date()).getTime(), v3+0.1 ]);
-		var chart4 = $('#yjs090').highcharts();
-		chart4.series[0].addPoint([ (new Date()).getTime(), v4+0.1 ]);
-		var chart5 = $('#yjs091').highcharts();
-		chart5.series[0].addPoint([ (new Date()).getTime(), v5+0.1 ]);
-		var chart6 = $('#yjs092').highcharts();
-		chart6.series[0].addPoint([ (new Date()).getTime(), v6+0.1 ]);
+		chart.series[0].addPoint([ (new Date()).getTime()+3600000, v1+0.1 ]);
+		chart2.series[0].addPoint([ (new Date()).getTime()+3600000, v2+0.1 ]);
+		chart3.series[0].addPoint([ (new Date()).getTime()+3600000, v3+0.1 ]);
+		chart4.series[0].addPoint([ (new Date()).getTime()+3600000, v4+0.1 ]);
+		chart5.series[0].addPoint([ (new Date()).getTime()+3600000, v5+0.1 ]);
+		chart6.series[0].addPoint([ (new Date()).getTime()+3600000, v6+0.1 ]);
+		num++;
 		//手动删除第一个点;
-		num=num+1;
-		if(num>=10){
+		if(num>10){
 			chart.series[0].removePoint(0,true,true);
 			chart2.series[0].removePoint(0,true,true);
 			chart3.series[0].removePoint(0,true,true);

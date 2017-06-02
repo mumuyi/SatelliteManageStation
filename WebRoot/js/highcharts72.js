@@ -31,7 +31,7 @@
 	                
 					min: -1,  //最小
 					tickInterval: 1, //步长
-					max:10,//最大 
+					max:12,//最大 
 					
 					// 不同Y轴范围设置不同颜色 begin
 					plotBands: [{ 
@@ -46,7 +46,7 @@
 			              }
 			          },  { 
 			              from: -5,
-			              to: 5,
+			              to: 10,
 			              color: 'rgba(168, 255, 213, 0.3)',
 			              label: {
 			                  text: '正常',
@@ -55,8 +55,8 @@
 			                  }
 			              }
 			          },  { 
-			              from: 5,
-			              to: 10,
+			              from: 10,
+			              to: 12,
 			              color: 'rgba(255, 97, 0, 0.3)',
 			              label: {
 			                  text: '预警',
@@ -124,7 +124,7 @@
 	                
 					min: -1,  //最小
 					tickInterval: 1, //步长
-					max:10,//最大 
+					max:12,//最大 
 					
 					// 不同Y轴范围设置不同颜色 begin
 					plotBands: [{ 
@@ -139,7 +139,7 @@
 			              }
 			          },  { 
 			              from: -5,
-			              to: 5,
+			              to: 10,
 			              color: 'rgba(168, 255, 213, 0.3)',
 			              label: {
 			                  text: '正常',
@@ -148,8 +148,8 @@
 			                  }
 			              }
 			          },  { 
-			              from: 5,
-			              to: 10,
+			              from: 10,
+			              to: 12,
 			              color: 'rgba(255, 97, 0, 0.3)',
 			              label: {
 			                  text: '预警',

@@ -154,7 +154,7 @@
 						
 						$("#table_list").jqGrid(
 							"navGrid","#pager_list",
-							{edit:true,add:true,del:true,search:true},
+							{edit:false,add:false,del:false,search:true},
 							{height:200,reloadAfterSubmit:true}
 						);
 						
@@ -223,7 +223,7 @@
 						
 						$("#table_list1").jqGrid(
 							"navGrid","#pager_list1",
-							{edit:true,add:true,del:true,search:true},
+							{edit:false,add:false,del:false,search:true},
 							{height:200,reloadAfterSubmit:true}
 						);
 						
