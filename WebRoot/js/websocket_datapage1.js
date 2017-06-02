@@ -24,12 +24,14 @@
 	//接收到消息的回调方法
 	websocket.onmessage = function() {
 		//解析获取数据;
-		//alert("111");
+		
 		var jsonDate = (event.data);
         var jsonObj = JSON.parse( jsonDate );  // JSON.parse(); 方法;
 		var v1=jsonObj[0].alerttype;
 		var v2=jsonObj[0].alertsort;
 		var v3=jsonObj[0].alertsort1;
+		var v4=jsonObj[0].name;
+		//alert("111 "+v1+v2+v3);
 		if(v1=="warning"){
 			alert("warning");
 			if(v2=="1"){
@@ -68,13 +70,13 @@
 				}
 			}
 		}else if(v1=="error"){
-			alert("error");
+			alert(v4+" 出现错误,请检查");
 			if(v2=="1"){
 				document.getElementById("data1").className="card card-333";
 				if(v3=="1"){
-					document.getElementById("data11").className="card card-111";
-				}else if(v3=="2"){
 					document.getElementById("data12").className="card card-222";
+				}else if(v3=="2"){
+					document.getElementById("data11").className="card card-111";
 				}
 			}else if(v2=="2"){
 				document.getElementById("data2").className="card card-333";

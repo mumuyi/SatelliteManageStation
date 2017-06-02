@@ -141,8 +141,6 @@ public class DataOpration {
 	}
 
 	public static String captureName(String name) {
-		// name = name.substring(0, 1).toUpperCase() + name.substring(1);
-		// return name;
 		char[] cs = name.toCharArray();
 		cs[0] -= 32;
 		return String.valueOf(cs);
@@ -152,5 +150,21 @@ public class DataOpration {
 		DecimalFormat df = new DecimalFormat("########0.000");
 		double d1 = Double.valueOf(df.format(d)).doubleValue();
 		return d1;
+	}
+	
+	public static boolean getJudgmentData(String name){
+		if(name.equals("yjs087")||name.equals("yjs088")||name.equals("yjs089")||name.equals("yjs090")||name.equals("yjs091")||name.equals("yjs092")){
+			return true;
+		}else if(name.equals("yca002")||name.equals("yca003")||name.equals("yca004")||name.equals("yca005")||name.equals("yca006")||name.equals("yca007")){
+			return true;
+		}else if(name.equals("ytm008")||name.equals("ytm009")||name.equals("ytm010")||name.equals("ytm011")||name.equals("ytm012")||name.equals("ytm013")
+				||name.equals("ytm014")||name.equals("ytm015")){
+			return true;
+		}else if(name.equals("ygp026")||name.equals("ygp027")||name.equals("ygp028")||name.equals("ygp029")||name.equals("ygp030")||name.equals("ygp031")){
+			return true;
+		}else if(name.equals("ygn035")||name.equals("ygn036")||name.equals("ygn037")||name.equals("ygn038")||name.equals("ygn039")){
+			return true;
+		}
+		return false;
 	}
 }

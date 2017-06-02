@@ -8,7 +8,6 @@ import com.nuaa.entiy.FrameData;
 import com.nuaa.entiy.MyHibernate;
 import com.nuaa.entiy.Parameter;
 import com.nuaa.nervenet.MyNerveNet;
-import com.nuaa.test.TestHibernate;
 import com.nuaa.utils.DataKind;
 import com.nuaa.utils.DataOpration;
 
@@ -56,7 +55,7 @@ public class PrepareData {
 				// System.out.println(""+parameter.getNumber()+" "
 				// +parameter.getName()+" "+parameter.getCname());
 				ans += "\"";
-				Method m = (Method) myclass.getMethod("get" + TestHibernate.captureName(parameter.getName()));
+				Method m = (Method) myclass.getMethod("get" + DataOpration.captureName(parameter.getName()));
 				ans += "" + (m.invoke(frame));
 
 				if (j == list.size() - 1) {
@@ -129,7 +128,7 @@ public class PrepareData {
 			ans += "\"" + parameter.getCname() + "\",";
 			// 添加值;
 			ans += "\"";
-			Method m = (Method) myclass.getMethod("get" + TestHibernate.captureName(parameter.getName()));
+			Method m = (Method) myclass.getMethod("get" + DataOpration.captureName(parameter.getName()));
 			ans += "" + (m.invoke(frame));
 			ans += "\",";
 			// 添加星上时间信息;

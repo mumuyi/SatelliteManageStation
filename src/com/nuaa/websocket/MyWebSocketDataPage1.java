@@ -24,7 +24,7 @@ public class MyWebSocketDataPage1 {
 	private static CopyOnWriteArraySet<MyWebSocketDataPage1> webSocketSet = new CopyOnWriteArraySet<MyWebSocketDataPage1>();
 
 	// 与某个客户端的连接会话，需要通过它来给客户端发送数据
-	private Session session;
+	private static Session session;
 
 	/**
 	 * 连接建立成功调用的方法
@@ -34,17 +34,14 @@ public class MyWebSocketDataPage1 {
 	 */
 	@OnOpen
 	public void onOpen(Session session) {
-		this.session = session;
+		MyWebSocketDataPage1.session = session;
 		webSocketSet.add(this); // 加入set中
 		addOnlineCount(); // 在线数加1
 		System.out.println("有新连接加入！当前在线人数为" + getOnlineCount());
 
-		Runnable1 r = new Runnable1();
-		// r.run();并不是线程开启，而是简单的方法调用
-		Thread t = new Thread(r);// 创建线程
-		// t.run(); //如果该线程是使用独立的 Runnable 运行对象构造的，则调用该 Runnable 对象的 run
-		// 方法；否则，该方法不执行任何操作并返回。
-		t.start(); // 线程开启
+		//Runnable1 r = new Runnable1();
+		//Thread t = new Thread(r);// 创建线程
+		//t.start(); // 线程开启
 	}
 
 	/**
@@ -91,12 +88,12 @@ public class MyWebSocketDataPage1 {
 	 */
 	public void sendMessage(String message, Session session) throws IOException {
 		// session.getBasicRemote().sendText(message);
-		this.session.getAsyncRemote().sendText(message);
+		session.getAsyncRemote().sendText(message);
 	}
 
-	public void sendMessage(String message) throws IOException {
+	public static void sendMessage(String message) throws IOException {
 		// session.getBasicRemote().sendText(message);
-		this.session.getAsyncRemote().sendText(message);
+		session.getAsyncRemote().sendText(message);
 	}
 
 	public static synchronized int getOnlineCount() {
@@ -170,4 +167,17 @@ public class MyWebSocketDataPage1 {
 			ans += "[{\"alerttype\":\"" + "error" + "\",\"alertsort\":\"" + 1 + "\",\"alertsort1\":\"" + 1 + "\"}]";
 		return ans;
 	}
+	
+	
+	public static boolean sendErrorOrWarning(String name,String alerttype,String alertsort,String alertsort1) throws Exception {
+		String ans = "";
+		ans += "[{\"alerttype\":\"" + alerttype + "\",\"alertsort\":\"" + alertsort + "\",\"alertsort1\":\"" + alertsort1 + "\",\"name\":\"" + name + "\"}]";
+		if(MyWebSocketDataPage1.onlineCount>0){
+			sendMessage(ans);
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
 }
