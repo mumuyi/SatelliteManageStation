@@ -2,9 +2,6 @@ package com.nuaa.controller;
 
 import java.io.IOException;
 
-
-import javax.servlet.http.HttpServletResponse;
-
 import com.jfinal.core.Controller;
 import com.nuaa.active.UserManage;
 
