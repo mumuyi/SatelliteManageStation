@@ -19,19 +19,19 @@ import org.joone.net.NeuralNetLoader;
 import com.nuaa.entiy.FrameData;
 import com.nuaa.entiy.MyHibernate;
 
-public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
+public class NerveNetTest2 implements NeuralNetListener, java.io.Serializable{
 	private static final long serialVersionUID = 8904087654343983744L;
 	private static NeuralNet nnet = null;
 	private MemoryInputSynapse inputSynapse, desiredOutputSynapse;
-	LinearLayer input;
-	SigmoidLayer hidden, output;
+	LinearLayer input, output;
+	SigmoidLayer hidden;
 	boolean singleThreadMode = true;
 
 	//input
-	private double[][] inputArray = new double[][] { { 1 }, { 2 }, { 3 }, { 4 },{7} };
+	private double[][] inputArray;
 
 	//desired output
-	private double[][] desiredOutputArray = new double[][] { { 0.03 }, { 0.05 }, { 0.07 }, { 0.09 } ,{0.01}};
+	private double[][] desiredOutputArray;
 
 //	private static String filename="C:/Users/ai/Desktop/data/model/modelyjs088.nnet";
 	private static String filename="C:/Users/ai/Desktop/data/model/model";
@@ -49,18 +49,12 @@ public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 		 //训练神经网络;
 		 //测试神经网络;
 		
-		NerveNetTest bp = new NerveNetTest();  
+		NerveNetTest2 bp = new NerveNetTest2();  
 		bp.inputArray=bp.prepareinputData();
 		bp.desiredOutputArray=bp.prepareoutputData();
         bp.initNeuralNet();  
         bp.train();  
         bp.interrogate();  
-        //bp.saveModel();
-		
-		//bp.getPredictData("yjs088",200);
-		
-		//NerveNetTest bp = new NerveNetTest();
-		//bp.test();
 	}
 
 	/**
@@ -81,12 +75,12 @@ public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 
 		// set the monitor parameters
 		// 设置神经网络训练的步长参数，步长越大，神经网络梯度下降的速度越快;
-		monitor.setLearningRate(0.6);
+		monitor.setLearningRate(0.8);
 		monitor.setMomentum(0.3);
 		// 设置神经网络的输入层的数据大小size;
 		monitor.setTrainingPatterns(inputArray.length);
 		// 这个指的是设置迭代数目;
-		monitor.setTotCicles(5000);
+		monitor.setTotCicles(1500);
 		// 这个true表示是在训练过程;
 		monitor.setLearning(true);
 
@@ -102,13 +96,13 @@ public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 	 */
 	public void interrogate() {
 
-		double[][] inputArray = prepareinputData2();
+		double[][] inputArray = preparetestData();
 		// set the inputs
 		inputSynapse.setInputArray(inputArray);
 		inputSynapse.setAdvancedColumnSelector(" 1 ");
 		Monitor monitor = nnet.getMonitor();
 		// 这个是指测试的数量;
-		monitor.setTrainingPatterns(20);
+		monitor.setTrainingPatterns(30);
 		monitor.setTotCicles(1);
 		// 这不是训练过程，并不需要学习;
 		monitor.setLearning(false);
@@ -121,51 +115,10 @@ public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 			nnet.getMonitor().setSingleThreadMode(singleThreadMode);
 			nnet.go();
 
-			for(int i=0;i<20;i++){
+			for(int i=0;i<30;i++){
 				double[] pattern = memOut.getNextPattern();
-				//System.out.println(" Output pattern " +i+ " = " + pattern[0]);
-				System.out.println(""+ pattern[0]);
+				System.out.println(" Output pattern " +(i+70)+ " = " + (pattern[0]*10000));
 			}
-			System.out.println(" Interrogating Finished ");
-		}
-	}
-
-	/**
-	 * 测试从文件中读取神经网络;
-	 */
-	public void test() {
-		NeuralNet bpNNet = restoreNeuralNet("yjs088");
-		if (bpNNet != null) {
-			double[][] inputArray = new double[][] { { 100 } };
-			//获取之前的输入层;
-			LinearLayer input = (LinearLayer) bpNNet.getInputLayer();
-			inputSynapse = new MemoryInputSynapse();
-			//将原来的输入突触去掉;
-			input.removeAllInputs();
-			//加上新的突触;
-			input.addInputSynapse(inputSynapse);
-			//设置新的突触;
-			inputSynapse.setInputArray(inputArray);
-			inputSynapse.setAdvancedColumnSelector(" 1 ");
-			Monitor monitor = bpNNet.getMonitor();
-			// 这个是指测试的数量;
-			monitor.setTrainingPatterns(4);
-			monitor.setTotCicles(1);
-			// 这不是训练过程，并不需要学习;
-			monitor.setLearning(false);
-			MemoryOutputSynapse memOut = new MemoryOutputSynapse();
-			// set the output synapse to write the output of the net
-
-			bpNNet.addOutputSynapse(memOut);
-			System.out.println(bpNNet.check());
-			bpNNet.getMonitor().setSingleThreadMode(singleThreadMode);
-			bpNNet.go();
-
-			for(int i=0;i<4;i++){
-				double[] pattern = memOut.getNextPattern();
-				System.out.println(" Output pattern " +i+ " = " + pattern[0]);
-			}
-
 			System.out.println(" Interrogating Finished ");
 		}
 	}
@@ -179,12 +132,12 @@ public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 		// 创建三层网络:输入层,隐藏层,输出层;
 		input = new LinearLayer();
 		hidden = new SigmoidLayer();
-		output = new SigmoidLayer();
+		output = new LinearLayer();
 
 		// set the dimensions of the layers
 		// 设定每一层的神经元个数;
 		input.setRows(1);
-		hidden.setRows(5);
+		hidden.setRows(3);
 		output.setRows(1);
 
 		// 取个名字;
@@ -279,27 +232,26 @@ public class NerveNetTest implements NeuralNetListener, java.io.Serializable{
 	}
 	
 	private double[][] prepareoutputData(){
-		double[][] output=new double[200][1];
-		List<?> list=MyHibernate.sqlQuery(0, 200, "from FrameData");
-		for(int i=0;i<200;i++){
-			FrameData frame=(FrameData)list.get(i);
-			output[i][0]=(frame.getYjs087()/10);
+		double[][] output=new double[50][1];
+		for(int i=0;i<50;i++){
+			output[i][0]=(((-4.0*i*i)+(400.0*i))/10000.0);
+			System.out.println(""+output[i][0]);
 		}
 		return output;
 	}
 	
 	private double[][] prepareinputData(){
-		double[][] input=new double[200][1];
-		for(int i=0;i<200;i++){
+		double[][] input=new double[50][1];
+		for(int i=0;i<50;i++){
 			input[i][0]=i;
 		}
 		return input;
 	}
 	
-	private double[][] prepareinputData2(){
-		double[][] input=new double[20][1];
-		for(int i=0;i<20;i++){
-			input[i][0]=i+200;
+	private double[][] preparetestData(){
+		double[][] input=new double[50][1];
+		for(int i=70;i<99;i++){
+			input[i-70][0]=i;
 		}
 		return input;
 	}

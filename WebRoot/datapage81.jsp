@@ -8,7 +8,7 @@
 <html>
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>CPU相关信息</title>
+	<title>电流电压</title>
 	
 	<script type="text/javascript" src="${ctx}/highcharts/js/jquery-1.8.3.min.js"></script>
 	<style type="text/css">

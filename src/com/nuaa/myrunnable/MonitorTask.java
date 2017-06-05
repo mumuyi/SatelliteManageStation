@@ -7,6 +7,7 @@ import com.nuaa.active.ThresholdJudgment;
 import com.nuaa.entiy.FrameData;
 import com.nuaa.entiy.MyHibernate;
 import com.nuaa.websocket.MyWebSocketDataPage1;
+import com.nuaa.websocket.MyWebSocketDataPage10;
 import com.nuaa.websocket.MyWebSocketDataPage5;
 import com.nuaa.websocket.MyWebSocketDataPage6;
 import com.nuaa.websocket.MyWebSocketDataPage7;
@@ -22,6 +23,7 @@ public class MonitorTask implements Runnable{
 	private static List<?> list7;
 	private static List<?> list8;
 	private static List<?> list9;
+	private static List<?> list10;
 	private static int temp=0;
 	
 	@Override
@@ -34,6 +36,7 @@ public class MonitorTask implements Runnable{
 		list7 = MyHibernate.sqlQueryWithCondition("from Parameter where Sort=?", "7");
 		list8 = MyHibernate.sqlQueryWithCondition("from Parameter where Sort=?", "8");
 		list9 = MyHibernate.sqlQueryWithCondition("from Parameter where Sort=?", "9");
+		list10 = MyHibernate.sqlQuery(0,300,"from Parameter");
 		
 		ThresholdJudgment tj=new ThresholdJudgment();
 		
@@ -72,6 +75,13 @@ public class MonitorTask implements Runnable{
 			if(MyWebSocketDataPage9.getOnlineCount()>0){
 				try {
 					MyWebSocketDataPage9.sendOnTimeMessage(i,framelist,list9);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			if(MyWebSocketDataPage10.getOnlineCount()>0){
+				try {
+					MyWebSocketDataPage10.sendOnTimeMessage(i,framelist,list10);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

@@ -51,30 +51,12 @@
 		.font_bk:hover{background-color:#65934a;}
 	</style>
 
-		<script src="${ctx}/js/highcharts71.js"></script>
+		<script src="${ctx}/js/highchartsalert.js"></script>
 	</head>
 	<body>
 		<script src="${ctx}/highcharts/js/highcharts.js"></script>
 		<script src="${ctx}/highcharts/js/exporting.js"></script>
 		
-		
-		<table width="100%" border="0">
-		  <tr>
-    		<th><div id="ygd040" style="height: 300px; min-width: 600px ; max-width: 200px; margin:0 auto;"></div></th>
-    		<th><div id="ygd041" style="height: 300px; min-width: 600px ; max-width: 200px; margin:0 auto;"></div></th>
-  		  </tr>
-  		  <tr height=30></tr>
-  		  <tr>
-    		<th><div id="ygd042" style="height: 300px; min-width: 600px ; max-width: 200px; margin:0 auto;"></div></th>
-    		<th><div id="ygd043" style="height: 300px; min-width: 600px ; max-width: 200px; margin:0 auto;"></div></th>
-  		  </tr>
-  		  <tr height=30></tr>
-  		  <tr>
-    		<th><div id="ygd044" style="height: 300px; min-width: 600px ; max-width: 200px; margin:0 auto;"></div></th>
-    		<th><div id="ygd045" style="height: 300px; min-width: 600px ; max-width: 200px; margin:0 auto;"></div></th>
-  		  </tr>
-  		  <tr height=100></tr>
-		</table>
 		<div class="jqGrid_wrapper">
 			<table id="table_list1" class="container"></table>
 			<div id="pager_list1" class="text-center"></div>
@@ -104,7 +86,7 @@
 					$.jgrid.defaults.styleUI="Bootstrap";
 					$("#table_list").jqGrid(
 					{
-						url:'${ctx}/MainContentController/getData/7-1', 
+						url:'${ctx}/MainContentController/getDatatest/', 
 						datatype : "json",
 						postData:{
 								page : $('#table_list').getGridParam('page'), // current page
@@ -118,7 +100,8 @@
 						shrinkToFit:true,
 						rowNum:10,
 						rowList:[10,20,30],
-						colNames:["星上时间 秒","星上时间 毫秒","轨道解算X位置","轨道解算Y位置","轨道解算Z位置","轨道解算X速度","轨道解算Y速度","轨道解算Z速度"],
+						colNames:["星上时间 秒","星上时间 毫秒","轨道解算X位置","轨道解算Y位置","轨道解算Z位置","轨道解算X速度","轨道解算Y速度","轨道解算Z速度",
+									"动量轮电机速度","动量轮电机电流","X轴磁棒遥测磁矩","Y轴磁棒遥测磁矩","Z轴磁棒遥测磁矩"],
 						colModel:[
 									{name:"ysj023",index:"ysj023",editable:true,width:60,align:"center",sorttype:"text",search:true},
 									{name:"ysj024",index:"ysj024",editable:true,width:90,align:"center",sorttype:"text",search:true},
@@ -128,11 +111,16 @@
 									{name:"ygd043",index:"ygd043",editable:true,width:80,align:"center",sorttype:"text",search:true},
 									{name:"ygd044",index:"ygd044",editable:true,width:100,align:"center",sorttype:"text",search:true},
 									{name:"ygd045",index:"ygd045",editable:true,width:100,align:"center",sorttype:"text",search:true},
+									{name:"ygn035",index:"ygn035",editable:true,width:100,align:"center",sorttype:"text",search:true},
+									{name:"ygn036",index:"ygn036",editable:true,width:100,align:"center",sorttype:"text",search:true},
+									{name:"ygn037",index:"ygn037",editable:true,width:100,align:"center",sorttype:"text",search:true},
+									{name:"ygn038",index:"ygn038",editable:true,width:100,align:"center",sorttype:"text",search:true},
+									{name:"ygn039",index:"ygn039",editable:true,width:100,align:"center",sorttype:"text",search:true},
 						],
 						
 						pager:"#pager_list",
 						viewrecords:true,
-						caption:"轨道解算历史数据查询",
+						caption:"卫星姿态综合",
 						//hidegrid:true,
 						//loadonce:true,
 						
@@ -176,7 +164,7 @@
 					$.jgrid.defaults.styleUI="Bootstrap";
 					$("#table_list1").jqGrid(
 					{
-						url:'${ctx}/MainContentController/getTableShowData/7-1-1', 
+						url:'${ctx}/MainContentController/getTableShowDatatest', 
 						datatype : "json",
 						postData:{
 								page : $('#table_list1').getGridParam('page'), // current page
