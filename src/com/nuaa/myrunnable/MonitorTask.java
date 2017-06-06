@@ -23,7 +23,6 @@ public class MonitorTask implements Runnable{
 	private static List<?> list7;
 	private static List<?> list8;
 	private static List<?> list9;
-	private static List<?> list10;
 	private static int temp=0;
 	
 	@Override
@@ -36,7 +35,6 @@ public class MonitorTask implements Runnable{
 		list7 = MyHibernate.sqlQueryWithCondition("from Parameter where Sort=?", "7");
 		list8 = MyHibernate.sqlQueryWithCondition("from Parameter where Sort=?", "8");
 		list9 = MyHibernate.sqlQueryWithCondition("from Parameter where Sort=?", "9");
-		list10 = MyHibernate.sqlQuery(0,300,"from Parameter");
 		
 		ThresholdJudgment tj=new ThresholdJudgment();
 		
@@ -81,13 +79,13 @@ public class MonitorTask implements Runnable{
 			}
 			if(MyWebSocketDataPage10.getOnlineCount()>0){
 				try {
-					MyWebSocketDataPage10.sendOnTimeMessage(i,framelist,list10);
+					MyWebSocketDataPage10.sendOnTimeMessage(i,framelist,list7);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 			
-			
+			/*
 			try {
 				Map<String, String> map=tj.Judgment((FrameData)framelist.get(i),list);
 				if(!map.isEmpty()&&temp==0){
@@ -104,6 +102,7 @@ public class MonitorTask implements Runnable{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+			*/
 			
 			
 			

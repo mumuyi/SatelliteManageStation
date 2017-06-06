@@ -70,7 +70,7 @@
 		</div>
 		<div class="font_bk1"></div>
 	</body>
-	<script src="${ctx}/js/websocket_datapage71.js"></script>
+	<script src="${ctx}/js/websocket_datapagealert.js"></script>
 	
 	<script src="${ctx}/jqgrid/js/bootstrap.min.js"></script>
 	<script src="${ctx}/jqgrid/js/jquery.peity.min.js"></script>
@@ -101,7 +101,7 @@
 						rowNum:10,
 						rowList:[10,20,30],
 						colNames:["星上时间 秒","星上时间 毫秒","轨道解算X位置","轨道解算Y位置","轨道解算Z位置","轨道解算X速度","轨道解算Y速度","轨道解算Z速度",
-									"动量轮电机速度","动量轮电机电流","X轴磁棒遥测磁矩","Y轴磁棒遥测磁矩","Z轴磁棒遥测磁矩"],
+									"三轴稳定标志","俯仰激动控制标志","隐身保持控制标志","隐身恢复控制标志","自主导航接入标志"],
 						colModel:[
 									{name:"ysj023",index:"ysj023",editable:true,width:60,align:"center",sorttype:"text",search:true},
 									{name:"ysj024",index:"ysj024",editable:true,width:90,align:"center",sorttype:"text",search:true},
@@ -110,12 +110,12 @@
 									{name:"ygd042",index:"ygd042",editable:true,width:80,align:"center",sorttype:"text",search:true},
 									{name:"ygd043",index:"ygd043",editable:true,width:80,align:"center",sorttype:"text",search:true},
 									{name:"ygd044",index:"ygd044",editable:true,width:100,align:"center",sorttype:"text",search:true},
-									{name:"ygd045",index:"ygd045",editable:true,width:100,align:"center",sorttype:"text",search:true},
-									{name:"ygn035",index:"ygn035",editable:true,width:100,align:"center",sorttype:"text",search:true},
-									{name:"ygn036",index:"ygn036",editable:true,width:100,align:"center",sorttype:"text",search:true},
-									{name:"ygn037",index:"ygn037",editable:true,width:100,align:"center",sorttype:"text",search:true},
-									{name:"ygn038",index:"ygn038",editable:true,width:100,align:"center",sorttype:"text",search:true},
-									{name:"ygn039",index:"ygn039",editable:true,width:100,align:"center",sorttype:"text",search:true},
+									{name:"ygd045",index:"ygd045",editable:true,width:100,align:"center",sorttype:"text",search:true},								
+									{name:"ykz066",index:"ykz066",editable:true,width:100,align:"center",sorttype:"text",search:true},
+									{name:"ykz067",index:"ykz067",editable:true,width:100,align:"center",sorttype:"text",search:true},
+									{name:"ykz068",index:"ykz068",editable:true,width:100,align:"center",sorttype:"text",search:true},
+									{name:"ykz069",index:"ykz069",editable:true,width:100,align:"center",sorttype:"text",search:true},
+									{name:"ykz051",index:"ykz051",editable:true,width:100,align:"center",sorttype:"text",search:true},
 						],
 						
 						pager:"#pager_list",
@@ -164,7 +164,7 @@
 					$.jgrid.defaults.styleUI="Bootstrap";
 					$("#table_list1").jqGrid(
 					{
-						url:'${ctx}/MainContentController/getTableShowDatatest', 
+						url:'${ctx}/MainContentController/getTableShowDatatest/', 
 						datatype : "json",
 						postData:{
 								page : $('#table_list1').getGridParam('page'), // current page
@@ -189,7 +189,7 @@
 						
 						pager:"#pager_list1",
 						viewrecords:true,
-						caption:"开关量数据查询",
+						caption:"卫星姿态综合",
 						//hidegrid:true,
 						//loadonce:true,
 						

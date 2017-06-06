@@ -149,12 +149,7 @@ public class MyWebSocketDataPage10 {
 	
 	public static void sendOnTimeMessage(int i,List <?> framelist,List<?> list) throws Exception{
 		String data="";
-		for(int j=0;j<list.size();j++){
-			Parameter p=(Parameter)list.get(j);
-			if(!((p.getSort()==6&&p.getSort1()==4)||(p.getSort()==7&&p.getSort1()==1))){
-				list.remove(j);
-			}
-		}
+
 		data+=pd.prepareDynamicDisplayData(i, framelist, list);
 		sendMessage(data);
 	}

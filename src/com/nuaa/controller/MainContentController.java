@@ -149,8 +149,6 @@ public class MainContentController extends Controller {
 
 	public void getDatatest() throws NoSuchMethodException, SecurityException, IllegalAccessException,
 			IllegalArgumentException, InvocationTargetException {
-		// 初始化类;
-		PrepareData pa = new PrepareData();
 		// 初始化结果;
 		String jsondata = "";
 
@@ -159,13 +157,13 @@ public class MainContentController extends Controller {
 		this.renderJson(JSONObject.fromObject(jsondata));
 	}
 
-	public String getTableData(String DataTable, int page, int rows) throws NoSuchMethodException,
-			SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+	public String getTableData(String DataTable, int page, int rows) throws NoSuchMethodException, SecurityException,
+			IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		// 传过来的参数 page 是从1开始的,所以要减一;
 		page -= 1;
 		// 准备数据;
 		List<?> framelist = MyHibernate.sqlQuery(page * rows, rows, "from " + DataTable);
-		List<?> list = MyHibernate.sqlQuery(0,300,"from Parameter");
+		List<?> list = MyHibernate.sqlQuery(0, 300, "from Parameter");
 
 		// 计算一共有多少列;
 		int totalnum = (int) MyHibernate.sqlGetRecordNum("select count(*) from " + DataTable);
@@ -189,16 +187,28 @@ public class MainContentController extends Controller {
 			// 添加星上时间信息;
 			ans += "\"" + frame.getYsj023() + "\"," + "\"" + frame.getYsj024() + "\",";
 			// 添加其余信息;
-			int jj=0;
+			int jj = 0;
 			for (int j = 0; j < list.size(); j++) {
 				Parameter parameter = (Parameter) list.get(j);
 				// System.out.println(""+parameter.getNumber()+" "
 				// +parameter.getName()+" "+parameter.getCname());
-				if((parameter.getSort()==6&&parameter.getSort1()==4)||(parameter.getSort()==7&&parameter.getSort1()==1)){
-					ans += "\"";
-					Method m = (Method) myclass.getMethod("get" + DataOpration.captureName(parameter.getName()));
-					ans += "" + (m.invoke(frame));
-					ans += "\",";
+				if ((parameter.getSort() == 7 && parameter.getSort1() == 4)
+						|| (parameter.getSort() == 7 && parameter.getSort1() == 1)) {
+					if (parameter.getSort1() == 4 && jj > 5) {
+						ans += "\"";
+						Method m = (Method) myclass.getMethod("get" + DataOpration.captureName(parameter.getName()));
+						ans += "" + (m.invoke(frame));
+						ans += "\",";
+					} else if (parameter.getSort1() == 1) {
+						ans += "\"";
+						Method m = (Method) myclass.getMethod("get" + DataOpration.captureName(parameter.getName()));
+						ans += "" + (m.invoke(frame));
+						ans += "\",";
+					}
+
+					if (parameter.getSort1() == 4) {
+						jj++;
+					}
 				}
 			}
 			ans += "]" + " },";
@@ -207,7 +217,79 @@ public class MainContentController extends Controller {
 		ans += " ],";
 		ans += " \"userdata\":{\"amount\":3220,\"tax\":342,\"total\":3564,\"name\":\"Totals:\"}" + " }";
 
-		// System.out.println(ans);
+		System.out.println(ans);
+
+		return ans;
+	}
+
+	public void getTableShowDatatest() throws NoSuchMethodException, SecurityException, IllegalAccessException,
+			IllegalArgumentException, InvocationTargetException {
+
+		// 初始化结果;
+		String jsondata = "";
+
+
+
+		jsondata += getTableShowDatatest("FrameData", 1, 1, 1);
+
+		this.renderJson(JSONObject.fromObject(jsondata));
+	}
+	
+	public String getTableShowDatatest(String DataTable, int page, int rows,int type)
+			throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException,
+			InvocationTargetException {
+		// 传过来的参数 page 是从1开始的,所以要减一;
+		page -= 1;
+		// 准备数据;
+		List<?> framelist = MyHibernate.sqlQuery(page * rows, rows, "from " + DataTable);
+		List<?> list = MyHibernate.sqlQuery(0, 300, "from Parameter");
+
+		String ans = "";
+		// 初始化数据头;
+		// 返回的时候要对page+1 不然翻页按钮无效果;
+		ans += "{\"page\":\"" + 1 + "\"," + " \"total\":\"" + 1 + "\"," + " \"records\":\"" + 11 + "\","
+				+ " \"rows\":" + " [";
+
+		int jj = 0;
+		// 填充数据;
+		for (int i = 0,ii=0; i < list.size(); i++) {
+			
+			FrameData frame = (FrameData) framelist.get(0);
+			Parameter parameter = (Parameter) list.get(i);
+			Class<? extends FrameData> myclass = frame.getClass();
+			if ((parameter.getSort() == 7 && parameter.getSort1() == 4)
+					|| (parameter.getSort() == 7 && parameter.getSort1() == 1)) {
+				if ((parameter.getSort1() == 4 && jj > 5&&jj<11)||parameter.getSort1()==1) {
+					ans += " {" + " \"id\":\"" + ii + "\"," + " \"cell\":" + " [";
+					// 添加参数名称;
+					ans += "\"" + parameter.getCname() + "\",";
+					// 添加值;
+					ans += "\"";
+					Method m = (Method) myclass.getMethod("get" + DataOpration.captureName(parameter.getName()));
+					ans += "" + (m.invoke(frame));
+					ans += "\",";
+					// 添加星上时间信息;
+					ans += "\"" + frame.getYsj023() + "\"," + "\"" + frame.getYsj024() + "\"";
+					// 添加最大值最小值;
+					if (type == 1) {
+						ans += ",";
+						ans += "\"" + parameter.getRangeFrom() + "\",";
+						ans += "\"" + parameter.getRangeTo() + "\"";
+					}
+					ans += "]" + " },";
+					ii++;
+				}
+				
+				if (parameter.getSort1() == 4) {
+					jj++;
+				}
+			}
+
+		}
+		ans += " ],";
+		ans += " \"userdata\":{\"amount\":3220,\"tax\":342,\"total\":3564,\"name\":\"Totals:\"}" + " }";
+
+		System.out.println(ans);
 
 		return ans;
 	}

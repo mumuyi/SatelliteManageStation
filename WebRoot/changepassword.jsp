@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
     <script type="text/javascript" src="${ctx}/dashgum/js/jquery.backstretch.min.js"></script>
     <script>
-        $.backstretch("${ctx}/dashgum/img/login-bg.jpg", {speed: 100});
+        $.backstretch("${ctx}/dashgum/img/background.jpg", {speed: 100});
     </script>
   </body>
 </html>

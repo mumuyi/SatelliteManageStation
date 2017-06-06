@@ -38,20 +38,18 @@
 		v5=v5-0.1;
 		var v6=jsonObj[0].ygd045;
 		v6=v6-0.1;
+		
 		var v7=jsonObj[0].ysj023;
 		var v8=jsonObj[0].ysj024;
-		var v9=jsonObj[0].ygn035;
-		v9=v9-0.1;
-		var v10=jsonObj[0].ygn036;
-		v10=v10-0.1;
-		var v11=jsonObj[0].ygn037;
-		v11=v11-0.1;
-		var v12=jsonObj[0].ygn038;
-		v12=v12-0.1;
-		var v13=jsonObj[0].ygn039;
-		v13=v13-0.1;
 		
-		alert("11111");
+		//var v9=jsonObj[0].ykz051;
+		var v10=jsonObj[0].ykz066;
+		var v11=jsonObj[0].ykz067;
+		var v12=jsonObj[0].ykz068;
+		var v13=jsonObj[0].ykz069;
+
+		
+		//alert(v9);
 		
 		//实时修改表格数据;
 		jQuery("#table_list1").jqGrid('setCell',0,'value',""+(v1+0.1));
@@ -60,11 +58,11 @@
 		jQuery("#table_list1").jqGrid('setCell',3,'value',""+(v4+0.1));
 		jQuery("#table_list1").jqGrid('setCell',4,'value',""+(v5+0.1));
 		jQuery("#table_list1").jqGrid('setCell',5,'value',""+(v6+0.1));
-		jQuery("#table_list1").jqGrid('setCell',5,'value',""+(v9+0.1));
-		jQuery("#table_list1").jqGrid('setCell',5,'value',""+(v10+0.1));
-		jQuery("#table_list1").jqGrid('setCell',5,'value',""+(v11+0.1));
-		jQuery("#table_list1").jqGrid('setCell',5,'value',""+(v12+0.1));
-		jQuery("#table_list1").jqGrid('setCell',5,'value',""+(v13+0.1));
+		//jQuery("#table_list1").jqGrid('setCell',6,'value',v9);
+		jQuery("#table_list1").jqGrid('setCell',7,'value',v10);
+		jQuery("#table_list1").jqGrid('setCell',8,'value',v11);
+		jQuery("#table_list1").jqGrid('setCell',9,'value',v12);
+		jQuery("#table_list1").jqGrid('setCell',10,'value',v13);
 		
 		jQuery("#table_list1").jqGrid('setCell',0,'times',""+v7);
 		jQuery("#table_list1").jqGrid('setCell',1,'times',""+v7);
@@ -72,11 +70,11 @@
 		jQuery("#table_list1").jqGrid('setCell',3,'times',""+v7);
 		jQuery("#table_list1").jqGrid('setCell',4,'times',""+v7);
 		jQuery("#table_list1").jqGrid('setCell',5,'times',""+v7);
-		jQuery("#table_list1").jqGrid('setCell',5,'times',""+v7);
-		jQuery("#table_list1").jqGrid('setCell',5,'times',""+v7);
-		jQuery("#table_list1").jqGrid('setCell',5,'times',""+v7);
-		jQuery("#table_list1").jqGrid('setCell',5,'times',""+v7);
-		jQuery("#table_list1").jqGrid('setCell',5,'times',""+v7);
+		jQuery("#table_list1").jqGrid('setCell',6,'times',""+v7);
+		jQuery("#table_list1").jqGrid('setCell',7,'times',""+v7);
+		jQuery("#table_list1").jqGrid('setCell',8,'times',""+v7);
+		jQuery("#table_list1").jqGrid('setCell',9,'times',""+v7);
+		jQuery("#table_list1").jqGrid('setCell',10,'times',""+v7);
 	};
 	
 	//连接关闭的回调方法
